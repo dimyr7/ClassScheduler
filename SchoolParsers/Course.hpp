@@ -10,23 +10,27 @@ class Course{
 	public:
 		Course();
 		Course(string department, string courseNumber);
+		~Course();
 
-		string getDepartment();
-		string getCourseNumber();
-		vector<Section *> getSections();
+		string 					getDepartment();
+		string 					getCourseNumber();
+		vector<Section *> 		getSections();
+		vector<SectionCombo *>  getCombos();
 
-		bool setDepartment(string department);
-		bool setCourseNumber(string number);
-		void addSection(Section* section);
-
-		static bool validateDepartment(string department);
-		static bool validateCourseNumber(string department);
-
+		bool	generateCombo(); 
+		bool 	setDepartment(string department);
+		bool 	setCourseNumber(string number);
+		void 	addSection(Section* section);
+		bool 	isSyncd();
 	private:
-		string _department;
-		string _courseNumber;
-		vector<Section *> _sections;
+		//static bool validateDepartment(string department);
+		//static bool validateCourseNumber(string department);
 
+		string 					_department;
+		string 					_courseNumber;
+		vector<Section *> 		_sections;
+		vector<SectionCombo *> 	_combos;
+		bool					_syncd;
 
 };
 

@@ -1,34 +1,29 @@
 #ifndef COMBOBASE_H 
 #define COMBOBASE_H 
 #include <vector>
+#include "Section.hpp"
 /*
- *
- * Abstract class that represents a collection of combination of sections that have to be take concurrently
+ * Represents a valid combinations of sections required to register for a class
  * Something line A1(Lecture), L2A(Lab), and D4B(Discussion) for physics
  */
-using std:vector;
-class ComboBase{
+using std::vector;
+class SectionCombo{
 	public:
 		/*
-		 * returns: if the given combination is valid
+		 * returns true: if the given combination is valid
 		 * AL1, AD4 => true
 		 * AL1, BD6 => false, if discussion must match lecture
 		 * AD3		=> false, if the lecture is required
 		 */
-		virtual bool isValid() = 0;	
+		bool isValid();
 		/*
 		 * returns a vector of sections that this combo rempresents
 		 */
-		vector<SectionBase> getSections();
-		void addSection(Section section);
-	protected:
-		/*
-		 * returns the configuration object
-		 */
-		
-		ComobBase();
+		vector<Section*> getSections();
+		void addSection(Section* section);
+		SectionCombo();
 	private:
-		vector<Section> _sections;	
+		vector<Section*> _sections;	
 };
 
 #endif
