@@ -6,6 +6,7 @@
 #include "Semester.hpp"
 #include "Instructor.hpp"
 #include "Location.hpp"
+namespace CourseInfo{
 using std::string;
 class Section{
 
@@ -41,4 +42,5 @@ class Section{
 		Location* 	_bulding;
 
 };
+}
 #endif

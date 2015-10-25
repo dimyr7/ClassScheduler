@@ -1,6 +1,7 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 #include <string>
+namespace CourseInfo{
 using std::string;
 class Location{
 	public:
@@ -16,7 +17,7 @@ class Location{
 
 		void setBuildingName(string building);	
 		void setRoomNumber(string roomNumber);
-		
+
 		double  getLatitude();
 		double 	getLongitude();
 
@@ -32,4 +33,5 @@ class Location{
 		string _roomNumber;
 
 };
+}
 #endif

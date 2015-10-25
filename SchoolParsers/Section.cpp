@@ -1,5 +1,5 @@
-#include "Section.hpp"
-
+include "Section.hpp"
+namespace CourseInfo{
 Section::Section(){
 	this->_sectionName = "";
 	this->_sectionType = "";
@@ -55,4 +55,5 @@ Semester* Section::getSemester(){
 }
 Location* Section::getBuilding(){
 	return this->_bulding;
+}
 }

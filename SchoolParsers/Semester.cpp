@@ -1,4 +1,5 @@
 #include "Semester.hpp"
+namespace CourseInfo{
 Semester::Semester(string year, string season, string name){
 	this->_year = year;
 	this->_season = season;
@@ -111,6 +112,5 @@ bool Semester::validMonth(int month){
 bool Semester::validYear(int year){
 	return (year >= 1990) and (year <= 2100);
 }
-
-
+}
 

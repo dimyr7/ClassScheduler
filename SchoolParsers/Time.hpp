@@ -1,5 +1,6 @@
 #ifndef TIME_H
 #define TIME_H
+namespace CourseInfo{
 /*
  * Represents a time on 24 hour clock
  */
@@ -31,4 +32,5 @@ class Time{
 		int _hour;
 		int _minute;
 };
+}
 #endif

@@ -2,6 +2,7 @@
 #define WEEK_H
 #include <array>
 #include "Time.hpp"
+namespace CourseInfo{
 using std::array;
 class Week{
 	public:
@@ -26,4 +27,5 @@ class Week{
 		array<array<Time*, 2>, 7> _times;
 
 };
+}
 #endif

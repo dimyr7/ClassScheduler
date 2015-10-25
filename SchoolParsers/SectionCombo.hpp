@@ -2,6 +2,7 @@
 #define COMBOBASE_H 
 #include <vector>
 #include "Section.hpp"
+namespace CourseInfo{
 /*
  * Represents a valid combinations of sections required to register for a class
  * Something line A1(Lecture), L2A(Lab), and D4B(Discussion) for physics
@@ -26,4 +27,5 @@ class SectionCombo{
 		vector<Section*> _sections;	
 };
 
+}
 #endif

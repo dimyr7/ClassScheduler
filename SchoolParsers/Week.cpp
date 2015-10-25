@@ -1,4 +1,5 @@
 #include "Week.hpp"
+namespace CourseInfo{
 Week::Week(){
 	for(auto it = this->_times.begin(); it != this->_times.end(); it++){
 		for(auto is = it[0].begin(); is != it[0].end(); is++){
@@ -10,7 +11,7 @@ Week::~Week(){
 	for(auto it = this->_times.begin(); it != this->_times.end(); it++){
 		for(auto is = it[0].begin(); is != it[0].end(); is++){
 			delete is;
-			is = NULL
+			is = NULL;
 		}
 	}
 }
@@ -33,4 +34,5 @@ void Week::unsetDay(Day day){
 
 array<Time*, 2> Week::getTimes(Day day){
 	return this->_times[day];
+}
 }

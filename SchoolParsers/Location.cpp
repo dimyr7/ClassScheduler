@@ -1,4 +1,5 @@
 #include "Location.hpp"
+namespace CourseInfo{
 Location::Location(double latitude, double longitude){
 	if(not validLatitude(latitude) or not validLongitude(longitude)){
 		this->_latitude  = latitude;
@@ -62,4 +63,5 @@ bool Location::validLatitude(double latitude){
 }
 bool Location::validLongitude(double longitude){
 	return (longitude >= -180) and (longitude <= 180);
+}
 }

@@ -1,4 +1,5 @@
 #include "Time.hpp"
+namespace CourseInfo{
 Time::Time(){
 	this->_hour = 0;
 	this->_minute = 0;
@@ -63,4 +64,5 @@ bool Time::before(Time* before, Time* after){
 		return false;
 	}
 	return true;
+}
 }

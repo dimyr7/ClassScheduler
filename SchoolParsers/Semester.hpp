@@ -2,6 +2,7 @@
 #define SEMESTER_H
 #include <string>
 #include <array>
+namespace CourseInfo{
 using std::string;
 using std::array;
 /*
@@ -59,4 +60,5 @@ class Semester{
 		string 	_season;
 		string 	_name;
 };
+}
 #endif
