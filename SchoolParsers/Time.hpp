@@ -26,6 +26,7 @@ class Time{
 		bool 	setMinute(int minute);
 		static bool validHour(int hour);
 		static bool validMinute(int minute);
+		static bool before(Time* before, Time* after);
 	private:
 		int _hour;
 		int _minute;

@@ -19,7 +19,7 @@ class Section{
 		void setInstructor(Instructor* instructor);
 		void setDaysOfWeek(Week* daysOfWeek);
 		void setSemester(Semester* semester);
-		void setLocation(Location* location);
+		void setLocation(Location* building);
 
 		string 		getSectionName();
 		string 		getSectionType();

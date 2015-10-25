@@ -3,7 +3,7 @@ OBJS =  course.o instructor.o location.o section.o sectioncombo.o semester.o tim
 OBJPATH = ./obj/	
 
 COMPILER = g++
-COMPILER_OPTS = -c -g -O0 -Wall -Werror
+COMPILER_OPTS = -c -g -O0 -Wall -Werror -std=c++11
 LINKER = g++
 
 all:$(EXE)
@@ -14,10 +14,10 @@ $(EXE):$(OBJS) cleanup
 main.o:Course.hpp 
 	$(COMPILER) $(COMPILER_OPTS) main.cpp
 
-course.o:Course.hpp Section.hpp
+course.o:Course.hpp Section.hpp SectionCombo.hpp
 	$(COMPILER) $(COMPILER_OPTS) Course.cpp
 
-section.o: Section.hpp Week.hpp Instructor.hpp Location.hpp
+section.o: Section.hpp Week.hpp Instructor.hpp Location.hpp Semester.hpp
 	$(COMPILER) $(COMPILER_OPTS) Section.cpp
 
 sectioncombo.o: SectionCombo.hpp Section.hpp

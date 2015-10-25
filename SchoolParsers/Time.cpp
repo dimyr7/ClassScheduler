@@ -51,3 +51,16 @@ bool Time::setMinute(int minute){
 	this->_minute = minute;
 	return true;
 }
+
+bool Time::before(Time* before, Time* after){
+	if(before->getHour() > after->getHour()){
+		return false;
+	}
+	else if(before->getHour() < after->getHour()){
+		return true;
+	}
+	else if(before->getMinute() >= after->getMinute()){
+		return false;
+	}
+	return true;
+}

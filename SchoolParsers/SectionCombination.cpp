@@ -1,5 +1,2 @@
-#include "ComboBase.hpp"
+#include "SectionCombination.hpp"
 
-ComboBase::getSections(){
-	return 
-}

@@ -1,6 +1,8 @@
 #ifndef WEEK_H
 #define WEEK_H
+#include <array>
 #include "Time.hpp"
+using std::array;
 class Week{
 	public:
 		enum Day{
@@ -15,14 +17,13 @@ class Week{
 		Week();
 		~Week();
 
-		bool 	setDay(Day day, Time start, Time end);
+		bool 	setDay(Day day, Time* start, Time* end);
 		void  	unsetDay(Day day);
-		Time** 	getTimes();
+		array<Time*, 2> 	getTimes(Day day);
 
-		bool 	isValid();
 	private:
 		
-		Time* 	_times[7][2];
+		array<array<Time*, 2>, 7> _times;
 
 };
 #endif
