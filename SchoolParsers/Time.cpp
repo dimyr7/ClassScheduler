@@ -1,7 +1,5 @@
 #include "Time.hpp"
 namespace CourseInfo{
-
-
 	/*
 	 * ======================================================
 	 * Object Creation

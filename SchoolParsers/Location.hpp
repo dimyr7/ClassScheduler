@@ -1,37 +1,65 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 #include <string>
-namespace CourseInfo{
 using std::string;
-class Location{
-	public:
-		/*
-		 * if the lat or long is not valid, it is set to (0, 0)
-		 */
-		Location(double latitude, double longitude);
-		~Location();
+namespace CourseInfo{
+	class Location{
+		friend class Section;
 
-		bool setCoord(double latitude, double longitude);
-		bool setLatitude(double latitude);
-		bool setLongitude(double longitude);
+		private:
+			/*
+			 * if the lat or long is not valid, it is set to (0, 0)
+			 */
+			Location(double latitude = 0, double longitude = 0);
+			/*
+			 * Location destructor
+			 */
+			~Location();
+			/*
+			 * Copy constructor
+			 */
+			Location(const Location&  copy);
+			/*
+			 * Assignment operator
+			 */
+			Location& operator=(const Location& copy);
 
-		void setBuildingName(string building);	
-		void setRoomNumber(string roomNumber);
+			
+			/*
+			 * setters
+			 * Returns true on success
+			 * Return false otherwise and doesnt  change anything
+			 */
+			bool setCoord(double latitude, double longitude);
+			bool setLatitude(double latitude);
+			bool setLongitude(double longitude);
 
-		double  getLatitude();
-		double 	getLongitude();
+			void setBuildingName(string building);	
+			void setRoomNumber(string roomNumber);
+			
+			/*
+			 * getters
+			 */
+			double  getLatitude();
+			double 	getLongitude();
 
-		string 	getBuildingName();
-		string  getRoomNumber();
+			string 	getBuildingName();
+			string  getRoomNumber();
+			
+			/*
+			 * validators
+			 */
+			static bool validLatitude(double latitude);
+			static bool validLongitude(double longitude);
+				
+			/*
+			 * data members
+			 */
+			double _latitude;
+			double _longitude;
+			string _buildingName;
+			string _roomNumber;
 
-		bool validLatitude(double latitude);
-		bool validLongitude(double longitude);
-	private:
-		double _latitude;
-		double _longitude;
-		string _buildingName;
-		string _roomNumber;
-
-};
+	};
 }
 #endif

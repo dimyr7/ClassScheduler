@@ -1,0 +1,353 @@
+{
+  "ID": "562d7b5ea12b7dd3636a8d62",
+  "Department": "CS",
+  "CourseNumber": "125",
+  "Name": "Intro to Computer Science",
+  "Sections": [
+    {
+      "CRN": "31152",
+      "Code": "AL1",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Lecture",
+            "Code": ""
+          },
+          "Start": "02:00 PM",
+          "End": "02:50 PM",
+          "Days": "MWF"
+        }
+      ]
+    },
+    {
+      "CRN": "31155",
+      "Code": "AL2",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Lecture",
+            "Code": ""
+          },
+          "Start": "12:00 PM",
+          "End": "12:50 PM",
+          "Days": "MWF"
+        }
+      ]
+    },
+    {
+      "CRN": "31157",
+      "Code": "AYA",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "09:00 AM",
+          "End": "10:50 AM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31159",
+      "Code": "AYB",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "11:00 AM",
+          "End": "12:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31160",
+      "Code": "AYC",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "01:00 PM",
+          "End": "02:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31163",
+      "Code": "AYD",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "03:00 PM",
+          "End": "04:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31176",
+      "Code": "AYE",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "05:00 PM",
+          "End": "06:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31177",
+      "Code": "AYF",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "07:00 PM",
+          "End": "08:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "31166",
+      "Code": "AYG",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "09:00 AM",
+          "End": "10:50 AM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "31168",
+      "Code": "AYH",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "11:00 AM",
+          "End": "12:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "31170",
+      "Code": "AYI",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "01:00 PM",
+          "End": "02:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "31172",
+      "Code": "AYJ",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "03:00 PM",
+          "End": "04:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "31174",
+      "Code": "AYK",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "05:00 PM",
+          "End": "06:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "31180",
+      "Code": "AYL",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "09:00 AM",
+          "End": "10:50 AM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "62256",
+      "Code": "AYM",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "11:00 AM",
+          "End": "12:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "62257",
+      "Code": "AYN",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "01:00 PM",
+          "End": "02:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "62258",
+      "Code": "AYO",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "03:00 PM",
+          "End": "04:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "62259",
+      "Code": "AYP",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "05:00 PM",
+          "End": "06:50 PM",
+          "Days": "T"
+        }
+      ]
+    },
+    {
+      "CRN": "62260",
+      "Code": "AYQ",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "09:00 AM",
+          "End": "10:50 AM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "62261",
+      "Code": "AYR",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "11:00 AM",
+          "End": "12:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "62262",
+      "Code": "AYS",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "01:00 PM",
+          "End": "02:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "62264",
+      "Code": "AYT",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "03:00 PM",
+          "End": "04:50 PM",
+          "Days": "W"
+        }
+      ]
+    },
+    {
+      "CRN": "62265",
+      "Code": "AYU",
+      "Meetings": [
+        {
+          "Type": {
+            "Name": "Laboratory-Discussion",
+            "Code": ""
+          },
+          "Start": "05:00 PM",
+          "End": "06:50 PM",
+          "Days": "W"
+        }
+      ]
+    }
+  ]
+}

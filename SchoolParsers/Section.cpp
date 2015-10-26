@@ -1,4 +1,4 @@
-include "Section.hpp"
+#include "Section.hpp"
 namespace CourseInfo{
 Section::Section(){
 	this->_sectionName = "";

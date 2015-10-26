@@ -1,38 +1,61 @@
 #include "Week.hpp"
+
 namespace CourseInfo{
-Week::Week(){
-	for(auto it = this->_times.begin(); it != this->_times.end(); it++){
-		for(auto is = it[0].begin(); is != it[0].end(); is++){
-			is = NULL;
+	/*
+	 * ======================================================
+	 * Object Creation
+	 * ======================================================
+	 */
+
+	Week::Week(){
+		for(auto i : this->_times){
+			for(auto j: i){
+				j = NULL;
+			}
 		}
 	}
-}
-Week::~Week(){
-	for(auto it = this->_times.begin(); it != this->_times.end(); it++){
-		for(auto is = it[0].begin(); is != it[0].end(); is++){
-			delete is;
-			is = NULL;
+	Week::~Week(){
+		for(auto i :this->_times){
+			for(auto j : i){
+				delete j;
+				j = NULL;
+			}
 		}
 	}
-}
-
-bool Week::setDay(Day day, Time* start, Time* end){
-	if(not Time::before(start, end)){
-		return false;
+	Week::Week(const Week& copy){
+		std::copy(copy._times.begin(), copy._times.end(), this->_times.begin());
 	}
-	this->_times[day][0] = start;
-	this->_times[day][1] = end;
-	return true;
-}
 
-void Week::unsetDay(Day day){
-	delete _times[day][0];
-	delete _times[day][1];
-	_times[day][0] = NULL;
-	_times[day][1] = NULL;
-}
+	Week& Week::operator=(const Week& copy){
+		std::copy(copy._times.begin(), copy._times.end(), this->_times.begin());
+		return *this;
+	}
+	/*
+	 * ======================================================
+	 * Getters & Setters
+	 * ======================================================
+	 */
 
-array<Time*, 2> Week::getTimes(Day day){
-	return this->_times[day];
-}
+	bool Week::setDay(Day day, Time* const start, Time* const end){
+		if(not Time::before(start, end)){
+			return false;
+		}
+		this->_times[day][0] = start;
+		this->_times[day][1] = end;
+		return true;
+	}
+
+	void Week::unsetDay(Day day){
+		delete _times[day][0];
+		delete _times[day][1];
+		_times[day][0] = NULL;
+		_times[day][1] = NULL;
+	}
+
+	const Time* Week::getTimes(Day day, bool start) const {
+		if(start){
+			return this->_times[day][0];
+		}
+		return this->_times[day][1];
+	}
 }

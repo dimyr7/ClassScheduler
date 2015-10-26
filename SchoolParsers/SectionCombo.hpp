@@ -24,7 +24,8 @@ class SectionCombo{
 		void addSection(Section* section);
 		SectionCombo();
 	private:
-		vector<Section*> _sections;	
+		vector<Section*> 	_sections;	
+		bool 				_isValid;
 };
 
 }

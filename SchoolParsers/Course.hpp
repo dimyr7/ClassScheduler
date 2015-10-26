@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-namespace ClassInfo{
+namespace CourseInfo{
 	class Course{
 
 		public:

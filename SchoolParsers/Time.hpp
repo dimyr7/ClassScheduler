@@ -10,7 +10,8 @@ namespace CourseInfo{
 	 * Represents a time on 24 hour clock
 	 */
 	class Time{
-		public:
+		friend class Week;
+		private:
 			/*
 			 * Sets the hour and minute to the specified parameters
 			 * If either value is invalid (e.g. hour >23, hour <0, minute >59, minute <0) the time will be 00:00
@@ -65,7 +66,7 @@ namespace CourseInfo{
 			 * friend function that is used for pring Time object to stream in the form 08:23
 			 */
 			friend ostream& operator<<(ostream& os, const Time& time);
-		private:
+
 			int _hour;
 			int _minute;
 	};

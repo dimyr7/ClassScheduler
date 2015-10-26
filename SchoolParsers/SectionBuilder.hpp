@@ -1,0 +1,4 @@
+#ifndef SECTIONBUILDER_H
+#define SECTIONBUILDER_H
+
+#endif

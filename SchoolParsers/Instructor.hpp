@@ -4,12 +4,35 @@
 namespace CourseInfo{
 	using std::string;
 	class Instructor{
-		public:
-			Instructor(string name);
-			~Instructor();
-			string getName();
-			void setName(string name);
+		friend class Section;
 		private:
+			/*
+			 * Construtor
+			 */
+			Instructor(string name = "");
+			/*
+			 * Destructor
+			 */
+			~Instructor();
+			/*
+			 * Copy constructor
+			 */
+			Instructor(const Instructor& copy);
+			/*
+			 * Assignment operator
+			 */
+			Instructor& operator=(const Instructor& copy);
+
+
+			/*
+			 * getters and setters
+			 */
+			string getName() const;
+			void setName(string name);
+			
+			/*
+			 * member data
+			 */
 			string _name;
 	};
 }
