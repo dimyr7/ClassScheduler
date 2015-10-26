@@ -35,7 +35,7 @@ namespace CourseInfo{
 
 	/*
 	 * ======================================================
-	 * Getters and Setters
+	 * Setters
 	 * ======================================================
 	 */
 	void Semester::setYear(string year){
@@ -102,7 +102,11 @@ namespace CourseInfo{
 		return true;
 	}
 
-
+	/*
+	 * ======================================================
+	 * Getters
+	 * ======================================================
+	 */
 
 	string Semester::getYear() const{
 		return _year;

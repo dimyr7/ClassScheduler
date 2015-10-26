@@ -5,7 +5,15 @@ using std::string;
 namespace CourseInfo{
 	class Location{
 		friend class Section;
+		public:
+			/*
+			 * getters
+			 */
+			double  getLatitude() const;
+			double 	getLongitude() const;
 
+			string 	getBuildingName() const;
+			string  getRoomNumber() const;
 		private:
 			/*
 			 * if the lat or long is not valid, it is set to (0, 0)
@@ -37,14 +45,7 @@ namespace CourseInfo{
 			void setBuildingName(string building);	
 			void setRoomNumber(string roomNumber);
 			
-			/*
-			 * getters
-			 */
-			double  getLatitude();
-			double 	getLongitude();
 
-			string 	getBuildingName();
-			string  getRoomNumber();
 			
 			/*
 			 * validators

@@ -12,8 +12,42 @@ namespace CourseInfo{
 	class Section{
 		friend class SectionBuilder;
 		public:
+			/*
+			 * Getters
+			 */
+			string 		getSectionName() const;
+			string 		getSectionType() const;
+			string 		getDescription() const;
+
+			Instructor*	getInstructor() const;
+			Week* 		getWeek() const;
+			Semester*	getSemester() const;
+			Location* 	getBuilding() const;
+
+		private:
+			/*
+			 * Constructor
+			 */
 			Section();
 
+			/*
+			 * Destructor
+			 */
+			~Section();
+
+			/*
+			 * Copy Constructor
+			 */
+			Section(const Section& copy);
+
+			/*
+			 * Copy Assignment Operator
+			 */
+			Section& operator=(const Section& copy);
+
+			/*
+			 * Setters
+			 */
 			void setSectionName(string sectionName);
 			void setSectionType(string sectionType);
 			void setDescription(string description);
@@ -23,21 +57,15 @@ namespace CourseInfo{
 			void setSemester(Semester* semester);
 			void setLocation(Location* building);
 
-			string 		getSectionName();
-			string 		getSectionType();
-			string 		getDescription();
+			/*
+			 * Data Members
+			 */
 
-			Instructor*	getInstructor();
-			Week* 		getWeek();
-			Semester*	getSemester();
-			Location* 	getBuilding();
-		private:
+			string 	_sectionName;		
+			string 	_sectionType;	
+			string 	_description;
 
-			string 	_sectionName;		// AL1
-			string 	_sectionType;		// Lecture
-			string 	_description;		// 
-
-			Instructor*	_instructor; 		// Angrave
+			Instructor*	_instructor; 
 			Week* 		_daysOfWeek;
 			Semester* 	_dates;
 			Location* 	_bulding;

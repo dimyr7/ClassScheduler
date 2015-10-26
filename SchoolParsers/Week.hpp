@@ -18,6 +18,11 @@ namespace CourseInfo{
 				sunday
 			};
 
+			/*
+			 * returns the start time if start=true and the end time otherwise of the specified day
+			 */
+			Time* getTimes(Day day, bool start) const;
+
 		private:
 			/*
 			 * Creates a new Week object with no active days
@@ -50,11 +55,7 @@ namespace CourseInfo{
 			 */
 			void  	unsetDay(Day day);
 
-			/*
-			 * returns the start time if start=true and the end time otherwise of the specified day
-			 */
-			const Time* getTimes(Day day, bool start) const;
-
+			
 			//TODO look into updating with C++14
 			array<array<Time*, 2>, 7> _times;
 

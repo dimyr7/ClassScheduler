@@ -5,6 +5,9 @@ namespace CourseInfo{
 	using std::string;
 	class Instructor{
 		friend class Section;
+		public:
+			string getName() const;
+
 		private:
 			/*
 			 * Construtor
@@ -25,9 +28,8 @@ namespace CourseInfo{
 
 
 			/*
-			 * getters and setters
+			 * setters
 			 */
-			string getName() const;
 			void setName(string name);
 			
 			/*

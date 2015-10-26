@@ -11,6 +11,15 @@ namespace CourseInfo{
 	 */
 	class Time{
 		friend class Week;
+		public:
+			/*
+			 * returns the hour of time [0, 23]
+			 */
+			int 	getHour() 	const;
+			/*
+			 * returns the minute of the time [0, 59]
+			 */
+			int		getMinute() const;
 		private:
 			/*
 			 * Sets the hour and minute to the specified parameters
@@ -30,15 +39,7 @@ namespace CourseInfo{
 			 */
 			Time& operator=(const Time& copy);
 
-			/*
-			 * returns the hour of time [0, 23]
-			 */
-			int 	getHour() 	const;
-			/*
-			 * returns the minute of the time [0, 59]
-			 */
-			int		getMinute() const;
-			/*
+						/*
 			 * These functions will return true on success
 			 * Returns false otherwise (i.e. value is invalid) and does not change the time
 			 */
