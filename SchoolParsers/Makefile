@@ -1,20 +1,20 @@
 EXE=test
-OBJS =  main.o course.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o
+OBJS =   course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o
 OBJPATH = ./	
 
 COMPILER = g++
-COMPILER_OPTS = -c -g -O0 -Wall -Werror -std=c++11
+COMPILER_OPTS = -c -g -O0 -Wall -Werror -std=c++14
 LINKER = g++
 
 all:clean $(EXE)
 
-$(EXE): main.o week.o time.o
-	$(LINKER) main.o week.o time.o $(LINKER_OPTS) -o $(EXE)
+$(EXE): $(OBJS)
+	$(LINKER) $(OBJS) $(LINKER_OPTS) -o $(EXE)
 	
 main.o:Week.hpp 
 	$(COMPILER) $(COMPILER_OPTS) Main.cpp
 
-course.o:Course.hpp Section.hpp SectionCombo.hpp
+course.o:Course.hpp Section.hpp SectionCombo.hpp SectionBuilder.hpp
 	$(COMPILER) $(COMPILER_OPTS) Course.cpp
 
 section.o: Section.hpp Week.hpp Instructor.hpp Location.hpp Semester.hpp
@@ -37,6 +37,9 @@ semester.o: Semester.hpp
 	
 time.o: Time.hpp
 	$(COMPILER) $(COMPILER_OPTS) Time.cpp
+
+sectionbuilder.o: SectionBuilder.hpp
+	$(COMPILER) $(COMPILER_OPTS) SectionBuilder.cpp
 
 cleanup:
 	-mv *.o *.gch $(OBJPATH)

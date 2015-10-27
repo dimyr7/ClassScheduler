@@ -1,13 +1,12 @@
 #ifndef COMBOBASE_H 
 #define COMBOBASE_H 
 #include <vector>
-#include "Section.hpp"
-namespace CourseInfo{
+
 /*
  * Represents a valid combinations of sections required to register for a class
  * Something line A1(Lecture), L2A(Lab), and D4B(Discussion) for physics
  */
-using std::vector;
+class Section;
 class SectionCombo{
 	public:
 		/*
@@ -20,13 +19,12 @@ class SectionCombo{
 		/*
 		 * returns a vector of sections that this combo rempresents
 		 */
-		vector<Section*> getSections();
+		std::vector<Section*> getSections();
 		void addSection(Section* section);
 		SectionCombo();
 	private:
-		vector<Section*> 	_sections;	
+		std::vector<Section*> 	_sections;	
 		bool 				_isValid;
 };
 
-}
 #endif

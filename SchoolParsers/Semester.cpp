@@ -1,155 +1,154 @@
 #include "Semester.hpp"
-namespace CourseInfo{
-	/*
-	 * ======================================================
-	 * Object Creation
-	 * ======================================================
-	 */
-	Semester::Semester(string year, string season, string name){
-		this->_year = year;
-		this->_season = season;
-		this->_name = name;
-		_startDate = {{1, 1, 2000}};
-		_endDate = {{31, 12, 2000}};
-	}
-	Semester::~Semester(){
-		return;
-	}
-	Semester::Semester(const Semester& copy){
-		this->_year = copy._year;
-		this->_season = copy._season;
-		this->_name = copy._name;
+/*
+ * ======================================================
+ * Object Creation
+ * ======================================================
+ */
+Section::Semester::Semester(string year, string season, string name){
+	this->_year = year;
+	this->_season = season;
+	this->_name = name;
+	_startDate = {{1, 1, 2000}};
+	_endDate = {{31, 12, 2000}};
+}
+Section::Semester::~Semester(){
+	return;
+}
+Section::Semester::Semester(const Semester& copy){
+	this->_year = copy._year;
+	this->_season = copy._season;
+	this->_name = copy._name;
 
-		std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
-		std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
-	}
-	Semester& Semester::operator=(const Semester& copy){
-		this->_year = copy._year;
-		this->_season = copy._season;
-		this->_name = copy._name;
+	std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
+	std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
+}
+Section::Semester& Section::Semester::operator=(const Semester& copy){
+	this->_year = copy._year;
+	this->_season = copy._season;
+	this->_name = copy._name;
 
-		std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
-		std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
-		return *this;
-	}
+	std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
+	std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
+	return *this;
+}
 
-	/*
-	 * ======================================================
-	 * Setters
-	 * ======================================================
-	 */
-	void Semester::setYear(string year){
-		this->_year = year;
-	}
-	void Semester::setSeason(string season){
-		this->_season = season;
-	}
-	void Semester::setName(string name){
-		this->_name = name;
-	}
+/*
+ * ======================================================
+ * Setters
+ * ======================================================
+ */
+void Section::Semester::setYear(string year){
+	this->_year = year;
+}
+void Section::Semester::setSeason(string season){
+	this->_season = season;
+}
+void Section::Semester::setName(string name){
+	this->_name = name;
+}
 
+bool Section::Semester::setDates(const std::array<int, 3>&  start, const std::array<int, 3>& end){
+	if(not Section::Semester::before(start, end)){
+		return false;
+	}
+	this->_startDate[0] = start[0];
+	this->_startDate[1] = start[1];
+	this->_startDate[2] = start[2];
 
-	bool Semester::setDate(int day, int month, int year, bool start){
-		if(not validDay(day) or not validMonth(month) or not validYear(year)){
-			return false;
-		}
-		if(start){
-			this->_startDate[0] = day;
-			this->_startDate[1] = month;
-			this->_startDate[2] = year;
-		}
-		else{
-			this->_endDate[0] = day;
-			this->_endDate[1] = month;
-			this->_endDate[2] = year;
-		}
+	this->_endDate[0]   = end[0];
+	this->_endDate[1]   = end[1];
+	this->_endDate[2]   = end[2];
+
+	return true;
+
+}
+
+/*
+ * ======================================================
+ * Getters
+ * ======================================================
+ */
+
+string Section::Semester::getYear() const{
+	return _year;
+}
+string Section::Semester::getSeason() const{
+	return _season;
+}
+string Section::Semester::getName() const{
+	return _name;
+}
+
+int Section::Semester::getDay(bool start) const{
+	if(start){
+		return this->_startDate[0];
+	}
+	return this->_endDate[0];
+}
+int Section::Semester::getMonth(bool start) const{
+	if(start){
+		return this->_startDate[1];
+	}
+	return this->_endDate[1];
+}
+int Section::Semester::getYear(bool start) const{
+	if(start){
+		return this->_startDate[2];
+	}
+	return this->_endDate[2];
+}
+/*
+ * ======================================================
+ * Validators
+ * ======================================================
+ */
+
+bool Section::Semester::validDay(int day){
+	return (day >= 1) and (day <= 31);
+}
+bool Section::Semester::validMonth(int month){
+	return (month >= 1) and (month <= 12);
+}
+bool Section::Semester::validYear(int year){
+	return (year >= 1990) and (year <= 2100);
+}
+
+bool Section::Semester::before(const std::array<int, 3>& first, const std::array<int, 3>& second){
+	if(not Section::Semester::validDay(first[0])){
+		return false;
+	}
+	else if(not Section::Semester::validDay(second[0])){
+		return false;
+	}
+	else if(not Section::Semester::validMonth(first[1])){
+		return false;
+	}
+	else if(not Section::Semester::validMonth(second[1])){
+		return false;
+	}
+	else if(not Section::Semester::validYear(first[2])){
+		return false;
+	}
+	else if(not Section::Semester::validYear(second[2])){
+		return false;
+	}
+	else if(first[2] > second[2]){
+		return false;
+	}
+	else if(first[2] < second[2]){
 		return true;
 	}
-	bool Semester::setDay(int day, bool start){
-		if(not validDay(day)){
-			return false;
-		}
-		if(start){
-			this->_startDate[0] = day;
-		}
-		else{
-			this->_endDate[0] = day;
-		}
+	else if(first[1] > second[1]){
+		return false;
+	}
+	else if(first[1] < second[1]){
 		return true;
 	}
-	bool Semester::setMonth(int month, bool start){
-		if(not validMonth(month)){
-			return false;
-		}
-		if(start){
-			this->_startDate[1] = month;
-		}
-		else{
-			this->_endDate[1] = month;
-		}
+	else if(first[0] >= second[0]){
+		return false;
+	}
+	else{
 		return true;
-	}
-	bool Semester::setYear(int year, bool start){
-		if(not validYear(year)){
-			return false;
-		}
-		if(start){
-			this->_startDate[2] = year;
-		}
-		else{
-			this->_endDate[2] = year;
-		}
-		return true;
-	}
-
-	/*
-	 * ======================================================
-	 * Getters
-	 * ======================================================
-	 */
-
-	string Semester::getYear() const{
-		return _year;
-	}
-	string Semester::getSeason() const{
-		return _season;
-	}
-	string Semester::getName() const{
-		return _name;
-	}
-
-	int Semester::getDay(bool start) const{
-		if(start){
-			return this->_startDate[0];
-		}
-		return this->_endDate[0];
-	}
-	int Semester::getMonth(bool start) const{
-		if(start){
-			return this->_startDate[1];
-		}
-		return this->_endDate[1];
-	}
-	int Semester::getYear(bool start) const{
-		if(start){
-			return this->_startDate[2];
-		}
-		return this->_endDate[2];
-	}
-	/*
-	 * ======================================================
-	 * Validators
-	 * ======================================================
-	 */
-
-	bool Semester::validDay(int day){
-		return (day >= 1) and (day <= 31);
-	}
-	bool Semester::validMonth(int month){
-		return (month >= 1) and (month <= 12);
-	}
-	bool Semester::validYear(int year){
-		return (year >= 1990) and (year <= 2100);
 	}
 }
 

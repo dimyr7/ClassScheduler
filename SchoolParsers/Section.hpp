@@ -2,74 +2,72 @@
 #define SECTION_H
 #include <string>
 
-#include "Week.hpp"
-#include "Semester.hpp"
-#include "Instructor.hpp"
-#include "Location.hpp"
-using std::string;
-namespace CourseInfo{
-	
-	class Section{
-		friend class SectionBuilder;
-		public:
+class Section{
+
+	public:
+		class Instructor;
+		class Semester;
+		class Location;
+		class Week;
+		class SectionBuilder;
+
+		/*
+		 * Getters
+		 */
+		std::string 		getSectionName() const;
+		std::string 		getSectionType() const;
+		std::string 		getDescription() const;
+
+		Instructor*	getInstructor() const;
+		Week* 		getWeek() const;
+		Semester*	getSemester() const;
+		Location* 	getBuilding() const;
+		
+	private:
 			/*
-			 * Getters
-			 */
-			string 		getSectionName() const;
-			string 		getSectionType() const;
-			string 		getDescription() const;
+		 * Constructor
+		 */
+		Section();
 
-			Instructor*	getInstructor() const;
-			Week* 		getWeek() const;
-			Semester*	getSemester() const;
-			Location* 	getBuilding() const;
+		/*
+		 * Destructor
+		 */
+		~Section();
 
-		private:
-			/*
-			 * Constructor
-			 */
-			Section();
+		/*
+		 * Copy Constructor
+		 */
+		Section(const Section& copy);
 
-			/*
-			 * Destructor
-			 */
-			~Section();
+		/*
+		 * Copy Assignment Operator
+		 */
+		Section& operator=(const Section& copy);
 
-			/*
-			 * Copy Constructor
-			 */
-			Section(const Section& copy);
+		/*
+		 * Setters
+		 */
+		void setSectionName(std::string sectionName);
+		void setSectionType(std::string sectionType);
+		void setDescription(std::string description);
 
-			/*
-			 * Copy Assignment Operator
-			 */
-			Section& operator=(const Section& copy);
+		void setInstructor(Instructor* instructor);
+		void setDaysOfWeek(Week* daysOfWeek);
+		void setSemester(Semester* semester);
+		void setLocation(Location* building);
 
-			/*
-			 * Setters
-			 */
-			void setSectionName(string sectionName);
-			void setSectionType(string sectionType);
-			void setDescription(string description);
+		/*
+		 * Data Members
+		 */
 
-			void setInstructor(Instructor* instructor);
-			void setDaysOfWeek(Week* daysOfWeek);
-			void setSemester(Semester* semester);
-			void setLocation(Location* building);
+		std::string 	_sectionName;		
+		std::string 	_sectionType;	
+		std::string 	_description;
 
-			/*
-			 * Data Members
-			 */
+		Instructor*	_instructor; 
+		Week* 		_daysOfWeek;
+		Semester* 	_dates;
+		Location* 	_bulding;
 
-			string 	_sectionName;		
-			string 	_sectionType;	
-			string 	_description;
-
-			Instructor*	_instructor; 
-			Week* 		_daysOfWeek;
-			Semester* 	_dates;
-			Location* 	_bulding;
-
-	};
-}
+};
 #endif

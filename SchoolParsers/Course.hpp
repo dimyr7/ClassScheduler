@@ -1,39 +1,31 @@
 #ifndef COURSE_H
 #define COURSE_H
-
-#include "Section.hpp"
-#include "SectionCombo.hpp"
 #include <string>
 #include <vector>
-using namespace std;
-namespace CourseInfo{
-	class Course{
+class Section;
+class SectionCombo;
+class Course{
+	public:
+		Course();
+		Course(std::string department, std::string courseNumber);
+		~Course();
 
-		public:
-			Course();
-			Course(string department, string courseNumber);
-			~Course();
+		std::string 					getDepartment();
+		std::string 					getCourseNumber();
+		std::vector<Section *> 			getSections();
+		std::vector<SectionCombo *>  	getCombos();
 
-			string 					getDepartment();
-			string 					getCourseNumber();
-			vector<Section *> 		getSections();
-			vector<SectionCombo *>  getCombos();
+		bool	generateCombo(); 
+		bool 	setDepartment(std::string department);
+		bool 	setCourseNumber(std::string number);
+		void 	addSection(Section* section);
+		bool 	isSyncd();
+	private:
+		std::string 					_department;
+		std::string 					_courseNumber;
+		std::vector<Section *> 			_sections;
+		std::vector<SectionCombo *> 	_combos;
+		bool					_syncd;
 
-			bool	generateCombo(); 
-			bool 	setDepartment(string department);
-			bool 	setCourseNumber(string number);
-			void 	addSection(Section* section);
-			bool 	isSyncd();
-		private:
-			//static bool validateDepartment(string department);
-			//static bool validateCourseNumber(string department);
-
-			string 					_department;
-			string 					_courseNumber;
-			vector<Section *> 		_sections;
-			vector<SectionCombo *> 	_combos;
-			bool					_syncd;
-
-	};
-}
+};
 #endif
