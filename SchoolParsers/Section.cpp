@@ -15,6 +15,7 @@ Section::Section(){
 	this->_sectionName = "";
 	this->_sectionType = "";
 	this->_description = "";
+	this->_crn = "";
 
 	this->_instructor 	= NULL;
 	this->_daysOfWeek 	= NULL;
@@ -33,6 +34,7 @@ Section::Section(const Section& copy){
 	this->_sectionName = copy._sectionName;
 	this->_sectionType = copy._sectionType;
 	this->_description = copy._description;
+	this->_crn 		   = copy._crn;
 
 	*(this->_instructor) = *(copy._instructor);
 	*(this->_daysOfWeek) = *(copy._daysOfWeek);
@@ -44,6 +46,7 @@ Section& Section::operator=(const Section& copy){
 	this->_sectionName = copy._sectionName;
 	this->_sectionType = copy._sectionType;
 	this->_description = copy._description;
+	this->_crn         = copy._crn;
 
 	*(this->_instructor) = *(copy._instructor);
 	*(this->_daysOfWeek) = *(copy._daysOfWeek);
@@ -89,6 +92,10 @@ void Section::setLocation(Location* building){
 	this->_bulding = building;
 }
 
+void Section::setCRN(std::string crn){
+	this->_crn = crn;
+}
+
 /*
  * ======================================================
  * Getters
@@ -122,4 +129,8 @@ Section::Semester* Section::getSemester() const{
 
 Section::Location* Section::getBuilding() const{
 	return this->_bulding;
+}
+
+std::string Section::getCRN() const {
+	return this->_crn;
 }

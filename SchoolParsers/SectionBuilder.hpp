@@ -9,8 +9,9 @@ class Section::SectionBuilder{
 		Section* buildSection();
 
 		void 	setSectioName(std::string name);
-		void 	setSectionType(std::string name);
+		void 	setSectionType(std::string type);
 		void 	setDescription(std::string description);
+		void 	setCRN(std::string crn);
 
 		void 	setInstructorName(std::string instructor);
 
@@ -38,7 +39,7 @@ class Section::SectionBuilder{
 		std::string 	_sectionName;
 		std::string 	_sectionType;
 		std::string 	_description;
-	
+		std::string 	_crn;
 		/*
 		 * Instructor
 		 */
@@ -53,6 +54,7 @@ class Section::SectionBuilder{
 
 		/*
 		 * Semester
+		 * Organized by [day][month][year]
 		 */
 		std::array<int, 3> 	_semesterStartDate;
 		std::array<int, 3> 	_semesterEndDate;

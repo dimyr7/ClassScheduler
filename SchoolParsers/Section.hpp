@@ -17,11 +17,13 @@ class Section{
 		std::string 		getSectionName() const;
 		std::string 		getSectionType() const;
 		std::string 		getDescription() const;
+		std::string 		getCRN() const;
 
-		Instructor*	getInstructor() const;
-		Week* 		getWeek() const;
-		Semester*	getSemester() const;
-		Location* 	getBuilding() const;
+
+		Instructor*		getInstructor() const;
+		Week* 			getWeek() const;
+		Semester*		getSemester() const;
+		Location* 		getBuilding() const;
 		
 	private:
 			/*
@@ -50,6 +52,7 @@ class Section{
 		void setSectionName(std::string sectionName);
 		void setSectionType(std::string sectionType);
 		void setDescription(std::string description);
+		void setCRN(std::string crn);
 
 		void setInstructor(Instructor* instructor);
 		void setDaysOfWeek(Week* daysOfWeek);
@@ -63,6 +66,7 @@ class Section{
 		std::string 	_sectionName;		
 		std::string 	_sectionType;	
 		std::string 	_description;
+		std::string 	_crn;
 
 		Instructor*	_instructor; 
 		Week* 		_daysOfWeek;
