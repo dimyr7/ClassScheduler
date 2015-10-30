@@ -10,6 +10,7 @@ class Section::Instructor{
 	public:
 		string getName() const;
 
+	
 	private:
 		/*
 		 * Construtor
@@ -38,5 +39,7 @@ class Section::Instructor{
 		 * member data
 		 */
 		string _name;
+
+		friend std::ostream& operator<<(std::ostream& os, const Instructor& instructor);
 };
 #endif

@@ -59,6 +59,7 @@ class Section{
 		void setSemester(Semester* semester);
 		void setLocation(Location* building);
 
+		friend std::ostream& operator<<(std::ostream& os, const Section& section);
 		/*
 		 * Data Members
 		 */

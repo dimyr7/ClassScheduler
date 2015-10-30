@@ -1,4 +1,5 @@
 #include "Instructor.hpp"
+#include <iostream>
 /*
  * ======================================================
  * Object Creation
@@ -29,4 +30,9 @@ string Section::Instructor::getName()const{
 
 void Section::Instructor::setName(string name){
 	this->_name = name;
+}
+
+std::ostream& operator<<(std::ostream& os, const Section::Instructor& instructor){
+		os << instructor.getName() << std::endl;
+		return os;
 }

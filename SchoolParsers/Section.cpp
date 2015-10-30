@@ -134,3 +134,25 @@ Section::Location* Section::getBuilding() const{
 std::string Section::getCRN() const {
 	return this->_crn;
 }
+
+
+std::ostream& operator<<(std::ostream& os, const Section& section){
+	os << section.getSectionName() << std::endl;
+	os << section.getSectionType() << std::endl;
+	os << section.getDescription() << std::endl;
+	os << section.getCRN() << std::endl;
+	
+	os << "=== Instructor ==="<< std::endl;
+	os << *section.getInstructor() << std::endl;
+	
+	os << "=== Week ==="<< std::endl;
+	os << *section.getWeek() << std::endl;
+
+	os << "=== Semester ==="<< std::endl;
+	os << *section.getSemester() << std::endl;
+
+	os << "=== Location ==="<< std::endl;
+	os << *section.getBuilding() << std::endl;
+
+	return os;
+}

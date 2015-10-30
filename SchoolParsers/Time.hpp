@@ -21,6 +21,10 @@ class Section::Week::Time{
 		 * returns the minute of the time [0, 59]
 		 */
 		int		getMinute() const;
+
+
+		//friend std::ostream& operator<<(std::ostream& os, const Time& time);
+
 	private:
 		/*
 		 * Sets the hour and minute to the specified parameters
@@ -67,7 +71,7 @@ class Section::Week::Time{
 		/*
 		 * friend function that is used for pring Time object to stream in the form 08:23
 		 */
-		friend std::ostream& operator<<(std::ostream& os, const Time& time);
+		friend std::ostream& operator<<(std::ostream& os, const Section::Week::Time& time);
 
 		int _hour;
 		int _minute;

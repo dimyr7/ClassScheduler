@@ -1,4 +1,5 @@
 #include "Semester.hpp"
+#include <iostream>
 /*
  * ======================================================
  * Object Creation
@@ -14,6 +15,8 @@ Section::Semester::Semester(string year, string season, string name){
 Section::Semester::~Semester(){
 	return;
 }
+
+const std::array<std::string, 12> Section::Semester::monthsStr = {{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov" "Dec" }};
 Section::Semester::Semester(const Semester& copy){
 	this->_year = copy._year;
 	this->_season = copy._season;
@@ -152,3 +155,9 @@ bool Section::Semester::before(const std::array<int, 3>& first, const std::array
 	}
 }
 
+std::ostream& operator<<(std::ostream& os, const Section::Semester& semester){
+	os << semester.getYear() << " - " << semester.getSeason() << " - " << semester.getName() <<std::endl;
+	os << Section::Semester::monthsStr[semester.getMonth(true)] << " " << semester.getDay(true) << ", " << semester.getYear(true) << std::endl;
+	os << Section::Semester::monthsStr[semester.getMonth(false)] << " " << semester.getDay(false) << ", " << semester.getYear(false) << std::endl;
+	return os;
+}

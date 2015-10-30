@@ -1,21 +1,24 @@
 #include "Week.hpp"
 #include "Time.hpp"
+#include <iostream>
+#define DAYSINWEEK 7
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
+const std::array<std::string, 7> Section::Week::daysStr = {{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}};	
 
 Section::Week::Week(){
-	for(auto i : this->_times){
-		for(auto j: i){
+	for(auto& i : this->_times){
+		for(auto& j: i){
 			j = NULL;
 		}
 	}
 }
 Section::Week::~Week(){
-	for(auto i :this->_times){
-		for(auto j : i){
+	for(auto& i :this->_times){
+		for(auto& j : i){
 			delete j;
 			j = NULL;
 		}
@@ -56,4 +59,17 @@ Section::Week::Time* Section::Week::getTimes(Day day, bool start) const {
 		return this->_times[day][0];
 	}
 	return this->_times[day][1];
+}
+
+std::ostream& operator<<(std::ostream& os, const Section::Week& week){
+	for(int i = 0; i < DAYSINWEEK; i++){
+		Section::Week::Time* start = week.getTimes((Section::Week::Day)i, true);
+		Section::Week::Time* end   = week.getTimes((Section::Week::Day)i, false);
+		if(start == NULL){
+			continue;
+		}
+		os << Section::Week::daysStr[i] << "\t" << *start << " - " << *end << std::endl;
+	}
+	
+	return os;
 }

@@ -97,21 +97,16 @@ Section::Week::Time Section::Week::Time::operator+(const Time& second) const{
 	return t;
 }
 std::ostream& operator<<(std::ostream& os, const Section::Week::Time& time){
-	std::string min;
-	std::string hour;
+	
+	std::string min = std::to_string(time._minute);
+	std::string hour = std::to_string(time._hour);
 
 	if(time._hour <10){
 		hour = "0"+std::to_string(time._hour);
 	}
-	else{
-		hour = std::to_string(time._hour);
-	}
 
 	if(time._minute < 10){
 		min = "0"+std::to_string(time._minute);
-	}
-	else{
-		min = std::to_string(time._minute);
 	}
 
 	os<<hour<<":"<<min;

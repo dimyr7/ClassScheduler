@@ -19,7 +19,12 @@ class Section::Semester{
 		int 	getDay(bool start) const; // [28, 8, 2016]  => August 28, 2016
 		int 	getMonth(bool start) const;   // [14, 12, 2016] => December 14, 2016
 		int 	getYear(bool start) const;
-
+		
+		string 	getYear() const; 		// 2016
+		string 	getSeason() const;	// Fall
+		string	getName() const;		// FA161
+		
+		 const static std::array<string, 12> monthsStr;
 	private:
 		/*
 		 * Constructor for a semester filling in meta info
@@ -52,9 +57,6 @@ class Section::Semester{
 		bool setDates(const std::array<int, 3>& start, const std::array<int, 3>& end);
 
 
-		string 	getYear() const; 		// 2016
-		string 	getSeason() const;	// Fall
-		string	getName() const;		// FA161
  
 		/*
 	 	 * year must between 1990 and 2100
@@ -69,8 +71,12 @@ class Section::Semester{
 		 */
 		static bool validDay(int day);
 		static bool before(const std::array<int, 3>& first, const std::array<int, 3>& second);
-		array<int, 3> _startDate;
-		array<int, 3> _endDate;
+
+
+		friend std::ostream& operator<<(std::ostream& os, const Semester& semester);
+
+		std::array<int, 3> _startDate;
+		std::array<int, 3> _endDate;
 
 		string 	_year;
 		string 	_season;

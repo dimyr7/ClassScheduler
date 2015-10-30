@@ -5,15 +5,15 @@
   "Name": "Intro to Computer Science",
   "Sections": [
     {
-      "CRN": "31152",
-      "Code": "AL1",
+      "CRN": "31152",    		// CRN
+      "Code": "AL1",			// SectionName
       "Meetings": [
         {
           "Type": {
-            "Name": "Lecture",
+            "Name": "Lecture",  	// SectionType
             "Code": ""
           },
-          "Start": "02:00 PM",
+          "Start": "02:00 PM",		//Week 
           "End": "02:50 PM",
           "Days": "MWF"
         }

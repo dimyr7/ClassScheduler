@@ -15,6 +15,8 @@ class Section::Location{
 
 		std::string 	getBuildingName() const;
 		std::string  getRoomNumber() const;
+		
+		friend std::ostream& operator<<(std::ostream& os, const Location& location);
 	private:
 		/*
 		* if the lat or long is not valid, it is set to (0, 0)

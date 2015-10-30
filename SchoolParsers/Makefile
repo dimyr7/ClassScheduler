@@ -8,7 +8,7 @@ LINKER = g++
 
 all:$(EXE)
 
-$(EXE): $(OBJS)
+$(EXE):clean  $(OBJS)
 	$(LINKER) $(OBJS) $(LINKER_OPTS) -o $(EXE)
 	
 main.o:SectionBuilder.hpp Course.hpp

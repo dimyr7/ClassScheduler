@@ -1,4 +1,5 @@
 #include "Location.hpp"
+#include <iostream>
 /*
  * ======================================================
  * Object Creation
@@ -97,3 +98,8 @@ bool Section::Location::validLongitude(double longitude){
 	return (longitude >= -180) and (longitude <= 180);
 }
 
+std::ostream& operator<<(std::ostream& os, const Section::Location& location){
+	os << location.getBuildingName() << " - " << location.getRoomNumber() << std::endl;
+	os << "(" << location.getLatitude() << " , " << location.getLongitude() << ")" << std::endl;
+	return os;
+}

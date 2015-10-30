@@ -8,7 +8,7 @@ class Section::SectionBuilder{
 
 		Section* buildSection();
 
-		void 	setSectioName(std::string name);
+		void 	setSectionName(std::string name);
 		void 	setSectionType(std::string type);
 		void 	setDescription(std::string description);
 		void 	setCRN(std::string crn);
@@ -29,7 +29,6 @@ class Section::SectionBuilder{
 		void 	setLocationLon(double lon);
 		void 	setLocationBuilding(std::string name);
 		void 	setLocationRoom(std::string room);
-
 
 	private:
 		bool 	validateInput();		
