@@ -1,17 +1,17 @@
 EXE=test
-OBJS =   course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o
+OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o
 OBJPATH = ./	
 
 COMPILER = g++
 COMPILER_OPTS = -c -g -O0 -Wall -Werror -std=c++14
 LINKER = g++
 
-all:clean $(EXE)
+all:$(EXE)
 
 $(EXE): $(OBJS)
 	$(LINKER) $(OBJS) $(LINKER_OPTS) -o $(EXE)
 	
-main.o:Week.hpp 
+main.o:SectionBuilder.hpp Course.hpp
 	$(COMPILER) $(COMPILER_OPTS) Main.cpp
 
 course.o:Course.hpp Section.hpp SectionCombo.hpp SectionBuilder.hpp
