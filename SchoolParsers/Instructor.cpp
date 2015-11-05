@@ -5,7 +5,7 @@
  * Object Creation
  * ======================================================
  */
-Section::Instructor::Instructor(string name){
+Section::Instructor::Instructor(std::string name){
 	this->_name = name;
 }
 Section::Instructor::~Instructor(){
@@ -24,11 +24,11 @@ Section::Instructor& Section::Instructor::operator=(const Instructor& copy){
  * ======================================================
  */
 
-string Section::Instructor::getName()const{
+std::string Section::Instructor::getName() const{
 	return this->_name;
 }
 
-void Section::Instructor::setName(string name){
+void Section::Instructor::setName(std::string name){
 	this->_name = name;
 }
 

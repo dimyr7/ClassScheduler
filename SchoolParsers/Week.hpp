@@ -1,7 +1,6 @@
 #ifndef WEEK_H
 #define WEEK_H
 
-#include <array>
 #include <iostream>
 #include "Section.hpp"
 class Time;
@@ -22,7 +21,7 @@ class Section::Week{
 		 * returns the start time if start=true and the end time otherwise of the specified day
 		 */
 		Time* getTimes(Day day, bool start) const;
-		static const std::array<std::string , 7> daysStr;
+		std::string getDayStr(int i) const;
 	private:
 		/*
 		 * Creates a new Week object with no active days
@@ -58,9 +57,14 @@ class Section::Week{
 		 * Used to print a time object
 		 */
 		friend std::ostream& operator<<(std::ostream& os, const Week& week);
-
+	
+		
+		static const int DAYSINWEEK = 7;
+		static const int TIMESINDAY = 2;
+		
 		//TODO look into updating with C++14
-		std::array<std::array<Time*, 2>, 7> _times;
+		Time* _times[DAYSINWEEK][TIMESINDAY];
+		static const std::string daysStr[DAYSINWEEK];
 		
 };
 #endif

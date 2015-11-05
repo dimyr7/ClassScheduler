@@ -64,15 +64,15 @@ Section& Section::operator=(const Section& copy){
  */
 
 
-void Section::setSectionName(string sectionName){
+void Section::setSectionName(std::string sectionName){
 	this->_sectionName = sectionName;
 }
 
-void Section::setSectionType(string sectionType){
+void Section::setSectionType(std::string sectionType){
 	this->_sectionType = sectionType;
 }
 
-void Section::setDescription(string description){
+void Section::setDescription(std::string description){
 	this->_description = description;
 }
 
@@ -103,15 +103,15 @@ void Section::setCRN(std::string crn){
  */
 
 
-string Section::getSectionName() const{
+std::string Section::getSectionName() const{
 	return this->_sectionName;
 }
 
-string Section::getSectionType() const{
+std::string Section::getSectionType() const{
 	return this->_sectionType;
 }
 
-string Section::getDescription() const{
+std::string Section::getDescription() const{
 	return this->_description;
 }
 
@@ -137,6 +137,7 @@ std::string Section::getCRN() const {
 
 
 std::ostream& operator<<(std::ostream& os, const Section& section){
+	os << "====== Section =====" << std::endl;
 	os << section.getSectionName() << std::endl;
 	os << section.getSectionType() << std::endl;
 	os << section.getDescription() << std::endl;

@@ -5,6 +5,7 @@
 #include "Location.hpp"
 #include "Semester.hpp"
 #include "Time.hpp"
+
 Section::SectionBuilder::SectionBuilder(){
 	/*
   	 * Section Info
@@ -21,24 +22,21 @@ Section::SectionBuilder::SectionBuilder(){
 	/*
 	 * Week
 	 */
-	for(auto& i : this->_weekTimes){
-		for(auto& j : i){
-			for(auto& k : j){
-				k = -1;
-			}
+	for(int i = 0; i < Section::Week::DAYSINWEEK; i++){
+		for(int j = 0; j < Section::Week::DAYSINWEEK; j++){
+			this->_weekTimes[i][j][0] = -1;
+			this->_weekTimes[i][j][1] = -1;
 		}
 	}
 	
 	/*
 	 * Semester
 	 */
-	for(auto& i : this->_semesterStartDate){
-		i = -1;
+	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+		this->_semesterStartDate[i] = -1;
+		this->_semesterEndDate[i] = -1;
 	}
 
-	for(auto& i : this->_semesterEndDate){
-		i = -1;
-	}
 	this->_semesterYear = "";
 	this->_semesterSeason = "";
 	this->_semesterName = "";
@@ -63,8 +61,11 @@ Section* Section::SectionBuilder::buildSection(){
 	 */
 	Section::Week* week = new Section::Week();
 	for(int i = 0; i < 7; i++){
-		std::array<int, 2> startArr = this->_weekTimes[i][0];
-		std::array<int, 2> endArr = this->_weekTimes[i][1];
+		int* startArr = this->_weekTimes[i][0];
+		int* endArr = this->_weekTimes[i][1];
+		/*
+		 * If any of the time values are not set yet
+		 */
 		if(startArr[0] == -1 or startArr[1] == -1 or endArr[0] == -1 or endArr[1] == -1){
 			continue;
 		}
@@ -93,6 +94,7 @@ Section* Section::SectionBuilder::buildSection(){
 	 */
 
 	Section::Semester* semester = new Section::Semester(this->_semesterYear, this->_semesterSeason, this->_semesterName);
+	semester->setDates(this->_semesterStartDate, this->_semesterEndDate);
 
 
 	/*
@@ -116,9 +118,9 @@ bool Section::SectionBuilder::validateInput(){
 	/*
 	 * Validating week time
 	 */
-	for(auto& i : this->_weekTimes){
-		std::array<int, 2> startArr = i[0];
-		std::array<int, 2> endArr = i[1];
+	for(int i = 0; i < Section::Week::DAYSINWEEK; i++){
+		int* startArr = this->_weekTimes[i][0];
+		int* endArr   = this->_weekTimes[i][1];
 
 		if(startArr[0] == -1 or startArr[1] == -1 or endArr[0] == -1 or endArr[1] == -1){
 			continue;

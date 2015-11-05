@@ -5,33 +5,50 @@
  * Object Creation
  * ======================================================
  */
-Section::Semester::Semester(string year, string season, string name){
+Section::Semester::Semester(std::string year, std::string season, std::string name){
 	this->_year = year;
 	this->_season = season;
 	this->_name = name;
-	_startDate = {{1, 1, 2000}};
-	_endDate = {{31, 12, 2000}};
+
+	this->_startDate[0] = 1;
+	this->_startDate[1] = 1;
+	this->_startDate[2] = 2000;
+
+	this->_endDate[0] = 31;
+	this->_endDate[1] = 12;
+	this->_endDate[2] = 2000;
+
 }
+
 Section::Semester::~Semester(){
 	return;
 }
 
-const std::array<std::string, 12> Section::Semester::monthsStr = {{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov" "Dec" }};
+const std::string Section::Semester::monthsStr[12] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov" "Dec" };
+
+
+
 Section::Semester::Semester(const Semester& copy){
 	this->_year = copy._year;
 	this->_season = copy._season;
 	this->_name = copy._name;
 
-	std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
-	std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
+	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+		this->_startDate[i] = copy._startDate[i];
+		this->_endDate[i]   = copy._endDate[i];
+
+	}
 }
+
 Section::Semester& Section::Semester::operator=(const Semester& copy){
 	this->_year = copy._year;
 	this->_season = copy._season;
 	this->_name = copy._name;
 
-	std::copy(copy._startDate.begin(), copy._startDate.end(), this->_startDate.begin());
-	std::copy(copy._endDate.begin(), copy._endDate.end(), this->_endDate.begin());
+	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+		this->_startDate[i] = copy._startDate[i];
+		this->_endDate[i]   = copy._endDate[i];
+	}
 	return *this;
 }
 
@@ -40,28 +57,25 @@ Section::Semester& Section::Semester::operator=(const Semester& copy){
  * Setters
  * ======================================================
  */
-void Section::Semester::setYear(string year){
+void Section::Semester::setYear(std::string year){
 	this->_year = year;
 }
-void Section::Semester::setSeason(string season){
+void Section::Semester::setSeason(std::string season){
 	this->_season = season;
 }
-void Section::Semester::setName(string name){
+void Section::Semester::setName(std::string name){
 	this->_name = name;
 }
 
-bool Section::Semester::setDates(const std::array<int, 3>&  start, const std::array<int, 3>& end){
-	if(not Section::Semester::before(start, end)){
+bool Section::Semester::setDates(const int (&start)[3], const int (&end)[3]){
+	if(not Section::Semester::before(start, end)){ 
 		return false;
 	}
-	this->_startDate[0] = start[0];
-	this->_startDate[1] = start[1];
-	this->_startDate[2] = start[2];
 
-	this->_endDate[0]   = end[0];
-	this->_endDate[1]   = end[1];
-	this->_endDate[2]   = end[2];
-
+	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+		this->_startDate[i] = start[i];
+		this->_endDate[i]   = end[i];
+	}
 	return true;
 
 }
@@ -72,13 +86,13 @@ bool Section::Semester::setDates(const std::array<int, 3>&  start, const std::ar
  * ======================================================
  */
 
-string Section::Semester::getYear() const{
+std::string Section::Semester::getYear() const{
 	return _year;
 }
-string Section::Semester::getSeason() const{
+std::string Section::Semester::getSeason() const{
 	return _season;
 }
-string Section::Semester::getName() const{
+std::string Section::Semester::getName() const{
 	return _name;
 }
 
@@ -116,7 +130,7 @@ bool Section::Semester::validYear(int year){
 	return (year >= 1990) and (year <= 2100);
 }
 
-bool Section::Semester::before(const std::array<int, 3>& first, const std::array<int, 3>& second){
+bool Section::Semester::before(const int (&first)[3], const int (&second)[3]){
 	if(not Section::Semester::validDay(first[0])){
 		return false;
 	}

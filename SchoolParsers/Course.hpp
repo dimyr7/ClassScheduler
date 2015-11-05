@@ -6,25 +6,24 @@ class Section;
 class SectionCombo;
 class Course{
 	public:
-		Course();
 		Course(std::string department, std::string courseNumber);
 		~Course();
 
-		std::string 					getDepartment();
-		std::string 					getCourseNumber();
-		std::vector<Section *> 			getSections();
-		std::vector<SectionCombo *>  	getCombos();
+		std::string 					getDepartment() const;
+		std::string 					getCourseNumber() const;
+		std::vector<Section *> 			getSections() const;
+		std::vector<SectionCombo *>  	getCombos() const;
 
 		bool	generateCombo(); 
-		bool 	setDepartment(std::string department);
-		bool 	setCourseNumber(std::string number);
+		void 	setDepartment(std::string department);
+		void  	setCourseNumber(std::string number);
 		void 	addSection(Section* section);
-		bool 	isSyncd();
+		bool 	isSyncd() const;
 	private:
 		std::string 					_department;
 		std::string 					_courseNumber;
-		std::vector<Section *> 			_sections;
-		std::vector<SectionCombo *> 	_combos;
+		std::vector<Section*> 			_sections;
+		std::vector<SectionCombo*> 		_combos;
 		bool					_syncd;
 
 };

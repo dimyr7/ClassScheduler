@@ -1,12 +1,11 @@
 #ifndef COMBOBASE_H 
 #define COMBOBASE_H 
 #include <vector>
-
+#include "Section.hpp"
 /*
  * Represents a valid combinations of sections required to register for a class
  * Something line A1(Lecture), L2A(Lab), and D4B(Discussion) for physics
  */
-class Section;
 class SectionCombo{
 	public:
 		/*
@@ -22,6 +21,8 @@ class SectionCombo{
 		std::vector<Section*> getSections();
 		void addSection(Section* section);
 		SectionCombo();
+
+		~SectionCombo();
 	private:
 		std::vector<Section*> 	_sections;	
 		bool 				_isValid;

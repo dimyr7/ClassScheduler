@@ -1,353 +1,586 @@
 {
-  "ID": "562d7b5ea12b7dd3636a8d62",
-  "Department": "CS",
-  "CourseNumber": "125",
-  "Name": "Intro to Computer Science",
-  "Sections": [
-    {
-      "CRN": "31152",    		// CRN
-      "Code": "AL1",			// SectionName
-      "Meetings": [
+    "CourseNumber": "125",
+    "CreditHours": "4 hours.",
+    "DegreeAttributes": "Quant Reasoning I course.",
+    "Department": "CS",
+    "Description": "Basic concepts in computing and fundamental techniques for solving computational problems. Intended as a first course for computer science majors and others with a deep interest in computing. Prerequisite: Three years of high school mathematics or MATH 012.",
+    "ID": "563ac3d76733bf09c3dd4fe3",
+    "Name": "Intro to Computer Science",
+    "Sections": [
         {
-          "Type": {
-            "Name": "Lecture",  	// SectionType
-            "Code": ""
-          },
-          "Start": "02:00 PM",		//Week 
-          "End": "02:50 PM",
-          "Days": "MWF"
-        }
-      ]
-    },
-    {
-      "CRN": "31155",
-      "Code": "AL2",
-      "Meetings": [
+            "CRN": "31152",
+            "Code": "AL1",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open (Restricted)",
+            "Meetings": [
+                {
+                    "Building": "Electrical & Computer Eng Bldg",
+                    "Days": "MWF",
+                    "End": "02:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "02:00 PM",
+                    "Type": {
+                        "Code": "LEC",
+                        "Name": "Lecture"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Lecture",
-            "Code": ""
-          },
-          "Start": "12:00 PM",
-          "End": "12:50 PM",
-          "Days": "MWF"
-        }
-      ]
-    },
-    {
-      "CRN": "31157",
-      "Code": "AYA",
-      "Meetings": [
+            "CRN": "31155",
+            "Code": "AL2",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Closed",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "MWF",
+                    "End": "12:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "12:00 PM",
+                    "Type": {
+                        "Code": "LEC",
+                        "Name": "Lecture"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "09:00 AM",
-          "End": "10:50 AM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31159",
-      "Code": "AYB",
-      "Meetings": [
+            "CRN": "31157",
+            "Code": "AYA",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "10:50 AM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "09:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "11:00 AM",
-          "End": "12:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31160",
-      "Code": "AYC",
-      "Meetings": [
+            "CRN": "31159",
+            "Code": "AYB",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "12:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "11:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "01:00 PM",
-          "End": "02:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31163",
-      "Code": "AYD",
-      "Meetings": [
+            "CRN": "31160",
+            "Code": "AYC",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "02:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "01:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "03:00 PM",
-          "End": "04:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31176",
-      "Code": "AYE",
-      "Meetings": [
+            "CRN": "31163",
+            "Code": "AYD",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "04:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "03:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "05:00 PM",
-          "End": "06:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31177",
-      "Code": "AYF",
-      "Meetings": [
+            "CRN": "31176",
+            "Code": "AYE",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "06:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "05:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "07:00 PM",
-          "End": "08:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "31166",
-      "Code": "AYG",
-      "Meetings": [
+            "CRN": "31177",
+            "Code": "AYF",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "08:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "07:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "09:00 AM",
-          "End": "10:50 AM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "31168",
-      "Code": "AYH",
-      "Meetings": [
+            "CRN": "31166",
+            "Code": "AYG",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "10:50 AM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "09:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "11:00 AM",
-          "End": "12:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "31170",
-      "Code": "AYI",
-      "Meetings": [
+            "CRN": "31168",
+            "Code": "AYH",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "12:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "11:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "01:00 PM",
-          "End": "02:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "31172",
-      "Code": "AYJ",
-      "Meetings": [
+            "CRN": "31170",
+            "Code": "AYI",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "02:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "01:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "03:00 PM",
-          "End": "04:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "31174",
-      "Code": "AYK",
-      "Meetings": [
+            "CRN": "31172",
+            "Code": "AYJ",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "04:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "03:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "05:00 PM",
-          "End": "06:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "31180",
-      "Code": "AYL",
-      "Meetings": [
+            "CRN": "31174",
+            "Code": "AYK",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "06:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "05:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "09:00 AM",
-          "End": "10:50 AM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "62256",
-      "Code": "AYM",
-      "Meetings": [
+            "CRN": "31180",
+            "Code": "AYL",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "10:50 AM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "09:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "11:00 AM",
-          "End": "12:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "62257",
-      "Code": "AYN",
-      "Meetings": [
+            "CRN": "62256",
+            "Code": "AYM",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "12:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "11:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "01:00 PM",
-          "End": "02:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "62258",
-      "Code": "AYO",
-      "Meetings": [
+            "CRN": "62257",
+            "Code": "AYN",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "02:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "01:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "03:00 PM",
-          "End": "04:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "62259",
-      "Code": "AYP",
-      "Meetings": [
+            "CRN": "62258",
+            "Code": "AYO",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "04:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "03:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "05:00 PM",
-          "End": "06:50 PM",
-          "Days": "T"
-        }
-      ]
-    },
-    {
-      "CRN": "62260",
-      "Code": "AYQ",
-      "Meetings": [
+            "CRN": "62259",
+            "Code": "AYP",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "T",
+                    "End": "06:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "05:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "09:00 AM",
-          "End": "10:50 AM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "62261",
-      "Code": "AYR",
-      "Meetings": [
+            "CRN": "62260",
+            "Code": "AYQ",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "10:50 AM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "09:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "11:00 AM",
-          "End": "12:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "62262",
-      "Code": "AYS",
-      "Meetings": [
+            "CRN": "62261",
+            "Code": "AYR",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "12:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "11:00 AM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "01:00 PM",
-          "End": "02:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "62264",
-      "Code": "AYT",
-      "Meetings": [
+            "CRN": "62262",
+            "Code": "AYS",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "02:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "01:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "03:00 PM",
-          "End": "04:50 PM",
-          "Days": "W"
-        }
-      ]
-    },
-    {
-      "CRN": "62265",
-      "Code": "AYU",
-      "Meetings": [
+            "CRN": "62264",
+            "Code": "AYT",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "04:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "03:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
+        },
         {
-          "Type": {
-            "Name": "Laboratory-Discussion",
-            "Code": ""
-          },
-          "Start": "05:00 PM",
-          "End": "06:50 PM",
-          "Days": "W"
+            "CRN": "62265",
+            "Code": "AYU",
+            "End": "2016-05-04-05:00",
+            "EnrollmentStatus": "Open",
+            "Meetings": [
+                {
+                    "Building": "Siebel Center for Comp Sci",
+                    "Days": "W",
+                    "End": "06:50 PM",
+                    "Instructors": [
+                        {
+                            "FirstName": "W",
+                            "LastName": "Chapman"
+                        }
+                    ],
+                    "Start": "05:00 PM",
+                    "Type": {
+                        "Code": "LBD",
+                        "Name": "Laboratory-Discussion"
+                    }
+                }
+            ],
+            "Start": "2016-01-19-06:00"
         }
-      ]
-    }
-  ]
+    ]
 }

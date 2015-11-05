@@ -3,19 +3,18 @@
 #include <string>
 #include "Section.hpp"
 
-using std::string;
 
 class Section::Instructor{
 	friend class Section;
 	public:
-		string getName() const;
+		std::string getName() const;
 
 	
 	private:
 		/*
 		 * Construtor
 		 */
-		Instructor(string name = "");
+		Instructor(std::string name = "");
 		/*
 		 * Destructor
 		 */
@@ -33,12 +32,12 @@ class Section::Instructor{
 		/*
 		 * setters
 		 */
-		void setName(string name);
+		void setName(std::string name);
 		
 		/*
 		 * member data
 		 */
-		string _name;
+		std::string _name;
 
 		friend std::ostream& operator<<(std::ostream& os, const Instructor& instructor);
 };

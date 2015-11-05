@@ -1,10 +1,7 @@
 #ifndef SEMESTER_H
 #define SEMESTER_H
 #include <string>
-#include <array>
 #include "Section.hpp"
-using std::string;
-using std::array;
 
 /*
  * represents a semester with start and end dates along with some meta info
@@ -20,16 +17,16 @@ class Section::Semester{
 		int 	getMonth(bool start) const;   // [14, 12, 2016] => December 14, 2016
 		int 	getYear(bool start) const;
 		
-		string 	getYear() const; 		// 2016
-		string 	getSeason() const;	// Fall
-		string	getName() const;		// FA161
+		std::string 	getYear() const; 		// 2016
+		std::string 	getSeason() const;	// Fall
+		std::string	getName() const;		// FA161
 		
-		 const static std::array<string, 12> monthsStr;
+		 const static std::string monthsStr[12];
 	private:
 		/*
 		 * Constructor for a semester filling in meta info
 		 */
-		Semester(string year="", string season="", string name="");
+		Semester(std::string year="", std::string season="", std::string name="");
 		/*
 		 * Destructor
 		 */
@@ -49,12 +46,12 @@ class Section::Semester{
 		 *  Returns true on success
 		 *  Returns false otherwise (i.e. value is invalid) and does not change info 
 		 */
-		void setYear(string year);
-		void setSeason(string season);
-		void setName(string name);
+		void setYear(std::string year);
+		void setSeason(std::string season);
+		void setName(std::string name);
 
 
-		bool setDates(const std::array<int, 3>& start, const std::array<int, 3>& end);
+		bool setDates(const int (&start)[3], const int (&end)[3]);
 
 
  
@@ -70,16 +67,17 @@ class Section::Semester{
 		 * day must be between 1 and 31
 		 */
 		static bool validDay(int day);
-		static bool before(const std::array<int, 3>& first, const std::array<int, 3>& second);
+		static bool before(const int (&first)[3], const int (&second)[3]);
 
 
 		friend std::ostream& operator<<(std::ostream& os, const Semester& semester);
 
-		std::array<int, 3> _startDate;
-		std::array<int, 3> _endDate;
+		const static int  NUMOFDATESPECIFIER = 3;
+		int _startDate[ NUMOFDATESPECIFIER ];
+		int _endDate[ NUMOFDATESPECIFIER ];
 
-		string 	_year;
-		string 	_season;
-		string 	_name;
+		std::string 	_year;
+		std::string 	_season;
+		std::string 	_name;
 };
 #endif

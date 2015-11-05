@@ -3,7 +3,8 @@
 #include <string>
 
 class Section{
-
+	friend class Course;
+	friend class SectionCombo;
 	public:
 		class Instructor;
 		class Semester;
