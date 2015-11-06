@@ -21,7 +21,7 @@ class Section::Semester{
 		std::string 	getSeason() const;	// Fall
 		std::string	getName() const;		// FA161
 		
-		 const static std::string monthsStr[12];
+		 const static std::string monthsStr[13];
 	private:
 		/*
 		 * Constructor for a semester filling in meta info

@@ -1,4 +1,4 @@
-EXE=test
+EXE=schedule
 OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o jsonparser.o
 OBJPATH = ./	
 
@@ -9,7 +9,7 @@ LINKER = g++
 all:$(EXE)
 
 $(EXE):$(OBJS)
-		$(LINKER) $(OBJS) $(LINKER_OPTS) -o $(EXE)
+	$(LINKER) $(OBJS) $(LINKER_OPTS) -o $(EXE)
 			
 main.o: Main.cpp SectionBuilder.o Course.o Section.o
 	$(COMPILER) $(COMPILER_OPTS) Main.cpp

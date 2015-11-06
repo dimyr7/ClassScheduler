@@ -103,7 +103,7 @@ void parseDates(Section::SectionBuilder& builder, std::string start, std::string
 	int endMonth = stoi(end.substr(5,7));
 	int endYear = stoi(start.substr(0, 4));
 	builder.setSemesterEnd(endDay, endMonth, endYear);
-
+	
 }
 
 int main(){
