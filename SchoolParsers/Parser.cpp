@@ -80,9 +80,8 @@ Section* Parser::getNext() {
     sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
     sectBuild.setSectionType(sect["Code"].GetString());
     sectBuild.setDescription(_description);
-    std::string firstName(meeting["Instructors"][0]["FirstName"].GetString());
-    std::string lastName(meeting["Instructors"][0]["LastName"].GetString());
-    sectBuild.setInstructorName(lastName + ", " + firstName);
+    std::string name = std::string(meeting["Instructors"][0]["LastName"].GetString()) + ", " + std::string(meeting["Instructors"][0]["FirstName"].GetString());
+    sectBuild.setInstructorName(name);
     std::string start(sect["Start"].GetString());
     int year = stoi(start.substr(0, 4));
     int month = stoi(start.substr(5, 7));
