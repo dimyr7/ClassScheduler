@@ -1,5 +1,5 @@
 EXE=schedule
-OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o #jsonparser.o
+OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o parser.o #jsonparser.o
 OBJPATH = ./	
 
 COMPILER = g++

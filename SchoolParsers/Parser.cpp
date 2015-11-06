@@ -32,11 +32,13 @@ Parser::Parser(std::string fileName) {
 
 std::vector<Section::Section*> Parser::getAll() {
     std::vector<Section::Section*> sections;
+    int temp = _index;
+    _index = 0;
     for (int i = 0; i < _sizeInit; i++) {
         Section* sect = getNext();
         sections.push_back(sect);
-        _index--;
     }
+    _index = temp;
     return sections;
 }
 
