@@ -1,5 +1,5 @@
 EXE=schedule
-OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o #jsonparser.o
+OBJS =  main.o course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o 
 OBJPATH = ./	
 
 COMPILER = g++
@@ -44,8 +44,6 @@ sectionbuilder.o: SectionBuilder.cpp
 parser.o: Parser.hpp
 	$(COMPILER) $(COMPILER_OPTS) Parser.cpp
 
-#jsonparser.o: JSONParser.cpp
-#	$(COMPILER) $(COMPILER_OPTS) JSONParser.cpp
 
 cleanup:
 	-mv *.o *.gch $(OBJPATH)
