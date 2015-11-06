@@ -144,16 +144,16 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << section.getCRN() << std::endl;
 	
 	os << "=== Instructor ==="<< std::endl;
-	os << *section.getInstructor() << std::endl;
+	os << *section.getInstructor();
 	
 	os << "=== Week ==="<< std::endl;
-	os << *section.getWeek() << std::endl;
+	os << *section.getWeek();
 
 	os << "=== Semester ==="<< std::endl;
-	os << *section.getSemester() << std::endl;
+	os << *section.getSemester();
 
 	os << "=== Location ==="<< std::endl;
-	os << *section.getBuilding() << std::endl;
+	os << *section.getBuilding();
 
 	return os;
 }

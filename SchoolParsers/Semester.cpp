@@ -24,7 +24,7 @@ Section::Semester::~Semester(){
 	return;
 }
 
-const std::string Section::Semester::monthsStr[12] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov" "Dec" };
+const std::string Section::Semester::monthsStr[13] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",  "Dec" };
 
 
 
@@ -71,7 +71,6 @@ bool Section::Semester::setDates(const int (&start)[3], const int (&end)[3]){
 	if(not Section::Semester::before(start, end)){ 
 		return false;
 	}
-
 	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
 		this->_startDate[i] = start[i];
 		this->_endDate[i]   = end[i];
