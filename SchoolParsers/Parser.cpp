@@ -17,11 +17,11 @@ using namespace rapidjson;
  * =======================================
  */
 Parser::Parser() {
-    parseJSON();
+    parseJSON("example.json");
 }
 
-Parser::Parser(const char *json) {
-    parseJSON();
+Parser::Parser(std::string fileName) {
+    parseJSON(fileName);
 }
 
 /*
@@ -29,11 +29,13 @@ Parser::Parser(const char *json) {
  * Getters
  * ======================================
  */
+
 std::vector<Section::Section*> Parser::getAll() {
     std::vector<Section::Section*> sections;
     for (int i = 0; i < _sizeInit; i++) {
-        Section* sect = this->getNext();
+        Section* sect = getNext();
         sections.push_back(sect);
+        _index--;
     }
     return sections;
 }
@@ -43,10 +45,7 @@ Section* Parser::getNext() {
         throw std::out_of_range("No more sections");
     }
     const Value &sect = _dom["Sections"][_index++];
-    std::string crn(sect["CRN"].GetString());
-    std::string sectType(sect["Code"].GetString());
     const Value &meeting = sect["Meetings"][0];
-    std::string sectName(meeting["Type"]["Name"].GetString());
 
     const char *startTime = meeting["Start"].GetString();
     const char *endTime = meeting["End"].GetString();
@@ -75,25 +74,31 @@ Section* Parser::getNext() {
             sectBuild.setEndTime(Section::Week::Day::friday, classTime[2], classTime[3]); 
         }
     }
-    // for now
-    sectBuild.setCRN(crn);
-    sectBuild.setSectionName(sectName);
-    sectBuild.setSectionType(sectType);
-    sectBuild.setDescription("Super awesome class");
-    sectBuild.setInstructorName("Professor");
-    sectBuild.setSemesterStart(20, 1, 2016);
-    sectBuild.setSemesterEnd(15, 5, 2016);
-    sectBuild.setSemesterName("Spring Semester");
-    sectBuild.setSemsterYear("2016");
-    sectBuild.setSemesterSeason("Spring");
-    sectBuild.setLocationLat(40.113803);      // coordinates of
-    sectBuild.setLocationLon(-88.224904);     // Siebel Center
-    sectBuild.setLocationBuilding("Siebel");
-    sectBuild.setLocationRoom("3340");
+    sectBuild.setCRN(sect["CRN"].GetString());
+    sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
+    sectBuild.setSectionType(sect["Code"].GetString());
+    sectBuild.setDescription(_description);
+    std::string firstName(meeting["Instructors"][0]["FirstName"].GetString());
+    std::string lastName(meeting["Instructors"][0]["LastName"].GetString());
+    sectBuild.setInstructorName(lastName + ", " + firstName);
+    std::string start(sect["Start"].GetString());
+    int year = stoi(start.substr(0, 4));
+    int month = stoi(start.substr(5, 7));
+    int day = stoi(start.substr(8, 10));
+    sectBuild.setSemesterStart(day, month, year);
+    std::string end(sect["End"].GetString());
+    year = stoi(end.substr(0, 4));
+    month = stoi(end.substr(5, 7));
+    day = stoi(end.substr(8, 10));
+    sectBuild.setSemesterEnd(day, month, year);
+    sectBuild.setSemesterName("Spring Semester");  // don't have yet
+    sectBuild.setSemsterYear("2016");         // don't have yet
+    sectBuild.setSemesterSeason("Spring");    // don't have yet
+    sectBuild.setLocationLat(40.113803);      // don't have yet
+    sectBuild.setLocationLon(-88.224904);     // don't have yet
+    sectBuild.setLocationBuilding(meeting["Building"].GetString());
+    sectBuild.setLocationRoom("3340");        // don't have yet
     Section::Section *builtSection = sectBuild.buildSection();
-    if (!builtSection) {
-        throw std::invalid_argument ("Invalid Section");
-    }
     return builtSection;
 }
 
@@ -139,12 +144,19 @@ void Parser::getClassTime(const char* start, const char* end, int* times) {
     times[3] = endMinute;
 }
 
-// Parses the JSON
-void Parser::parseJSON() {
+// Reads from file and parses JSON
+void Parser::parseJSON(std::string fileName) {
     std::ifstream jsonFile;
-    jsonFile.open("example.json");
+    jsonFile.open(fileName);
+    while(!jsonFile.is_open()) {
+        std::cout << "File not found. Enter file name: ";
+        std::cin >> fileName;
+        jsonFile.open(fileName);
+    }
     std::string contents((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
+    jsonFile.close();
     _dom.Parse(contents.c_str());
     _index = 0;
     _sizeInit = _dom["Sections"].Size();
+    _description = _dom["Description"].GetString();
 }
