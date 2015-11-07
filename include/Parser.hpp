@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include "rapidjson/document.h"
+#include "../lib/rapidjson/document.h"
 #include "Section.hpp"
 
 class Parser {
