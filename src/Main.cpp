@@ -105,7 +105,7 @@ using std::ifstream;
 using namespace std;
 int main(){
     Parser::Parser parse; // example.json default
-    // or Parser::Parser parse(filename);
+    //Parser::Parser parse(filename);
     
     /* Get sections individually 
      *

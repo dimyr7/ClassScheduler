@@ -29,7 +29,8 @@
 
 # More executibles
 build
-lib/*
-
+# lib
+bin
 # Mac specific files
 .DS_Store
+.ycm_extra_conf.py
