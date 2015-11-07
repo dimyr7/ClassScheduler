@@ -1,9 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "Course.hpp"
-#include "SectionBuilder.hpp"
-#include "Parser.hpp"
+#include "../include/Course.hpp"
+#include "../include/SectionBuilder.hpp"
+#include "../include/Parser.hpp"
 
 void example1(){
 	Section::SectionBuilder b;

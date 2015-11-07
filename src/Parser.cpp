@@ -2,11 +2,12 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "rapidjson/document.h"
-#include "Section.hpp"
-#include "SectionBuilder.hpp"
-#include "Week.hpp"
-#include "Parser.hpp"
+
+#include "../lib/rapidjson/document.h"
+#include "../include/Section.hpp"
+#include "../include/Week.hpp"
+#include "../include/SectionBuilder.hpp"
+#include "../include/Parser.hpp"
 #include <stdexcept>
 
 using namespace rapidjson;
@@ -58,7 +59,7 @@ Section* Parser::getNext() {
     int classTime[4];
     getClassTime(startTime, endTime, classTime);
 
-    for (int i = 0; i < strlen(days); i++) {
+    for (int i = 0; i < (int)strlen(days); i++) {
         if (days[i] == 'M') {
             sectBuild.setStartTime(Section::Week::Day::monday, classTime[0], classTime[1]);
             sectBuild.setEndTime(Section::Week::Day::monday, classTime[2], classTime[3]);
