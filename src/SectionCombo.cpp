@@ -16,4 +16,6 @@ void SectionCombo::addSection(Section* section){
 	this->_sections.push_back(section);
 }
 
-
+std::vector<Section*> SectionCombo::getSections(){
+	return this->_sections;
+}

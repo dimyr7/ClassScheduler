@@ -1,9 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "../include/Course.hpp"
-#include "../include/SectionBuilder.hpp"
-#include "../include/Parser.hpp"
+#include "Course.hpp"
+#include "SectionBuilder.hpp"
+#include "Parser.hpp"
 
 void example1(){
 	Section::SectionBuilder b;
@@ -61,8 +61,6 @@ void parseTimes(Section::SectionBuilder& builder, std::string daysOfWeek, std::s
 		endHour = 0;
 	}
 
-	//std::cout << "Start Time: " << startHour << ":" << startMin << std::endl;
-	//std::cout << "End Time: " << endHour << ":" << endMin << std::endl << std::endl;
 
 	if(daysOfWeek.find("M")  != std::string::npos){
 		builder.setStartTime(Section::Week::Day::monday, startHour, startMin);
@@ -104,22 +102,25 @@ using std::iostream;
 using std::ifstream;
 using namespace std;
 int main(){
-    Parser::Parser parse; // example.json default
-    //Parser::Parser parse(filename);
-    
-    /* Get sections individually 
-     *
-    while(parse.hasNext()) { 
-        Section::Section* current = parse.getNext(); 
-        cout << *current << endl; 
-    } 
-    return 0;
-    */
+    Parser::Parser parse; 
+	Course cs125("CS", "125");
+	std::vector<Section*> sections = parse.getAll();
 
-    // Get vector of all sections
-    std::vector<Section::Section*> sections = parse.getAll();
-    for (int i = 0; i < sections.size(); i++) {
-        cout << *sections[i] << endl;
+    for (int i = 0; i < (int)sections.size(); i++) {
+        //cout << *sections[i] << endl;
+		cs125.addSection(sections[i]);
     }
+	std::vector<SectionCombo*> combos = cs125.getCombos();	
+	std::cout << combos.size() << std::endl;
+	for(std::vector<SectionCombo*>::const_iterator it = combos.begin(); it != combos.end(); it++){
+		std::cout << "=== New Combo ===" << std::endl;
+		std::vector<Section*> sections = (*it)->getSections();
+		for(std::vector<Section*>::const_iterator is = sections.begin(); is != sections.end(); is++){
+			std::cout << (*is)->getSectionName() <<std::endl;
+		}
+
+	}
+
+
     return 0;
 }

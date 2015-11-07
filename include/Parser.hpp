@@ -19,7 +19,7 @@ class Parser {
 
         // Returns a pointer to a single section
         Section*            getNext();
-        
+        ;
         // Returns number of sections in the file
         int                 getSize();
 

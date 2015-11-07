@@ -78,8 +78,8 @@ Section* Parser::getNext() {
         }
     }
     sectBuild.setCRN(sect["CRN"].GetString());
-    sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
-    sectBuild.setSectionType(sect["Code"].GetString());
+    sectBuild.setSectionType(meeting["Type"]["Name"].GetString());
+    sectBuild.setSectionName(sect["Code"].GetString());
     sectBuild.setDescription(_description);
     std::string firstName(meeting["Instructors"][0]["FirstName"].GetString());
     std::string lastName(meeting["Instructors"][0]["LastName"].GetString());

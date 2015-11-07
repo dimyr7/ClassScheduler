@@ -1,7 +1,15 @@
 #include "Course.hpp"
 #include "Section.hpp"
 #include "SectionCombo.hpp"
+#include "SectionGroup.hpp"
+#include "SGLecLBD.hpp"
 #include <vector>
+#include <iostream>
+/*
+ * ============================== 
+ * Object Creation
+ * ============================== 
+ */
 Course::Course(std::string department, std::string courseNumber){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
@@ -19,6 +27,12 @@ Course::~Course(){
 	}
 }
 
+/*
+ * ============================== 
+ * Getters
+ * ============================== 
+ */
+
 std::string Course::getDepartment() const{
 	return this->_department;
 }
@@ -31,7 +45,14 @@ std::vector<Section*> Course::getSections() const{
 	return this->_sections;
 }
 
-std::vector<SectionCombo*> Course::getCombos() const{
+std::vector<SectionCombo*> Course::getCombos() {
+	//std::cout << this->_groups.size();
+	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
+		//std::cout << "generatign new combo " << std::endl;
+		std::vector<SectionCombo*>* newCombos = (*it)->getCombos();
+		this->_combos.insert(this->_combos.end(), newCombos->begin(), newCombos->end());
+	}
+
 	return this->_combos;
 }
 
@@ -52,6 +73,20 @@ void Course::setCourseNumber(std::string number){
 }
 
 void Course::addSection(Section* section){
+	//TODO Add section group
+	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
+		bool insertSuccess = (*it)->addSection(section);
+		if(insertSuccess){
+			return;
+		}
+	}
+	/*
+	 * TODO Determine what type of section group
+	 * Lets assume its always Lec-LBD
+	 */
+	SGLecLBD* newGroup = new SGLecLBD(section->getSectionName().substr(0, 1));
+	newGroup->addSection(section);
+	this->_groups.push_back(newGroup);
 	this->_sections.push_back(section);
 }
 

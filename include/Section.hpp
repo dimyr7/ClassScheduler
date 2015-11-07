@@ -26,8 +26,10 @@ class Section{
 		Semester*		getSemester() const;
 		Location* 		getBuilding() const;
 		
+		static bool overlap(Section* a, Section* b);
 	private:
-			/*
+		
+		/*
 		 * Constructor
 		 */
 		Section();

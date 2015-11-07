@@ -1,6 +1,7 @@
 #include "Section.hpp"
 #include "Instructor.hpp"
 #include "Week.hpp"
+#include "Time.hpp"
 #include "Semester.hpp"
 #include "Location.hpp"
 #include <string>
@@ -156,4 +157,29 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << *section.getBuilding();
 
 	return os;
+}
+
+/*
+ * ======================================================
+ * helper functions
+ * ======================================================
+ */
+bool Section::overlap(Section* a, Section* b){
+	Week* weekA = a->getWeek();
+	Week* weekB = b->getWeek();
+	for(int d = 0; d != Section::Week::TIMESINDAY; d++){
+		Section::Week::Time* timeAStart = weekA->getTimes((Section::Week::Day)d, true);
+		Section::Week::Time* timeAEnd	 = weekA->getTimes((Section::Week::Day)d, false);
+		Section::Week::Time* timeBStart = weekB->getTimes((Section::Week::Day)d, true);
+		Section::Week::Time* timeBEnd	 = weekB->getTimes((Section::Week::Day)d, false);
+		
+		if(timeAStart == NULL or timeBStart == NULL){
+			continue;
+		}
+
+		if(not Section::Week::Time::before(timeAEnd, timeBStart) and not Section::Week::Time::before(timeBEnd, timeAStart)){
+			return true;
+		}
+	}
+	return false;
 }

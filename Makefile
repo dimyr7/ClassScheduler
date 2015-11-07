@@ -1,4 +1,4 @@
-OBJS = course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o parser.o
+OBJS = course.o sectionbuilder.o instructor.o location.o section.o sectioncombo.o semester.o time.o week.o parser.o sectioncombo.o sgleclbd.o
 TESTOBJS = test.o
 MAINOBJS = main.o
 OBJPATH = ./	
