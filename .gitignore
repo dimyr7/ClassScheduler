@@ -29,7 +29,7 @@
 
 # More executibles
 build
-lib/*
+# lib/*
 
 # Mac specific files
 .DS_Store
