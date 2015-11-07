@@ -26,3 +26,10 @@
 *.exe
 *.out
 *.app
+
+# More executibles
+build
+lib/*
+
+# Mac specific files
+.DS_Store
