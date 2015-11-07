@@ -5,66 +5,89 @@
 
 #include "Section.hpp"
 #include "SectionCombo.hpp"
-//class Section;
-//class SectionCombo;
+/* 
+ *  Represenets a Course oject such that each course belongs to a department and has a course number
+ *  Each course also has many sections that are partitioned into section groups and a set of sections that are valid
+ */
 class Course{
 	public:
-		/*
-		 * Makes a new course object given a department and course number
+		/**
+		 * Creates a new Course object with no sections, section groups, or combinations
+		 * @param department is a string that is the department code e.g 'CS' and not 'Computer Science'
+		 * @param courseNumber is a string that represents a course nunmber e.g. '125'
 		 */
 		Course(std::string department, std::string courseNumber);
 
-		/*
+		/**
+		 * TODO update to delete section groups
 		 * Destructor for course object
-		 * deletes all sections, sectiongroups, and sectioncombos
+		 * Deletes all sections, sectiongroups, and sectioncombos
 		 */
 		~Course();
 		
-		/*
-		 * Getters
+		/**
+		 * A getter function that returns a string representing the department code e.g. 'CS'
+		 * @return the department code
 		 */
-		std::string 					getDepartment() const;
-		std::string 					getCourseNumber() const;
-		std::vector<Section *> 			getSections() const;
-		std::vector<SectionCombo *>  	getCombos() ;
-	
+		std::string	getDepartment() const;
 
-		/*
-		 * With the current sections populated, it will generate valid combinations of sections
+		/**
+		 * A getter function that returns the string representing the course number e.g. '125'
+		 * @return the course number
 		 */
-		bool	generateCombo(); 
+		std::string getCourseNumber() const;
 
-		/*
-		 * Setters
+		/**
+		 * A getter function that returns a vector of section pointers 
+		 * @return a vector of Section pointers
 		 */
-		void 	setDepartment(std::string department);
-		void  	setCourseNumber(std::string number);
+		std::vector<Section*> getSections() const;
 
-		/*
-		 * Add a new section to a course
+		/**
+		 * Takes all the sections that are belong to this course and generates all possible section combinations.
+		 * The section combinations are returned in a vector of SectionCombo pointers
+		 * @return a vector of SectionCombo pointers that correspond to valid combinations
 		 */
-		void 	addSection(Section* section);
+		std::vector<SectionCombo*> getCombos() ;
 
-		/*
-		 * TODO
+		/**
+		 * Adds a new sections that belongs to this course
+		 * @param section is a pointer to a section that belongs to this course
 		 */
-		bool 	isSyncd() const;
+		void addSection(Section* section);
+
 		class SectionGroup;
 
 
 	private:
 
-		/*
-		 * Sections are organized into sections groups
+		/**
+		 * A string that holds the department code
 		 */
+		std::string	_department;
 		
+		/**
+		 * A string that holds the course number
+		 */
+		std::string	_courseNumber;
 
-		std::string 					_department;
-		std::string 					_courseNumber;
-		std::vector<Section*> 			_sections;
-		std::vector<SectionCombo*> 		_combos;
-		std::vector<SectionGroup*>		_groups;
-		bool					_syncd;
+		/**
+		 * A vector of section groups that belong to this course
+		 */
+		std::vector<Section*> _sections;
+
+		/**
+		 * A vector of valid section combinations
+		 * Only populated when getCombos() is called
+		 */
+		std::vector<SectionCombo*> _combos;
+
+		/**
+		 * A vector of section groups that belong to gether
+		 * Only populated when getCombos() is called
+		 * TODO should be cleared every tome getCombos() is called
+		 */
+		std::vector<SectionGroup*> _groups;
 
 };
 #endif
