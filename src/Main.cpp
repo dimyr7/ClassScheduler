@@ -1,17 +1,11 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "../include/Course.hpp"
+#include "../include/SectionBuilder.hpp"
+#include "../include/Parser.hpp"
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/foreach.hpp>
-#include <boost/algorithm/string/split.hpp>
-
-#include "Course.hpp"
-#include "SectionBuilder.hpp"
-#include "JSONParser.hpp"
-
-
-void test1(){
+void example1(){
 	Section::SectionBuilder b;
 	
 	b.setSectionName("AL1");
@@ -106,74 +100,26 @@ void parseDates(Section::SectionBuilder& builder, std::string start, std::string
 	
 }
 
+using std::iostream;
+using std::ifstream;
+using namespace std;
 int main(){
-	boost::property_tree::ptree *courseTree = JSONParser::openJSON("example.json");
+    Parser::Parser parse; // example.json default
+    // or Parser::Parser parse(filename);
+    
+    /* Get sections individually 
+     *
+    while(parse.hasNext()) { 
+        Section::Section* current = parse.getNext(); 
+        cout << *current << endl; 
+    } 
+    return 0;
+    */
 
-	std::string dep = courseTree->find("Department")->second.data();
-	std::string num = courseTree->find("getCourseNumber")->second.data();
-	Course course(dep, num);
-	
-
-	BOOST_FOREACH(boost::property_tree::ptree::value_type &v, courseTree->get_child("Sections")){
-		Section::SectionBuilder builder;
-		boost::property_tree::ptree sectionTree = v.second;
-		
-		/*
-		 * Getting sections info from JSON
-		 */
-		std::string sectionName = sectionTree.get<std::string>("Code");
-		std::string sectionType = sectionTree.get<std::string>("Meetings..Type.Name");
-		std::string crn 		= sectionTree.get<std::string>("CRN");
-
-		builder.setSectionName(sectionName);
-		builder.setSectionType(sectionType);
-		builder.setDescription("A description of a course");
-		builder.setCRN(crn);
-
-		/*
-		 * Get instructor info from JSON
-		 */
-		std::string firstNameProf = sectionTree.get<std::string>("Meetings..Instructors..FirstName");
-		std::string lastNameProf  = sectionTree.get<std::string>("Meetings..Instructors..LastName");
-
-		builder.setInstructorName(firstNameProf + " " + lastNameProf);
-
-		/*
-		 * Getting week times
-		 */
-		std::string daysOfWeek = sectionTree.get<std::string>("Meetings..Days");
-		std::string startTime  = sectionTree.get<std::string>("Meetings..Start");
-		std::string endTime    = sectionTree.get<std::string>("Meetings..End");
-		parseTimes(builder, daysOfWeek, startTime, endTime);
-
-
-		/*
-		 * Get Semester dates
-		 */
-		std::string startDate = sectionTree.get<std::string>("Start");
-		std::string endDate   = sectionTree.get<std::string>("End");
-		parseDates(builder, startDate, endDate);
-		builder.setSemsterYear("2016");
-		builder.setSemesterName("Spring 1");
-		builder.setSemesterSeason("Spring");
-		//std::cout<< val << std::endl;	
-		
-
-		/*
-		 * Location data for builder
-		 */
-		std::string building = sectionTree.get<std::string>("Meetings..Building");
-
-		builder.setLocationLat(-15);
-		builder.setLocationLon(15);
-		builder.setLocationBuilding(building);
-		builder.setLocationRoom("Lecture hall");
-
-		Section* section = builder.buildSection();
-		//course.addSection(section);
-		std::cout << *section << std::endl;
-	}
-	
-	
-	return 0;
+    // Get vector of all sections
+    std::vector<Section::Section*> sections = parse.getAll();
+    for (int i = 0; i < sections.size(); i++) {
+        cout << *sections[i] << endl;
+    }
+    return 0;
 }
