@@ -5,16 +5,16 @@
  * Object Creation
  * ======================================================
  */
-Section::Instructor::Instructor(std::string name){
+Instructor::Instructor(std::string name){
 	this->_name = name;
 }
-Section::Instructor::~Instructor(){
+Instructor::~Instructor(){
 	return;
 }
-Section::Instructor::Instructor(const Instructor& copy){
+Instructor::Instructor(const Instructor& copy){
 	this->_name = copy._name;
 }
-Section::Instructor& Section::Instructor::operator=(const Instructor& copy){
+Instructor& Instructor::operator=(const Instructor& copy){
 	this->_name = copy._name;
 	return *this;
 }
@@ -24,15 +24,15 @@ Section::Instructor& Section::Instructor::operator=(const Instructor& copy){
  * ======================================================
  */
 
-std::string Section::Instructor::getName() const{
+std::string Instructor::getName() const{
 	return this->_name;
 }
 
-void Section::Instructor::setName(std::string name){
+void Instructor::setName(std::string name){
 	this->_name = name;
 }
 
-std::ostream& operator<<(std::ostream& os, const Section::Instructor& instructor){
+std::ostream& operator<<(std::ostream& os, const Instructor& instructor){
 		os << instructor.getName() << std::endl;
 		return os;
 }

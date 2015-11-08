@@ -1,34 +1,15 @@
 #ifndef SECTION_H 
 #define SECTION_H
+
+#include "Week.hpp"
+#include "Location.hpp"
+#include "Instructor.hpp"
+#include "Semester.hpp"
+
 #include <string>
-
 class Section{
-	friend class Course;
-	friend class SectionCombo;
 	public:
-		class Instructor;
-		class Semester;
-		class Location;
-		class Week;
 		class SectionBuilder;
-
-		/*
-		 * Getters
-		 */
-		std::string 		getSectionName() const;
-		std::string 		getSectionType() const;
-		std::string 		getDescription() const;
-		std::string 		getCRN() const;
-
-
-		Instructor*		getInstructor() const;
-		Week* 			getWeek() const;
-		Semester*		getSemester() const;
-		Location* 		getBuilding() const;
-		
-		static bool overlap(Section* a, Section* b);
-	private:
-		
 		/*
 		 * Constructor
 		 */
@@ -49,6 +30,24 @@ class Section{
 		 */
 		Section& operator=(const Section& copy);
 
+		/*
+		 * Getters
+		 */
+		std::string 		getSectionName() const;
+		std::string 		getSectionType() const;
+		std::string 		getDescription() const;
+		std::string 		getCRN() const;
+
+
+		Instructor*		getInstructor() const;
+		Week* 			getWeek() const;
+		Semester*		getSemester() const;
+		Location* 		getBuilding() const;
+		
+		static bool overlap(Section* a, Section* b);
+	private:
+		
+		
 		/*
 		 * Setters
 		 */

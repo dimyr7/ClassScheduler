@@ -1,10 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <string>
 #include "Course.hpp"
+#include "Section.hpp"
 #include "SectionBuilder.hpp"
 #include "Parser.hpp"
-
 void example1(){
 	Section::SectionBuilder b;
 	
@@ -15,11 +12,11 @@ void example1(){
 
 	b.setInstructorName("Alan Turing");
 
-	b.setStartTime(Section::Week::Day::monday, 6, 0);
-	b.setEndTime(Section::Week::Day::monday, 8, 0);
+	b.setStartTime(Week::Day::monday, 6, 0);
+	b.setEndTime(Week::Day::monday, 8, 0);
 
-	b.setStartTime(Section::Week::Day::tuesday, 7, 0);
-	b.setEndTime(Section::Week::Day::tuesday, 9, 0);
+	b.setStartTime(Week::Day::tuesday, 7, 0);
+	b.setEndTime(Week::Day::tuesday, 9, 0);
 
 	b.setSemesterStart(1, 1, 2015);
 	b.setSemesterEnd(30, 12, 2015);
@@ -63,24 +60,24 @@ void parseTimes(Section::SectionBuilder& builder, std::string daysOfWeek, std::s
 
 
 	if(daysOfWeek.find("M")  != std::string::npos){
-		builder.setStartTime(Section::Week::Day::monday, startHour, startMin);
-		builder.setEndTime(Section::Week::Day::monday, endHour, endMin);
+		builder.setStartTime(Week::Day::monday, startHour, startMin);
+		builder.setEndTime(Week::Day::monday, endHour, endMin);
 	}
 	if(daysOfWeek.find("T")  != std::string::npos){
-		builder.setStartTime(Section::Week::Day::tuesday, startHour, startMin);
-		builder.setEndTime(Section::Week::Day::tuesday, endHour, endMin);
+		builder.setStartTime(Week::Day::tuesday, startHour, startMin);
+		builder.setEndTime(Week::Day::tuesday, endHour, endMin);
 	}
 	if(daysOfWeek.find("W") != std::string::npos){
-		builder.setStartTime(Section::Week::Day::wednesday, startHour, startMin);
-		builder.setEndTime(Section::Week::Day::wednesday, endHour, endMin);
+		builder.setStartTime(Week::Day::wednesday, startHour, startMin);
+		builder.setEndTime(Week::Day::wednesday, endHour, endMin);
 	}
 	if(daysOfWeek.find("R") != std::string::npos){
-		builder.setStartTime(Section::Week::Day::thursday, startHour, startMin);
-		builder.setEndTime(Section::Week::Day::thursday, endHour, endMin);
+		builder.setStartTime(Week::Day::thursday, startHour, startMin);
+		builder.setEndTime(Week::Day::thursday, endHour, endMin);
 	}
 	if(daysOfWeek.find("F") != std::string::npos){
-		builder.setStartTime(Section::Week::Day::friday, startHour, startMin);
-		builder.setEndTime(Section::Week::Day::friday, endHour, endMin);
+		builder.setStartTime(Week::Day::friday, startHour, startMin);
+		builder.setEndTime(Week::Day::friday, endHour, endMin);
 	}
 }
 
@@ -102,7 +99,7 @@ using std::iostream;
 using std::ifstream;
 using namespace std;
 int main(){
-    Parser::Parser parse; 
+    Parser parse; 
 	Course cs125("CS", "125");
 	std::vector<Section*> sections = parse.getAll();
 

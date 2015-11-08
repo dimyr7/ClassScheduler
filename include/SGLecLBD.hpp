@@ -1,17 +1,9 @@
 #ifndef SGLECLBD_H
 #define SGLECLBD_H
-#include "Course.hpp"
 #include "SectionGroup.hpp"
-#include "SectionCombo.hpp"
-class SGLecLBD : Course::SectionGroup{
-	friend class Course;
+#include <vector>
+class SGLecLBD : public Course::SectionGroup{
 	public:
-		/*
-		 * Getters
-		 */
-		std::vector<Section*>	getLectures() const;
-		std::vector<Section*>	getLabDis() const;
-	private:
 		/*
 		 * Object creation
 		 */
@@ -20,20 +12,29 @@ class SGLecLBD : Course::SectionGroup{
 		SGLecLBD& operator=(const SGLecLBD& copy);
 
 		/*
-		 * add new section to a section group
+		 * Getters
 		 */
+		std::vector<Section*>	getLectures() const;
+		std::vector<Section*>	getLabDis() const;
+		
 		bool addSection(Section* section);
 
 		/*
 		 * Generates all possible combinations of sections
 		 */
-		std::vector<SectionCombo*>* getCombos() const;
+		std::vector<SectionCombo*> getCombos() const;
 
 		/*
 		 * returns true if this section belongs in this section group based on ID
 		 */
 		bool validID(const Section* section) const;
+
+	private:
 		
+		/*
+		 * add new section to a section group
+		 */
+				
 		std::string 			_id;
 		std::vector<Section*> 	_lectures;
 		std::vector<Section*>	_labDiscussions;

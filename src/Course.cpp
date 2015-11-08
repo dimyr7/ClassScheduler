@@ -1,10 +1,7 @@
 #include "Course.hpp"
-#include "Section.hpp"
 #include "SectionCombo.hpp"
 #include "SectionGroup.hpp"
 #include "SGLecLBD.hpp"
-#include <vector>
-#include <iostream>
 /*
  * ============================== 
  * Object Creation
@@ -50,8 +47,8 @@ std::vector<SectionCombo*> Course::getCombos() {
 	// Iterates through all the section groups
 	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
 		// Gests all teh valid combos and adds to the running vector of valid combinations
-		std::vector<SectionCombo*>* newCombos = (*it)->getCombos();
-		this->_combos.insert(this->_combos.end(), newCombos->begin(), newCombos->end());
+		std::vector<SectionCombo*> newCombos = (*it)->getCombos();
+		this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
 	}
 	return this->_combos;
 }

@@ -1,11 +1,8 @@
 #ifndef PARSE_H
 #define PARSE_H
-
-#include <vector>
-#include <string>
-#include "../lib/rapidjson/document.h"
 #include "Section.hpp"
-
+#include "../lib/rapidjson/document.h"
+#include <vector>
 class Parser {
     public:
         // Parses example.json 
@@ -15,7 +12,7 @@ class Parser {
         Parser(std::string jsonFile);
         
         // Returns a vector of pointers to all sections in file
-        std::vector<Section::Section*> getAll();
+        std::vector<Section*> getAll();
 
         // Returns a pointer to a single section
         Section*            getNext();

@@ -1,15 +1,8 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-
+#include "Parser.hpp"
+#include "Section.hpp"
+#include "SectionBuilder.hpp"
 #include "../lib/rapidjson/document.h"
-#include "../include/Section.hpp"
-#include "../include/Week.hpp"
-#include "../include/SectionBuilder.hpp"
-#include "../include/Parser.hpp"
-#include <stdexcept>
-
+#include <fstream>
 using namespace rapidjson;
 
 /*
@@ -31,8 +24,8 @@ Parser::Parser(std::string fileName) {
  * ======================================
  */
 
-std::vector<Section::Section*> Parser::getAll() {
-    std::vector<Section::Section*> sections;
+std::vector<Section*> Parser::getAll() {
+    std::vector<Section*> sections;
     int temp = _index;
     _index = 0;
     for (int i = 0; i < _sizeInit; i++) {
@@ -61,20 +54,20 @@ Section* Parser::getNext() {
 
     for (int i = 0; i < (int)strlen(days); i++) {
         if (days[i] == 'M') {
-            sectBuild.setStartTime(Section::Week::Day::monday, classTime[0], classTime[1]);
-            sectBuild.setEndTime(Section::Week::Day::monday, classTime[2], classTime[3]);
+            sectBuild.setStartTime(Week::Day::monday, classTime[0], classTime[1]);
+            sectBuild.setEndTime(Week::Day::monday, classTime[2], classTime[3]);
         } else if (days[i] == 'T') {
-            sectBuild.setStartTime(Section::Week::Day::tuesday, classTime[0], classTime[1]);
-            sectBuild.setEndTime(Section::Week::Day::tuesday, classTime[2], classTime[3]);
+            sectBuild.setStartTime(Week::Day::tuesday, classTime[0], classTime[1]);
+            sectBuild.setEndTime(Week::Day::tuesday, classTime[2], classTime[3]);
         } else if (days[i] == 'W') {
-            sectBuild.setStartTime(Section::Week::Day::wednesday, classTime[0], classTime[1]);
-            sectBuild.setEndTime(Section::Week::Day::wednesday, classTime[2], classTime[3]); 
+            sectBuild.setStartTime(Week::Day::wednesday, classTime[0], classTime[1]);
+            sectBuild.setEndTime(Week::Day::wednesday, classTime[2], classTime[3]); 
         } else if (days[i] == 'R') {
-            sectBuild.setStartTime(Section::Week::Day::thursday, classTime[0], classTime[1]);
-            sectBuild.setEndTime(Section::Week::Day::thursday, classTime[2], classTime[3]); 
+            sectBuild.setStartTime(Week::Day::thursday, classTime[0], classTime[1]);
+            sectBuild.setEndTime(Week::Day::thursday, classTime[2], classTime[3]); 
         } else if (days[i] == 'F') {
-            sectBuild.setStartTime(Section::Week::Day::friday, classTime[0], classTime[1]);
-            sectBuild.setEndTime(Section::Week::Day::friday, classTime[2], classTime[3]); 
+            sectBuild.setStartTime(Week::Day::friday, classTime[0], classTime[1]);
+            sectBuild.setEndTime(Week::Day::friday, classTime[2], classTime[3]); 
         }
     }
     sectBuild.setCRN(sect["CRN"].GetString());
@@ -101,7 +94,7 @@ Section* Parser::getNext() {
     sectBuild.setLocationLon(-88.224904);     // don't have yet
     sectBuild.setLocationBuilding(meeting["Building"].GetString());
     sectBuild.setLocationRoom("3340");        // don't have yet
-    Section::Section *builtSection = sectBuild.buildSection();
+    Section *builtSection = sectBuild.buildSection();
     return builtSection;
 }
 

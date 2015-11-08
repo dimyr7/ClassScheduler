@@ -1,28 +1,13 @@
 #ifndef SEMESTER_H
 #define SEMESTER_H
-#include <string>
-#include "Section.hpp"
 
+#include <string>
 /*
  * represents a semester with start and end dates along with some meta info
  */
-class Section::Semester{
-	friend class Section;
+class Semester{
 	public:
-		/*
-		 * if start=true, returns data about the start date
-		 * returns data about end date otherwise
-		 */
-		int 	getDay(bool start) const; // [28, 8, 2016]  => August 28, 2016
-		int 	getMonth(bool start) const;   // [14, 12, 2016] => December 14, 2016
-		int 	getYear(bool start) const;
-		
-		std::string 	getYear() const; 		// 2016
-		std::string 	getSeason() const;	// Fall
-		std::string	getName() const;		// FA161
-		
-		 const static std::string monthsStr[13];
-	private:
+
 		/*
 		 * Constructor for a semester filling in meta info
 		 */
@@ -40,7 +25,17 @@ class Section::Semester{
 		 */
 		Semester& operator=(const Semester& copy);
 
-
+		/*
+		 * if start=true, returns data about the start date
+		 * returns data about end date otherwise
+		 */
+		int 	getDay(bool start) const; // [28, 8, 2016]  => August 28, 2016
+		int 	getMonth(bool start) const;   // [14, 12, 2016] => December 14, 2016
+		int 	getYear(bool start) const;
+		
+		std::string 	getYear() const; 		// 2016
+		std::string 	getSeason() const;	// Fall
+		std::string	getName() const;		// FA161
 
 		/*
 		 *  Returns true on success
@@ -52,6 +47,16 @@ class Section::Semester{
 
 
 		bool setDates(const int (&start)[3], const int (&end)[3]);
+	
+		const static std::string monthsStr[13];
+		const static int  NUMOFDATESPECIFIER = 3;
+
+		static bool before(const int (&first)[3], const int (&second)[3]);
+
+	private:
+		
+
+
 
 
  
@@ -67,13 +72,11 @@ class Section::Semester{
 		 * day must be between 1 and 31
 		 */
 		static bool validDay(int day);
-		static bool before(const int (&first)[3], const int (&second)[3]);
-
+		
 
 		friend std::ostream& operator<<(std::ostream& os, const Semester& semester);
 
-		const static int  NUMOFDATESPECIFIER = 3;
-		int _startDate[ NUMOFDATESPECIFIER ];
+				int _startDate[ NUMOFDATESPECIFIER ];
 		int _endDate[ NUMOFDATESPECIFIER ];
 
 		std::string 	_year;

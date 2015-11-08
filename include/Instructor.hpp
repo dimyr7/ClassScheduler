@@ -1,16 +1,9 @@
 #ifndef INSTRUCTOR_H
 #define INSTRUCTOR_H
 #include <string>
-#include "Section.hpp"
-
-
-class Section::Instructor{
-	friend class Section;
+class Instructor{
 	public:
-		std::string getName() const;
 
-	
-	private:
 		/*
 		 * Construtor
 		 */
@@ -28,6 +21,11 @@ class Section::Instructor{
 		 */
 		Instructor& operator=(const Instructor& copy);
 
+		std::string getName() const;
+
+	
+	private:
+		
 
 		/*
 		 * setters

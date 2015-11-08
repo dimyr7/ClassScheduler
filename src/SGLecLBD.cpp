@@ -1,8 +1,5 @@
+#include "SectionCombo.hpp"
 #include "SGLecLBD.hpp"
-#include "Section.hpp"
-#include <string>
-#include <vector>
-#include <iostream>
 /*
  * Object Creation
  */
@@ -38,8 +35,8 @@ bool 	SGLecLBD::addSection(Section* section){
 }
 
 
-std::vector<SectionCombo*>* SGLecLBD::getCombos() const{
-	std::vector<SectionCombo*>* combos = new std::vector<SectionCombo*>();
+std::vector<SectionCombo*> SGLecLBD::getCombos() const{
+	std::vector<SectionCombo*> combos;
 	/*
 	 * For all possilbr lectures
 	 */
@@ -67,7 +64,7 @@ std::vector<SectionCombo*>* SGLecLBD::getCombos() const{
 			SectionCombo* sectionCombo = new SectionCombo();
 			sectionCombo->addSection(lecture);
 			sectionCombo->addSection(labdis);
-			combos->push_back(sectionCombo);
+			combos.push_back(sectionCombo);
 		}
 		
 	}

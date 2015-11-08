@@ -1,10 +1,10 @@
 #ifndef COURSE_H
 #define COURSE_H
-#include <string>
-#include <vector>
 
 #include "Section.hpp"
 #include "SectionCombo.hpp"
+#include <string>
+#include <vector>
 /* 
  *  Represenets a Course oject such that each course belongs to a department and has a course number
  *  Each course also has many sections that are partitioned into section groups and a set of sections that are valid
@@ -56,6 +56,10 @@ class Course{
 		 */
 		void addSection(Section* section);
 
+		/*
+		 * A SectionGroup is a way to categorize sections. e.g. Lecture & Lab-Discussion
+		 * One Section from each group will be a valid combination.
+		 */
 		class SectionGroup;
 
 
