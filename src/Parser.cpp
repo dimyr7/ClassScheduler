@@ -82,9 +82,9 @@ bool Parser::hasNext() {
  * and stores them in vector _sections
  */
 void Parser::buildAllSections() {
-    for (int i = 0; i < _sizeInit; i++) {
-        const Value &sect = _dom["Sections"][i];            // Get a single section
-        const Value &meeting = sect["Meetings"][0];         // Meeting is an array with one element
+    for (int index = 0; index < _sizeInit; index++) {
+        const Value &section = _dom["Sections"][index];
+        const Value &meeting = section["Meetings"][0];         // Meeting is an array with one element
 
         std::string start(meeting["Start"].GetString());    
         std::string end(meeting["End"].GetString());    
@@ -114,9 +114,9 @@ void Parser::buildAllSections() {
             }
         }
 
-        sectBuild.setCRN(sect["CRN"].GetString());
+        sectBuild.setCRN(section["CRN"].GetString());
         sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
-        sectBuild.setSectionType(sect["Code"].GetString());
+        sectBuild.setSectionType(section["Code"].GetString());
         sectBuild.setDescription(_description);
         std::string name = std::string(meeting["Instructors"][0]["LastName"].GetString()) + ", "
                                        + std::string(meeting["Instructors"][0]["FirstName"].GetString());
@@ -124,12 +124,12 @@ void Parser::buildAllSections() {
         sectBuild.setLocationBuilding(meeting["Building"].GetString());
         
         // Semester start and end dates
-        std::string startSemester(sect["Start"].GetString());
+        std::string startSemester(section["Start"].GetString());
         int year = stoi(startSemester.substr(0, 4));
         int month = stoi(startSemester.substr(5, 7));
         int day = stoi(startSemester.substr(8, 10));
         sectBuild.setSemesterStart(day, month, year);
-        std::string endSemester(sect["End"].GetString());
+        std::string endSemester(section["End"].GetString());
         year = stoi(endSemester.substr(0, 4));
         month = stoi(endSemester.substr(5, 7));
         day = stoi(endSemester.substr(8, 10));

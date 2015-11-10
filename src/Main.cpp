@@ -118,8 +118,8 @@ int main(){
 
     // Get vector of all sections
     std::vector<Section::Section*> sections = parse.getAll();
-    for (int i = 0; i < sections.size(); i++) {
-        cout << *sections[i] << endl;
+    for (auto index = sections.begin(); index != sections.end(); index++) {
+        cout << **index << endl;
     }
     return 0;
 }
