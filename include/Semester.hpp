@@ -3,84 +3,175 @@
 
 #include <string>
 /*
- * represents a semester with start and end dates along with some meta info
+ * This represents a 'Semester' such as Fall 2015, or Spring 2016 A (Only the first 8 weeks)
  */
 class Semester{
 	public:
 
-		/*
-		 * Constructor for a semester filling in meta info
+		/**
+		 * Constructor
+		 * A creates a new semester. 
+		 * Sets the start dates to Jan 1, 2000 and the end date to Dec 31, 2000 
+		 * Start and end dates can only be changed once after this
+		 * @param year is a string representing the year (e.g. '2016'), defualts to '2000'
+		 * @param season is a string representation of a season (e.g. 'Spring'), defaults to 'Fall'
+		 * @param name is a string representation of a semester name (e.g. 'SP16A') defaults to 'FA15'
 		 */
-		Semester(std::string year="", std::string season="", std::string name="");
-		/*
+		Semester(std::string year="2000", std::string season="Fall", std::string name="FA15");
+
+		/**
 		 * Destructor
+		 * Releases all the resources held by a Semester Object
 		 */
 		~Semester();
-		/*
+
+		/**
 		 * Copy constructor
+		 * @param copy is a Semester object to be copied into a new object
 		 */
 		Semester(const Semester& copy);
-		/*
+
+		/**
 		 * Assignment operator
+		 * @param copy is a semester object to be copied into a new object
+		 * @return is a Semester object that called this function with the new set of attributes
 		 */
 		Semester& operator=(const Semester& copy);
 
-		/*
-		 * if start=true, returns data about the start date
-		 * returns data about end date otherwise
+		/**
+		 * Getter function to get the day of the starting date 
+		 * @return an integer representing the starting day number
 		 */
-		int 	getDay(bool start) const; // [28, 8, 2016]  => August 28, 2016
-		int 	getMonth(bool start) const;   // [14, 12, 2016] => December 14, 2016
-		int 	getYear(bool start) const;
+		int 	getStartDay() const; 
+
+		/**
+		 * Getter function to get the month of the starting date 
+		 * @return an integer representing the month number (e.g. Jan => 1, Aug => 8)
+		 */
+		int 	getStartMonth() const;  
+
+		/**
+		 * Getter function to get the year of the starting date 
+		 * @return an integer representing the starting year
+		 */
+		int 	getStartYear() const;
+
+		/**
+		 * Getter function to get the day of the ending date 
+		 * @return an integer representing the ending day number
+		 */
+		int 	getEndDay() const;
+
+		/**
+		 * Getter function to get the month of the ending date 
+		 * @return an integer representing the ending month number (e.g. Jan => 1, Aug => 8)
+		 */
+		int 	getEndMonth() const;
 		
-		std::string 	getYear() const; 		// 2016
-		std::string 	getSeason() const;	// Fall
-		std::string	getName() const;		// FA161
-
-		/*
-		 *  Returns true on success
-		 *  Returns false otherwise (i.e. value is invalid) and does not change info 
+		/**
+		 * Getter function to get the year of the ending date 
+		 * @return an integer representing the ending year
 		 */
-		void setYear(std::string year);
-		void setSeason(std::string season);
-		void setName(std::string name);
+		int 	getEndYear() const;
 
+		/**
+		 * Getter function to get the year to which this semester belongs to
+		 * @return string representation of the year of the semester
+		 */
+		std::string 	getYear() const; 	
 
+		/**
+		 * Getter function to get the season to which this semester belongs to
+		 * @return string representation of the season (e.g. 'Fall')
+		 */
+		std::string 	getSeason() const;
+
+		/**
+		 * Getter function to get the name of the semester
+		 * @return string representation of the name (e.g. 'FA15')
+		 */
+		std::string		getName() const;
+
+		/**
+		 * A setter function to set the starting and ending dates for a semester
+		 * Both dates must be provided 
+		 * The dates can only be set once for a Semester object.
+		 * @param  start is an integer array of length 3 that represents a starting date (e.g. Jan 2, 2000 => [2, 1, 2000] 
+		 * @param end is an integer array of length 3 that represents an ending date (e.g. Dec 31, 2000 => [31, 12, 2000]
+		 * @return true if the operation was successful, false otherwise (e.g. dates already set, parameters are valid dates, the start date is not actually before the end date
+		 */
 		bool setDates(const int (&start)[3], const int (&end)[3]);
 	
-		const static std::string monthsStr[13];
-		const static int  NUMOFDATESPECIFIER = 3;
-
+		/**
+		 * A static function that takes two integer arrays of length 3 and determines if one is before the other
+		 * @param first is an integer array of length 3 that represents a date
+		 */
 		static bool before(const int (&first)[3], const int (&second)[3]);
 
 	private:
-		
-
-
-
-
  
 		/*
-	 	 * year must between 1990 and 2100
+	 	 * A function that determines if a year is valid
+		 * @param year is an int representing a year to validate
+		 * @return true if the year is valid, false otherwise
 		 */
 		static bool validYear(int year);
+
 		/*
-		 * month must be between 1 and 12
+		 * A function that determines if a month is invalid
+		 * @param month is a int representing a month to validate
+		 * @return true if a month is valid, false otherwise
 		 */
 		static bool validMonth(int month);
+
 		/*
-		 * day must be between 1 and 31
+		 * A function that determines if a day is valid
 		 */
 		static bool validDay(int day);
 		
-
+		/**
+		 * A semestetr can be sent to a stream to be printed in human readable form
+		 * @param os is a stream to write to
+		 * @param semester is a Semester object that will be converted to a human readable stream and written to stream
+		 * @return is the stream os so that commands can be chained
+		 */
 		friend std::ostream& operator<<(std::ostream& os, const Semester& semester);
 
-				int _startDate[ NUMOFDATESPECIFIER ];
-		int _endDate[ NUMOFDATESPECIFIER ];
+		/**
+		 * An integer representing the starting date
+		 */
+		int _startDate[3];
 
+		/**
+		 * An integer representing the ending date
+		 */
+		int _endDate[3];
+
+		/**
+		 * A string representing a year to which a semester belongs to
+		 */
 		std::string 	_year;
+
+		/**
+		 * A string representing the season
+		 */
 		std::string 	_season;
+
+		/**
+		 * The name of the semeseter
+		 */
 		std::string 	_name;
+	
+		/**
+		 * An array of string representations of months
+		 */
+		const static std::string monthsStr[12];
+		
+
+		/**
+		 * set to true if the date has already been set, false otherwise
+		 */
+		bool _isSet;
+
 };
 #endif
