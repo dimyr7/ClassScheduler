@@ -30,7 +30,6 @@
 # More executibles
 build
 bin/runner
-lib/*
 
 # Mac specific files
 .DS_Store
