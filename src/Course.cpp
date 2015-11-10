@@ -10,10 +10,11 @@
 Course::Course(std::string department, std::string courseNumber){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
-
+	this->_sync = false;
 }
 
 Course::~Course(){
+	// TODO delete other pointers
 	// Iterates through all Sections and deletes it
 	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
 		delete *it;
@@ -43,7 +44,7 @@ std::vector<Section*> Course::getSections() const{
 }
 
 std::vector<SectionCombo*> Course::getCombos() {
-	// TODO generate SectionGroups here
+	this->generateSectionGroup();
 	// Iterates through all the section groups
 	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
 		// Gests all teh valid combos and adds to the running vector of valid combinations
@@ -55,16 +56,15 @@ std::vector<SectionCombo*> Course::getCombos() {
 
 
 void Course::addSection(Section* section){
-	//TODO Adding to Section Groups should not be done here
-	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
-		bool insertSuccess = (*it)->addSection(section);
-		if(insertSuccess){
-			return;
-		}
-	}
-	SGLecLBD* newGroup = new SGLecLBD(section->getSectionName().substr(0, 1));
-	newGroup->addSection(section);
-	this->_groups.push_back(newGroup);
 	this->_sections.push_back(section);
 }
 
+void Course::generateSectionGroup(){
+	// Delete the old section groups
+	this->_groups.erase(this->_groups.begin(), this->_groups.end());
+	
+	if( this->_department.compare("PHYS") == 0){
+		//Physics is a bit weird
+	}
+
+}

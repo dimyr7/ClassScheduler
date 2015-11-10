@@ -1,6 +1,6 @@
 #ifndef SECTIONBUILDER_H
 #define SECTIONBUILDER_H
-
+#include "Section.hpp"
 class Section::SectionBuilder{
 	public:
 		SectionBuilder();
@@ -47,15 +47,15 @@ class Section::SectionBuilder{
 		 * Week
 		 * Organized by [monday, tuesday, ...][start, end][hour, minute]
 		 */
-		int _weekTimes[ Week::DAYSINWEEK ][ Week::DAYSINWEEK ][ 2 ];
+		int _weekTimes[ Week::DAYSINWEEK ][ Week::DAYSINWEEK ][2];
 
 
 		/*
 		 * Semester
 		 * Organized by [day][month][year]
 		 */
-		int 		_semesterStartDate[ Semester::NUMOFDATESPECIFIER ];
-		int 		_semesterEndDate[ Semester::NUMOFDATESPECIFIER ];
+		int 		_semesterStartDate[3];
+		int 		_semesterEndDate[3];
 		std::string 			_semesterYear;
 		std::string 			_semesterSeason;
 		std::string 			_semesterName;

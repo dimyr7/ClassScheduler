@@ -61,7 +61,11 @@ class Course{
 		 * One Section from each group will be a valid combination.
 		 */
 		class SectionGroup;
-
+	
+		/**
+		 * TODO
+		 */
+		void generateSectionGroup();
 
 	private:
 
@@ -92,6 +96,11 @@ class Course{
 		 * TODO should be cleared every tome getCombos() is called
 		 */
 		std::vector<SectionGroup*> _groups;
+	
 
+		/**
+		 * A boolean that is true when the sectongroups and sectioncombos are syncd with the sections
+		 */
+		bool _sync;
 };
 #endif

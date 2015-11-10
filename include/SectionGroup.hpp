@@ -4,6 +4,7 @@
 #include <vector>
 class Course::SectionGroup{	
 	public:
+		virtual ~SectionGroup() = 0;
 		virtual bool 	addSection(Section* section) = 0;
 		virtual std::vector<SectionCombo*> getCombos() const = 0;
 		bool	isValid() const;

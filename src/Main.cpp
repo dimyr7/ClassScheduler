@@ -108,7 +108,7 @@ int main(){
 		cs125.addSection(sections[i]);
     }
 	std::vector<SectionCombo*> combos = cs125.getCombos();	
-	std::cout << combos.size() << std::endl;
+
 	for(std::vector<SectionCombo*>::const_iterator it = combos.begin(); it != combos.end(); it++){
 		std::cout << "=== New Combo ===" << std::endl;
 		std::vector<Section*> sections = (*it)->getSections();

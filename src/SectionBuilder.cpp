@@ -1,6 +1,5 @@
-#include "Section.hpp"
 #include "SectionBuilder.hpp"
-
+#include "Section.hpp"
 Section::SectionBuilder::SectionBuilder(){
 	/*
   	 * Section Info
@@ -27,7 +26,7 @@ Section::SectionBuilder::SectionBuilder(){
 	/*
 	 * Semester
 	 */
-	for(int i = 0; i < Semester::NUMOFDATESPECIFIER; i++){
+	for(int i = 0; i < 3 ; i++){
 		this->_semesterStartDate[i] = -1;
 		this->_semesterEndDate[i] = -1;
 	}
