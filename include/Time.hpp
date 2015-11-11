@@ -1,7 +1,7 @@
 #ifndef TIME_H
 #define TIME_H
 #include <iostream>
-/*
+/**
  * Represents a time on 24 hour clock
  */
 class Time{

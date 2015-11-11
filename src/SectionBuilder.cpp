@@ -79,9 +79,7 @@ Section* Section::SectionBuilder::buildSection(){
 	 */
 
 	
-	Location* building = new Location(this->_locationLat, this->_locationLon);
-	building->setRoomNumber(this->_locationRoomNumber);
-	building->setBuildingName(this->_locationBuildingName);
+	Location* building = new Location(this->_locationBuildingName, this->_locationRoomNumber, this->_locationLat, this->_locationLon);
 		
 	/*
 	 * Creating Semseter

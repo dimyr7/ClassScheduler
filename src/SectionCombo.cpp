@@ -4,9 +4,7 @@ SectionCombo::SectionCombo(){
 }
 
 SectionCombo::~SectionCombo(){
-	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-		delete *it;		
-	}
+	return;
 }
 
 void SectionCombo::addSection(Section* section){

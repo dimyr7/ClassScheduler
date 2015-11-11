@@ -28,10 +28,6 @@ std::string Instructor::getName() const{
 	return this->_name;
 }
 
-void Instructor::setName(std::string name){
-	this->_name = name;
-}
-
 std::ostream& operator<<(std::ostream& os, const Instructor& instructor){
 		os << instructor.getName() << std::endl;
 		return os;

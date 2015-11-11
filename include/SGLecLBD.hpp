@@ -10,7 +10,6 @@ class SGLecLBD : public Course::SectionGroup{
 		SGLecLBD(std::string id);
 		SGLecLBD(const SGLecLBD& copy);
 		SGLecLBD& operator=(const SGLecLBD& copy);
-		~SGLecLBD();
 		/*
 		 * Getters
 		 */

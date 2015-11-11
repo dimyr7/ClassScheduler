@@ -2,7 +2,7 @@
 
 #include "SGLecLBD.hpp"
 #include <cassert>
-
+#include <bitset>
 const std::bitset<Course::NUM_OF_SECTION_TYPES> SectionGroupFactory::_LecLBD("00000110000");
 const std::bitset<Course::NUM_OF_SECTION_TYPES> SectionGroupFactory::_Onl   ("00010000000");
 const std::bitset<Course::NUM_OF_SECTION_TYPES> SectionGroupFactory::_LecLab("00010100000");
