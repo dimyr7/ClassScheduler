@@ -1,9 +1,9 @@
 #include "Course.hpp"
 #include "SectionCombo.hpp"
 #include "SectionGroup.hpp"
-#include "SGLecLBD.hpp"
 #include "SectionGroupFactory.hpp"
 #include <Map>
+#include <bitset>
 /*
  * ============================== 
  * Object Creation
@@ -106,6 +106,8 @@ void Course::generateSectionGroup(){
 		// TODO Physics is a bit weird
 	}
 	// TODO add if its a special topics class
+	// TODO check for honours course
+	// TODO CS 233 is a bit weird
 	else{
 		// This will map the section Letter  to a vector of Sections
 		std::map<std::string, std::vector<Section*>> sectionGroupMap;
@@ -124,12 +126,17 @@ void Course::generateSectionGroup(){
 			// .. Find out all types of sections for that letter
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
 				Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
-				std::cout << (*is)->getSectionType() << (int)secType << std::endl;
+				//std::cout << (*is)->getSectionType() << (int)secType << std::endl;
 				listOfSections[ (int)secType] = 1;
 			}
 
-			// Create a new Section Group based on the types of sections
+			// Create a new Section Group based on the types of sections and the section letter
 			Course::SectionGroup* newGroup = SectionGroupFactory::createSectionGroup(listOfSections, it->first );
+
+			// Push all sections to that section group
+			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
+				newGroup->addSection(*is);
+			}
 			this->_groups.push_back(newGroup);
 		}
 	}

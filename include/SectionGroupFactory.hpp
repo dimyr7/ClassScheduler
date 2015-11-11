@@ -14,5 +14,13 @@ class SectionGroupFactory{
 	private:
 		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LecLBD;
 		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _Onl;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LecLab;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LecDis;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LCD;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _Lec;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LCDDis;
+		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _Ind;
+
+
 };
 #endif
