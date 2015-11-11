@@ -7,6 +7,9 @@ SGLecLBD::SGLecLBD(std::string id){
 	this->_id = id;	
 }
 
+SGLecLBD::~SGLecLBD(){
+	return;
+}
 /*
  * Adds a new section to the correct section type e.g. Lecture or Lab/Dis
  */

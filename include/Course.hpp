@@ -5,7 +5,7 @@
 #include "SectionCombo.hpp"
 #include <string>
 #include <vector>
-/* 
+/**
  *  Represenets a Course oject such that each course belongs to a department and has a course number
  *  Each course also has many sections that are partitioned into section groups and a set of sections that are valid
  */
@@ -56,19 +56,41 @@ class Course{
 		 */
 		void addSection(Section* section);
 
-		/*
+		/**
 		 * A SectionGroup is a way to categorize sections. e.g. Lecture & Lab-Discussion
 		 * One Section from each group will be a valid combination.
 		 */
 		class SectionGroup;
 	
 		/**
-		 * TODO
+		 * TODO generate a a better description
 		 */
 		void generateSectionGroup();
+		
+		/**
+		 * Number of lecture types
+		 */
+		static const int NUM_OF_SECTION_TYPES = 11;
 
 	private:
+		/**
+		 * All lecture types enumerated
+		 */
+		enum TypeOfSection{
+			CNF,
+			DIS,
+			IND,
+			LAB,
+			LBD,
+			LEC,
+			LCD,
+			ONL,
+			PR,
+			Q,
+			STA
+		};
 
+				
 		/**
 		 * A string that holds the department code
 		 */
@@ -97,6 +119,12 @@ class Course{
 		 */
 		std::vector<SectionGroup*> _groups;
 	
+		/**
+		 * Returns the type of the section
+		 * @param section determines the type it is
+		 * @return a value of the enum TypeOfSection
+		 */
+		static TypeOfSection getTypeOfSection(const Section* section);
 
 		/**
 		 * A boolean that is true when the sectongroups and sectioncombos are syncd with the sections

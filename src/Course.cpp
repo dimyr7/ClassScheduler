@@ -2,6 +2,8 @@
 #include "SectionCombo.hpp"
 #include "SectionGroup.hpp"
 #include "SGLecLBD.hpp"
+#include "SectionGroupFactory.hpp"
+#include <Map>
 /*
  * ============================== 
  * Object Creation
@@ -59,12 +61,76 @@ void Course::addSection(Section* section){
 	this->_sections.push_back(section);
 }
 
+Course::TypeOfSection Course::getTypeOfSection(const Section* section){
+	std::string sectionType = section->getSectionType();
+	if(sectionType.compare("Conference") == 0){
+		return Course::TypeOfSection::LEC;
+	}
+	else if(sectionType.compare("Discussion/Recitation") == 0){
+		return Course::TypeOfSection::DIS;
+	}
+	else if(sectionType.compare("Independent Study") == 0){
+		return Course::TypeOfSection::IND;
+	}
+	else if(sectionType.compare("Laboratory") == 0){
+		return Course::TypeOfSection::LAB;
+	}
+	else if(sectionType.compare("Laboratory-Discussion") == 0){
+		return Course::TypeOfSection::LBD;
+	}
+	else if(sectionType.compare("Lecture") == 0){
+		return Course::TypeOfSection::LEC;
+	}
+	else if(sectionType.compare("Lecture-Discussion") == 0){
+		return Course::TypeOfSection::LCD;
+	}
+	else if(sectionType.compare("Online") == 0){
+		return Course::TypeOfSection::ONL;
+	}
+	else if(sectionType.compare("Practice") == 0){
+		return Course::TypeOfSection::PR;
+	}
+	else if(sectionType.compare("Quiz") == 0){
+		return Course::TypeOfSection::Q;
+	}
+	else{
+		return Course::TypeOfSection::STA;
+	}
+}	
+
 void Course::generateSectionGroup(){
 	// Delete the old section groups
 	this->_groups.erase(this->_groups.begin(), this->_groups.end());
 	
 	if( this->_department.compare("PHYS") == 0){
-		//Physics is a bit weird
+		// TODO Physics is a bit weird
 	}
+	// TODO add if its a special topics class
+	else{
+		// This will map the section Letter  to a vector of Sections
+		std::map<std::string, std::vector<Section*>> sectionGroupMap;
 
+		// For each section, assign it to a section letter
+		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
+			std::string firstChar = (*it)->getSectionName().substr(0, 1);
+			sectionGroupMap[firstChar].push_back((*it));
+		}
+		
+		// For each section letter ...
+		for(std::map< std::string, std::vector<Section*>>::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
+
+			std::bitset< Course::NUM_OF_SECTION_TYPES> listOfSections;
+
+			// .. Find out all types of sections for that letter
+			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
+				Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
+				std::cout << (*is)->getSectionType() << (int)secType << std::endl;
+				listOfSections[ (int)secType] = 1;
+			}
+
+			// Create a new Section Group based on the types of sections
+			Course::SectionGroup* newGroup = SectionGroupFactory::createSectionGroup(listOfSections, it->first );
+			this->_groups.push_back(newGroup);
+		}
+	}
 }

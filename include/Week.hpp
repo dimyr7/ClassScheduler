@@ -62,7 +62,6 @@ class Week{
 	
 		
 				
-		//TODO look into updating with C++14
 		Time* _times[ DAYSINWEEK ][ TIMESINDAY ];
 		static const std::string daysStr[DAYSINWEEK];
 		
