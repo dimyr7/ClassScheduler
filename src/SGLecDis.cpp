@@ -1,23 +1,23 @@
-#include "SGLecLBD.hpp"
+#include "SGLecDis.hpp"
 #include "SectionGroup.hpp"
 #include "SectionCombo.hpp"
 /*
  * Object Creation
  */
-SGLecLBD::SGLecLBD(std::string id) : SectionGroup(id){
+SGLecDis::SGLecDis(std::string id) : SectionGroup(id){
 	return;
 }
 
-bool 	SGLecLBD::addSection(Section* section){
+bool 	SGLecDis::addSection(Section* section){
 	std::string type = section->getSectionType();
 	// If the section is a lecture and has the correct identifier
 	if(type.compare("Lecture") == 0){
 		this->_lectures.push_back(section);
 		return true;
 	}
-	// If the section is a LBD and has the correct identifier 
-	else if(type.compare("Laboratory-Discussion") == 0){
-		this->_labDiscussions.push_back(section);
+	// If the section is a Discussion and has the correct identifier 
+	else if(type.compare("Discussion/Recitation") == 0){
+		this->_discussions.push_back(section);
 		return true;
 	}
 	// This section doesnt belong here
@@ -25,7 +25,7 @@ bool 	SGLecLBD::addSection(Section* section){
 }
 
 
-std::vector<SectionCombo*> SGLecLBD::getCombos() const{
+std::vector<SectionCombo*> SGLecDis::getCombos() const{
 	std::vector<SectionCombo*> combos;
 	
 	// For all possilbe lectures
@@ -33,18 +33,18 @@ std::vector<SectionCombo*> SGLecLBD::getCombos() const{
 		//Section* lecture = *it;
 		Section* lecture = *it;
 		// For all possible lab-dis 
-		for(std::vector<Section*>::const_iterator is = this->_labDiscussions.begin(); is != this->_labDiscussions.end(); is++){
+		for(std::vector<Section*>::const_iterator is = this->_discussions.begin(); is != this->_discussions.end(); is++){
 			//Section* labdis = *is;	
-			Section* labdis = *is;
+			Section* dis = *is;
 
 			// If the lectures & lab-dis overlap, then its not a valid combination
-			if(Section::overlap(lecture, labdis)){
+			if(Section::overlap(lecture, dis)){
 				continue;
 			}
 			// Otherwise create a new section combo
 			SectionCombo* sectionCombo = new SectionCombo();
 			sectionCombo->addSection(lecture);
-			sectionCombo->addSection(labdis);
+			sectionCombo->addSection(dis);
 			combos.push_back(sectionCombo);
 		}
 		
@@ -52,17 +52,17 @@ std::vector<SectionCombo*> SGLecLBD::getCombos() const{
 	return combos;
 }
 
-std::vector<Section*> SGLecLBD::getLecSections()const {
+std::vector<Section*> SGLecDis::getLecSections()const {
 	return this->_lectures;
 }
 
-std::vector<Section*> SGLecLBD::getLBDSections() const{
-	return this->_labDiscussions;
+std::vector<Section*> SGLecDis::getDisSections() const{
+	return this->_discussions;
 }
 
 
-std::ostream& operator<<(std::ostream& os, const SGLecLBD& group){
-	os << "=== SectioGroup Lec-LBD ===" << std::endl;
+std::ostream& operator<<(std::ostream& os, const SGLecDis& group){
+	os << "=== SectioGroup Lec-Dis ===" << std::endl;
 	os << "=== Lectures ===" << std::endl;
 	/*
 	 * Print all lecture section names
@@ -75,7 +75,7 @@ std::ostream& operator<<(std::ostream& os, const SGLecLBD& group){
 	 * Print all Lab-Dis section names
 	 */
 	os << "=== Lab/Discussion ===" <<std::endl;
-	for(std::vector<Section*>::const_iterator it = group.getLBDSections().begin(); it != group.getLBDSections().end(); it++){
+	for(std::vector<Section*>::const_iterator it = group.getDisSections().begin(); it != group.getDisSections().end(); it++){
 		os << (*it)->getSectionName() << " - " << (*it)->getCRN() << std::endl;
 	}
 	return os;

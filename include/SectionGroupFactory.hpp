@@ -9,7 +9,7 @@
 
 class SectionGroupFactory{
 	public:
-		static Course::SectionGroup* createSectionGroup(std::bitset<Course::NUM_OF_SECTION_TYPES>	types, std::string sectionLetter);
+		static Course::SectionGroup* createSectionGroup(std::bitset<Course::NUM_OF_SECTION_TYPES>	types, std::string id);
 
 	private:
 		static const std::bitset<Course::NUM_OF_SECTION_TYPES> _LecLBD; // DONE

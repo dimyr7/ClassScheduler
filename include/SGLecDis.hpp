@@ -1,20 +1,20 @@
-#ifndef SGLECLBD_H
-#define SGLECLBD_H
+#ifndef SGLECDIS_H
+#define SGLECDIS_H
 #include "SectionGroup.hpp"
 #include <vector>
-class SGLecLBD : public Course::SectionGroup{
+class SGLecDis : public Course::SectionGroup{
 	public:
 		/**
 		 * Constructor
 		 * @param id is the id of the section group
 		 */
-		SGLecLBD(std::string id);
+		SGLecDis(std::string id);
 
 		/**
 		 * Copy constructor
 		 * @param copy is the sectiongroup to copy
 		 */
-		SGLecLBD(const SGLecLBD& copy);
+		SGLecDis(const SGLecDis& copy);
 
 
 		/**
@@ -22,7 +22,7 @@ class SGLecLBD : public Course::SectionGroup{
 		 * @param copy is the SectionGroup to copy
 		 * @return this with the copied attritbues
 		 */
-		SGLecLBD& operator=(const SGLecLBD& copy);
+		SGLecDis& operator=(const SGLecDis& copy);
 
 
 		/**
@@ -32,10 +32,10 @@ class SGLecLBD : public Course::SectionGroup{
 		std::vector<Section*>	getLecSections() const;
 
 		/**
-		 * Getter for the lab-discussion sections that belong to this group
-		 * @return a vector of sections that are lab-discussions in this group
+		 * Getter for the discussion sections that belong to this group
+		 * @return a vector of sections that are discussions in this group
 		 */
-		std::vector<Section*>	getLBDSections() const;
+		std::vector<Section*>	getDisSections() const;
 	
 		/**
 		 * Adds a new section to this section group
@@ -66,7 +66,7 @@ class SGLecLBD : public Course::SectionGroup{
 		/**
 		 * A vector of lab-discussions
 		 */
-		std::vector<Section*>	_labDiscussions;
+		std::vector<Section*>	_discussions;
 
 
 		/**
@@ -75,7 +75,7 @@ class SGLecLBD : public Course::SectionGroup{
 		 * @param group is the section group to write
 		 * @retunr the stream os with things written to it
 		 */
-		friend std::ostream& operator<<(std::ostream& os, const SGLecLBD& group);
+		friend std::ostream& operator<<(std::ostream& os, const SGLecDis& group);
 
 };
 #endif

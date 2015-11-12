@@ -1,4 +1,4 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o sectiongroupfactory.o SGLecLBD.o
+OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o sectiongroupfactory.o sgleclbd.o sgleclab.o sglecdis.o
 TESTOBJS = test.o
 MAINOBJS = main.o
 OBJPATH = ./build
@@ -102,6 +102,16 @@ $(BUILDDIR)sectiongroupfactory.o: $(SRCDIR)SectionGroupFactory.cpp $(addprefix $
 $(BUILDDIR)sgleclbd.o: $(SRCDIR)SGLecLBD.cpp 
 	$(CC) $(CFLAGS) $(SRCDIR)SGLecLBD.cpp
 	@mv sgleclbd.o $(BUILDDIR)
+
+# compiling sgleclab.o
+$(BUILDDIR)sgleclab.o: $(SRCDIR)SGLecLab.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)SGLecLab.cpp
+	@mv sgleclab.o $(BUILDDIR)
+
+# compiling SGLecDis
+$(BUILDDIR)sglecdis.o: $(SRCDIR)SGLecDis.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)SGLecDis.cpp
+	@mv sglecdis.o $(BUILDDIR)
 
 clean:
 	-rm -f build/*.o bin/autoscheduler bin/tester
