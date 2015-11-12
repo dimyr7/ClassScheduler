@@ -13,20 +13,30 @@ BUILDDIR = build/
 TESTDIR = test/
 
 TARGET = bin/autoschedule
-TESTER = bit/tester
+TESTER = bin/tester
 
 SRCEXT = cpp
 INC = -I include 
-
-all: $(TARGET) 
+LIBS = -lboost_unit_test_framework
+all: $(TARGET) $(TESTER)
 
 autoschedule: $(TARGET)
 
+tester: $(TESTER)
+
+# Linking the testing executible
+$(TESTER): $(addprefix $(BUILDDIR), $(TESTOBJS) $(OBJS))
+	@echo "Building tester"
+	$(LINKER) $(addprefix $(BUILDDIR), $(TESTOBJS) $(OBJS)) $(INC) $(LIBS) $(LFLAGS) $(TESTER)
 
 # Linking the autoschedule executible
 $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
-	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LFLAGS) $(TARGET)
+	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LIBS) $(LFLAGS) $(TARGET)
+
+$(BUILDDIR)test.o: $(TESTDIR)Test.cpp 
+	$(CC) $(CFLAGS) $(TESTDIR)Test.cpp
+	@mv test.o $(BUILDDIR)
 
 
 # Compiling main.o

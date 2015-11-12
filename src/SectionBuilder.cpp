@@ -1,21 +1,16 @@
 #include "SectionBuilder.hpp"
 #include "Section.hpp"
 Section::SectionBuilder::SectionBuilder(){
-	/*
-  	 * Section Info
-	 */
+	// Section Info
 	this->_sectionName = "";
 	this->_sectionType = "";
 	this->_description = "";
 	this->_crn = "";
-	/*
-	 * Instructor
- 	 */
-	this->_instructorName = "";	
 
-	/*
-	 * Week
-	 */
+	// Instructor
+	this->_instructorName = "";	
+	
+	// Week 
 	for(int i = 0; i < Week::DAYSINWEEK; i++){
 		for(int j = 0; j < Week::DAYSINWEEK; j++){
 			this->_weekTimes[i][j][0] = -1;
@@ -23,9 +18,8 @@ Section::SectionBuilder::SectionBuilder(){
 		}
 	}
 	
-	/*
-	 * Semester
-	 */
+	
+	// Semester
 	for(int i = 0; i < 3 ; i++){
 		this->_semesterStartDate[i] = -1;
 		this->_semesterEndDate[i] = -1;
@@ -36,9 +30,7 @@ Section::SectionBuilder::SectionBuilder(){
 	this->_semesterName = "";
 
 
-	/*
-	 * Location
-	 */
+	// Location
 	this->_locationLat = 0;
 	this->_locationLon = 0;
 	this->_locationBuildingName = "";
@@ -50,16 +42,14 @@ Section* Section::SectionBuilder::buildSection(){
 		return NULL;
 	}
 
-	/*
-	 * Creating Week Time
-	 */
+	// Creating Week Time
 	Week* week = new Week();
 	for(int i = 0; i < 7; i++){
 		int* startArr = this->_weekTimes[i][0];
 		int* endArr = this->_weekTimes[i][1];
-		/*
-		 * If any of the time values are not set yet
-		 */
+
+
+		// Skip any times that are not set
 		if(startArr[0] == -1 or startArr[1] == -1 or endArr[0] == -1 or endArr[1] == -1){
 			continue;
 		}
@@ -68,30 +58,22 @@ Section* Section::SectionBuilder::buildSection(){
 		
 		week->setDay((Week::Day)i, startTime, endTime);
 	}
-	/*
-	 * Creating Instructor
-	 */
+
+
+	// Creating an instructor
 	Instructor* instructor = new Instructor(this->_instructorName);
 	
-
-	/*
-	 * Creating Location
-	 */
-
-	
+	// Creating a Location	
 	Location* building = new Location(this->_locationBuildingName, this->_locationRoomNumber, this->_locationLat, this->_locationLon);
 		
-	/*
-	 * Creating Semseter
-	 */
 
+	// Creating a semester
 	Semester* semester = new Semester(this->_semesterYear, this->_semesterSeason, this->_semesterName);
 	semester->setDates(this->_semesterStartDate, this->_semesterEndDate);
 
 
-	/*
-	 * Creating Section
-	 */
+	
+	// Creating a Section 
 	Section* sec = new Section();
 	sec->setDescription(this->_description);
 	sec->setSectionName(this->_sectionName);
@@ -121,10 +103,6 @@ bool Section::SectionBuilder::validateInput(){
 		Time* startTime = new Time(startArr[0], startArr[1]);
 		Time* endTime = new Time(endArr[0], endArr[1]);
 		if(not Time::before(startTime, endTime)){
-			//std::cout<< "Wrong Week" << std::endl;
-			//std::cout << *(startTime) << std::endl;
-			//std::cout << *(endTime) << std::endl;
-			//std::cout << startArr[0] << std::endl;
 			delete startTime;
 			delete endTime;
 			return false;
@@ -138,7 +116,6 @@ bool Section::SectionBuilder::validateInput(){
 	 * Validating Location
 	 */
 	if(not Location::validLatitude(this->_locationLat) or not Location::validLongitude(this->_locationLon)){
-		std::cout << "Wrong Location" << std::endl;
 		return false;
 	}
 	
@@ -146,11 +123,9 @@ bool Section::SectionBuilder::validateInput(){
 	 * Validating Semester
 	 */
 	if(not Semester::before(this->_semesterStartDate, this->_semesterEndDate)){
-		std::cout << "Wrong Semester" << std::endl;
 		return false;
 	}
 	if(this->_crn.std::string::compare("") == 0){
-		std::cout << "Wrong Semester" << std::endl;
 		return false;
 	}
 	return true;
