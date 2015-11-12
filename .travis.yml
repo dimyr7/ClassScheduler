@@ -3,10 +3,4 @@ env:
       - CPP11=1
 compiler:
       - gcc
-      
-before_install:
-      - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
-install:
-      - if [ "$CXX" == "g++" ]; then sudo apt-get install -qq g++-4.8; fi
-      - if [ "$CXX" == "g++" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50; fi
 script: make 
