@@ -1,4 +1,4 @@
-scripe: 
-    - make autoschedule
 language: cpp
-compiler: gcc
+compiler: 
+    - gcc
+script: make autoschedule
