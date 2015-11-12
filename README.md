@@ -19,5 +19,5 @@ and to run them
 $ ./bin/tester
 ```
 
-[ ] Makes Tests
-[ ] Make even more tests
+- [ ] Makes Tests
+- [ ] Make even more tests
