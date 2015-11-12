@@ -18,3 +18,6 @@ and to run them
 ```
 $ ./bin/tester
 ```
+
+[ ] Makes Tests
+[ ] Make even more tests
