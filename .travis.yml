@@ -3,4 +3,5 @@ env:
       - CPP11=1
 compiler:
       - gcc
+      - clange
 script: make 
