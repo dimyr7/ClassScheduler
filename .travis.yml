@@ -1,0 +1,7 @@
+language: cpp
+env:
+      - CPP11=1
+compiler:
+      - gcc
+      - clang
+script: make 
