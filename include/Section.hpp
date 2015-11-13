@@ -1,6 +1,7 @@
 #ifndef SECTION_H 
 #define SECTION_H
 #include <string>
+#include <vector>
 
 class Section{
 	friend class Course;
@@ -21,10 +22,10 @@ class Section{
 		std::string 		getCRN() const;
 
 
-		Instructor*		getInstructor() const;
-		Week* 			getWeek() const;
-		Semester*		getSemester() const;
-		Location* 		getBuilding() const;
+        std::vector<Instructor*> 		getInstructor() const;
+		Week* 			                getWeek() const;
+		Semester*		                getSemester() const;
+		Location* 		                getBuilding() const;
 		
 	private:
 			/*
@@ -70,10 +71,10 @@ class Section{
 		std::string 	_description;
 		std::string 	_crn;
 
-		Instructor*	_instructor; 
-		Week* 		_daysOfWeek;
-		Semester* 	_dates;
-		Location* 	_bulding;
+        std::vector<Instructor*> 	_instructor; 
+		Week* 		                _daysOfWeek;
+		Semester* 	                _dates;
+		Location* 	                _bulding;
 
 };
 #endif

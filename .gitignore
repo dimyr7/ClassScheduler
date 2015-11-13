@@ -29,7 +29,10 @@
 
 # More executibles
 build
-bin/runner
+bin/autoschedule
+bin/tester
 
 # Mac specific files
 .DS_Store
+.ycm_extra_conf.py
+.ycm_extra_conf.pyc

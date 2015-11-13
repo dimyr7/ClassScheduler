@@ -3,6 +3,7 @@
 #include "Section.hpp"
 #include "Semester.hpp"
 #include "Week.hpp"
+#include <vector>
 class Section::SectionBuilder{
 	public:
 		SectionBuilder();
@@ -43,7 +44,7 @@ class Section::SectionBuilder{
 		/*
 		 * Instructor
 		 */
-		std::string 	_instructorName;	
+        std::vector<std::string> _instructorName;	
 
 		/*
 		 * Week
