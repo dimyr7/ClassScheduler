@@ -1,5 +1,5 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o sectiongroupfactory.o sgleclbd.o sgleclab.o sglecdis.o
-TESTOBJS = test.o
+OBJS = parser.o course.o section.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o
+TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
 
@@ -13,7 +13,7 @@ BUILDDIR = build/
 TESTDIR = test/
 
 TARGET = bin/autoschedule
-TESTER = bin/tester
+TESTER = bin/phase1test
 
 SRCEXT = cpp
 INC = -I include 
@@ -36,9 +36,9 @@ $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
 	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LIBS) $(LFLAGS) $(TARGET)
 
-$(BUILDDIR)test.o: $(TESTDIR)Test.cpp 
-	$(CC) $(CFLAGS) $(TESTDIR)Test.cpp
-	@mv test.o $(BUILDDIR)
+$(BUILDDIR)phase1test.o: $(TESTDIR)Phase1Test.cpp
+	$(CC) $(CFLAGS) $(TESTDIR)Phase1Test.cpp
+	@mv phase1test.o $(BUILDDIR)
 
 
 # Compiling main.o
@@ -99,31 +99,6 @@ $(BUILDDIR)time.o: $(SRCDIR)Time.cpp
 $(BUILDDIR)sectioncombo.o: $(SRCDIR)SectionCombo.cpp $(addprefix $(BUILDDIR), section.o)
 	$(CC) $(CFLAGS) $(SRCDIR)SectionCombo.cpp
 	@mv sectioncombo.o $(BUILDDIR)
-
-# compiling sectiongroup.o
-$(BUILDDIR)sectiongroup.o: $(SRCDIR)SectionGroup.cpp $(addprefix $(BUILDDIR), section.o)
-	$(CC) $(CFLAGS) $(SRCDIR)SectionGroup.cpp
-	@mv sectiongroup.o $(BUILDDIR)
-	
-# compiling sectiongroupfactory.o
-$(BUILDDIR)sectiongroupfactory.o: $(SRCDIR)SectionGroupFactory.cpp $(addprefix $(BUILDDIR), sgleclbd.o)
-	$(CC) $(CFLAGS) $(SRCDIR)SectionGroupFactory.cpp
-	@mv sectiongroupfactory.o $(BUILDDIR)
-
-# compiling SGLecLBD.o
-$(BUILDDIR)sgleclbd.o: $(SRCDIR)SGLecLBD.cpp 
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecLBD.cpp
-	@mv sgleclbd.o $(BUILDDIR)
-
-# compiling sgleclab.o
-$(BUILDDIR)sgleclab.o: $(SRCDIR)SGLecLab.cpp
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecLab.cpp
-	@mv sgleclab.o $(BUILDDIR)
-
-# compiling SGLecDis
-$(BUILDDIR)sglecdis.o: $(SRCDIR)SGLecDis.cpp
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecDis.cpp
-	@mv sglecdis.o $(BUILDDIR)
 
 clean:
 	-rm -f build/*.o bin/autoscheduler bin/tester
