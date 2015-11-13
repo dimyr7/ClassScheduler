@@ -28,9 +28,9 @@
 *.app
 
 # More executibles
-build
-bin/autoschedule
-bin/tester
+build/*
+bin/*
+bin/*
 
 # Mac specific files
 .DS_Store
