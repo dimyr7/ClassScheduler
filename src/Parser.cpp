@@ -83,46 +83,13 @@ bool Parser::hasNext() {
  */
 void Parser::buildAllSections() {
     for (int index = 0; index < _sizeInit; index++) {
-        const Value &section = _dom["Sections"][index];
-        const Value &meeting = section["Meetings"][0];         // Meeting is an array with one element
-
-        std::string start(meeting["Start"].GetString());    
-        std::string end(meeting["End"].GetString());    
-        const char *days = meeting["Days"].GetString();
-
-        std::vector<int> startTime = convertTime(start);
-        std::vector<int> endTime = convertTime(end);
-
-        Section::SectionBuilder sectBuild;
-
-        for (int i = 0; i < (int)strlen(days); i++) {
-            if (days[i] == 'M') {
-                sectBuild.setStartTime(Section::Week::Day::monday, startTime[0], startTime[1]);
-                sectBuild.setEndTime(Section::Week::Day::monday, endTime[0], endTime[1]);
-            } else if (days[i] == 'T') {
-                sectBuild.setStartTime(Section::Week::Day::tuesday, startTime[0], startTime[1]);
-                sectBuild.setEndTime(Section::Week::Day::tuesday, endTime[0], endTime[1]);
-            } else if (days[i] == 'W') {
-                sectBuild.setStartTime(Section::Week::Day::wednesday, startTime[0], startTime[1]);
-                sectBuild.setEndTime(Section::Week::Day::wednesday, endTime[0], endTime[1]); 
-            } else if (days[i] == 'R') {
-                sectBuild.setStartTime(Section::Week::Day::thursday, startTime[0], startTime[1]);
-                sectBuild.setEndTime(Section::Week::Day::thursday, endTime[0], endTime[1]); 
-            } else if (days[i] == 'F') {
-                sectBuild.setStartTime(Section::Week::Day::friday, startTime[0], startTime[1]);
-                sectBuild.setEndTime(Section::Week::Day::friday, endTime[0], endTime[1]); 
-            }
-        }
-
+        const Value &section = _dom["Sections"][index];        // An individual section
+        
+        Section::SectionBuilder sectBuild;                     // Information per section
         sectBuild.setCRN(section["CRN"].GetString());
-        sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
         sectBuild.setSectionType(section["Code"].GetString());
         sectBuild.setDescription(_description);
-        std::string name = std::string(meeting["Instructors"][0]["LastName"].GetString()) + ", "
-                                       + std::string(meeting["Instructors"][0]["FirstName"].GetString());
-        sectBuild.setInstructorName(name);
-        sectBuild.setLocationBuilding(meeting["Building"].GetString());
-        
+
         // Semester start and end dates
         std::string startSemester(section["Start"].GetString());
         int year = stoi(startSemester.substr(0, 4));
@@ -135,14 +102,57 @@ void Parser::buildAllSections() {
         day = stoi(endSemester.substr(8, 10));
         sectBuild.setSemesterEnd(day, month, year);
         
-        // Information we don't have yet in the json files
+        // Information we don't have yet
         sectBuild.setSemesterName("Spring Semester");
         sectBuild.setSemsterYear("2016");
         sectBuild.setSemesterSeason("Spring");
-        sectBuild.setLocationLat(40.113803);
-        sectBuild.setLocationLon(-88.224904);
-        sectBuild.setLocationRoom("3340");
         
+        // const Value &meeting = section["Meetings"][0];
+        for (auto i = 0; i < section["Meetings"].Size(); i++) {
+            const Value &meeting = section["Meetings"][i];
+
+            std::string start(meeting["Start"].GetString());    
+            std::string end(meeting["End"].GetString());    
+
+            const char *days = meeting["Days"].GetString();
+
+            std::vector<int> startTime = convertTime(start);
+            std::vector<int> endTime = convertTime(end);
+
+
+            for (int i = 0; i < (int)strlen(days); i++) {
+                if (days[i] == 'M') {
+                    sectBuild.setStartTime(Section::Week::Day::monday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Section::Week::Day::monday, endTime[0], endTime[1]);
+                } else if (days[i] == 'T') {
+                    sectBuild.setStartTime(Section::Week::Day::tuesday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Section::Week::Day::tuesday, endTime[0], endTime[1]);
+                } else if (days[i] == 'W') {
+                    sectBuild.setStartTime(Section::Week::Day::wednesday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Section::Week::Day::wednesday, endTime[0], endTime[1]); 
+                } else if (days[i] == 'R') {
+                    sectBuild.setStartTime(Section::Week::Day::thursday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Section::Week::Day::thursday, endTime[0], endTime[1]); 
+                } else if (days[i] == 'F') {
+                    sectBuild.setStartTime(Section::Week::Day::friday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Section::Week::Day::friday, endTime[0], endTime[1]); 
+                }
+            }
+            sectBuild.setLocationBuilding(meeting["Building"].GetString());
+            sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
+        
+            // Information we don't have yet in the json files
+            sectBuild.setLocationLat(40.113803);
+            sectBuild.setLocationLon(-88.224904);
+            sectBuild.setLocationRoom("3340");
+            
+            for (auto j = 0; j < meeting["Instructors"].Size(); j++) {
+                std::string name = std::string(meeting["Instructors"][j]["LastName"].GetString()) + ", "
+                                               + std::string(meeting["Instructors"][j]["FirstName"].GetString());
+                sectBuild.setInstructorName(name);
+            }
+        }
+
         // Build section and add to vector _sections
         Section::Section *builtSection = sectBuild.buildSection();
         _sections.push_back(builtSection);

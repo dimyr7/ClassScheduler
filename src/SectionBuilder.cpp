@@ -17,7 +17,6 @@ Section::SectionBuilder::SectionBuilder(){
 	/*
 	 * Instructor
  	 */
-	this->_instructorName = "";	
 
 	/*
 	 * Week
@@ -77,8 +76,10 @@ Section* Section::SectionBuilder::buildSection(){
 	/*
 	 * Creating Instructor
 	 */
-	Section::Instructor* instructor = new Section::Instructor(this->_instructorName);
-	
+    std::vector<Section::Instructor*> instructor;
+    for (auto instruct : this->_instructorName) {
+        instructor.push_back(new Section::Instructor(instruct));
+    }
 
 	/*
 	 * Creating Location
@@ -106,8 +107,11 @@ Section* Section::SectionBuilder::buildSection(){
 	sec->setSectionType(this->_sectionType);
 	sec->setCRN(this->_crn);
 
-	sec->setInstructor(instructor);
-	sec->setDaysOfWeek(week);
+	for (auto instruct : instructor) {
+        sec->setInstructor(instruct);
+    }
+    
+    sec->setDaysOfWeek(week);
 	sec->setSemester(semester);
 	sec->setLocation(building);
 
@@ -187,7 +191,7 @@ void Section::SectionBuilder::setCRN(std::string crn){
  * Setters for Instructor object
  */
 void Section::SectionBuilder::setInstructorName(std::string instructor){
-	this->_instructorName = instructor;
+	this->_instructorName.push_back(instructor);
 }
 
 /*

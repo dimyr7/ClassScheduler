@@ -17,14 +17,15 @@ Section::Section(){
 	this->_description = "";
 	this->_crn = "";
 
-	this->_instructor 	= NULL;
 	this->_daysOfWeek 	= NULL;
 	this->_dates 		= NULL;
 	this->_bulding 		= NULL;
 }
 
 Section::~Section(){
-	delete this->_instructor;
+	for (auto instructor : this->_instructor) {
+        delete instructor;
+    }
 	delete this->_daysOfWeek;
 	delete this->_dates;
 	delete this->_bulding;
@@ -36,8 +37,9 @@ Section::Section(const Section& copy){
 	this->_description = copy._description;
 	this->_crn 		   = copy._crn;
 
-	*(this->_instructor) = *(copy._instructor);
-	*(this->_daysOfWeek) = *(copy._daysOfWeek);
+    this->_instructor = copy._instructor;
+    
+    *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
 	*(this->_bulding)	 = *(copy._bulding);
 }
@@ -48,8 +50,9 @@ Section& Section::operator=(const Section& copy){
 	this->_description = copy._description;
 	this->_crn         = copy._crn;
 
-	*(this->_instructor) = *(copy._instructor);
-	*(this->_daysOfWeek) = *(copy._daysOfWeek);
+    this->_instructor = copy._instructor;
+
+    *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
 	*(this->_bulding)	 = *(copy._bulding);
 
@@ -77,7 +80,7 @@ void Section::setDescription(std::string description){
 }
 
 void Section::setInstructor(Instructor* instructor){
-	this->_instructor = instructor;
+	this->_instructor.push_back(instructor);
 }
 
 void Section::setDaysOfWeek(Week* daysOfWeek){
@@ -115,7 +118,7 @@ std::string Section::getDescription() const{
 	return this->_description;
 }
 
-Section::Instructor* Section::getInstructor() const{
+std::vector<Section::Instructor*>   Section::getInstructor() const{
 	return this->_instructor;
 }
 
@@ -142,10 +145,12 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << section.getSectionType() << std::endl;
 	os << section.getDescription() << std::endl;
 	os << section.getCRN() << std::endl;
-	
-	os << "=== Instructor ==="<< std::endl;
-	os << *section.getInstructor();
-	
+
+	os << "=== Instructor(s) ==="<< std::endl;
+    for (auto instructor : section.getInstructor()) {
+        os << *instructor;
+    }
+
 	os << "=== Week ==="<< std::endl;
 	os << *section.getWeek();
 
