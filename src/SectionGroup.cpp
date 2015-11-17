@@ -95,15 +95,11 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombosHelper(std::valarray<s
 		newIndex[depth] = i;
 		// if leaf node
 		if(depth+1 == this->_numTypes){
-			std::cout << "Depth: " << depth << std::endl;
-			std::cout << "Num Types: " << this->_numTypes << std::endl;
 			assert(depth == this->_numTypes - 1);
 			SectionCombo* newCombo = new SectionCombo();
 			std::cout << "=== Creating a new Section Combo ===" << std::endl;
 			for(size_t j = 0; j < this->_numTypes; j++){
-				std::cout <<  "J: " << j << std::endl;
 				size_t sectionIndex = newIndex[j];
-				std::cout << "(" << i << "," << sectionIndex << ")" << std::endl;
 				Section* theSection = this->_sections[j][sectionIndex];
 				assert(theSection != NULL);
 				newCombo->addSection(theSection);	
