@@ -27,21 +27,22 @@ Parser::Parser(std::string fileName) {
 
 std::vector<Section*> Parser::getAll() {
     std::vector<Section*> sections;
-    int temp = _index;
-    _index = 0;
-    for (int i = 0; i < _sizeInit; i++) {
+    int temp = this->_index;
+    this->_index = 0;
+    for (int i = 0; i < this->_sizeInit; i++) {
         Section* sect = getNext();
         sections.push_back(sect);
     }
-    _index = temp;
+    this->_index = temp;
     return sections;
 }
 
 Section* Parser::getNext() {
-    if (_index == _sizeInit) {
+    if (this->_index == this->_sizeInit) {
         throw std::out_of_range("No more sections");
     }
-    const Value &sect = _dom["sections"][_index++];
+	// TODO get rid of nested _index++
+    const Value &sect = this->_dom["sections"][this->_index++];
     const Value &meeting = sect["meetings"][0];
 
     const char *startTime = meeting["start"].GetString();
@@ -74,8 +75,8 @@ Section* Parser::getNext() {
     sectBuild.setCRN(sect["crn"].GetString());
     sectBuild.setSectionType(meeting["type"]["name"].GetString());
     sectBuild.setSectionName(sect["code"].GetString());
-    sectBuild.setDescription(_description);
-	if(meeting.HasMember("instructor")){
+    sectBuild.setDescription(this->_description);
+	if(meeting.HasMember("instructors")){
 		std::string firstName(meeting["instructors"][0]["first"].GetString());
    		std::string lastName(meeting["instructors"][0]["last"].GetString());
 		sectBuild.setInstructorName(lastName + ", " + firstName);
@@ -103,17 +104,17 @@ Section* Parser::getNext() {
 
 // Returns total number of sections
 int Parser::getSize() {
-    return _sizeInit;
+    return this->_sizeInit;
 }
 
 // Returns total number of sections left
 int Parser::getSizeLeft() {
-    return _sizeInit - _index;
+    return this->_sizeInit - this->_index;
 }
 
 // Returns if there is a section remaining
 bool Parser::hasNext() {
-    return _sizeInit - _index;
+    return this->_sizeInit - this->_index;
 }
 
 /*
@@ -154,8 +155,9 @@ void Parser::parseJSON(std::string fileName) {
     }
     std::string contents((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
     jsonFile.close();
-    _dom.Parse(contents.c_str());
-    _index = 0;
-    _sizeInit = _dom["sections"].Size();
-    _description = _dom["description"].GetString();
+    this->_dom.Parse(contents.c_str());
+    this->_index = 0;
+    this->_sizeInit = this->_dom["sections"].Size();
+	//std::cout << this->_sizeInit << std::endl;
+    this->_description = this->_dom["description"].GetString();
 }

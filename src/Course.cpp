@@ -15,15 +15,12 @@ Course::Course(std::string department, std::string courseNumber){
 }
 
 Course::~Course(){
-	// Iterates through all Sections and deletes it
-	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-		delete *it;
-	}
-	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
-		delete *it;
-	}
 	// Iterates through all the SectionCombos and delets it
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
+		delete *it;
+	}
+	// Iterates through all Sections and deletes it
+	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
 		delete *it;
 	}
 }
@@ -43,17 +40,6 @@ std::string Course::getCourseNumber() const{
 
 std::vector<Section*> Course::getSections() const{
 	return this->_sections;
-}
-
-std::vector<SectionCombo*> Course::getCombos() {
-	this->generateSectionGroup();
-	// Iterates through all the section groups
-	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
-		// Gests all teh valid combos and adds to the running vector of valid combinations
-		std::vector<SectionCombo*> newCombos = (*it)->getCombos();
-		this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
-	}
-	return this->_combos;
 }
 
 
@@ -98,12 +84,21 @@ Course::TypeOfSection Course::getTypeOfSection(const Section* section){
 	}
 }	
 
-void Course::generateSectionGroup(){
+std::vector<SectionCombo*> Course::getCombos(){
 	// Delete the old section groups
-	this->_groups.erase(this->_groups.begin(), this->_groups.end());
-	
 	if( this->_department.compare("PHYS") == 0){
-		// TODO Physics is a bit weird
+		std::bitset< Course::NUM_OF_SECTION_TYPES > listOfSections;
+		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
+			Course::TypeOfSection secType = Course::getTypeOfSection((*it));
+			listOfSections[ (int)secType] = 1;
+		}
+		int numOfTypes = listOfSections.count();
+		SectionGroup* physGroup = new SectionGroup(numOfTypes, this->_courseNumber);
+		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
+			physGroup->addSection((*it));
+		}
+		this->_combos = physGroup->getCombos();
+		delete physGroup;
 	}
 	// TODO add if its a special topics class
 	// TODO check for honours course
@@ -129,15 +124,18 @@ void Course::generateSectionGroup(){
 				//std::cout << (*is)->getSectionType() << (int)secType << std::endl;
 				listOfSections[ (int)secType] = 1;
 			}
-			int numOfSections = listOfSections.count();
+			int numOfTypes = listOfSections.count();
 
 			// Create a section group with a set number of sections
-			SectionGroup* newGroup = new SectionGroup(numOfSections, it->first);
+			SectionGroup* newGroup = new SectionGroup(numOfTypes, it->first);
 			// Push all sections to that section group
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
 				newGroup->addSection(*is);
 			}
-			this->_groups.push_back(newGroup);
+			this->_combos = newGroup->getCombos();
+			delete newGroup;
 		}
 	}
+
+	return this->_combos;
 }

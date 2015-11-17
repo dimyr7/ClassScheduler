@@ -62,10 +62,6 @@ class Course{
 		 */
 		class SectionGroup;
 	
-		/**
-		 * TODO generate a a better description
-		 */
-		void generateSectionGroup();
 		
 		/**
 		 * Number of lecture types
@@ -112,13 +108,7 @@ class Course{
 		 */
 		std::vector<SectionCombo*> _combos;
 
-		/**
-		 * A vector of section groups that belong to gether
-		 * Only populated when getCombos() is called
-		 * TODO should be cleared every tome getCombos() is called
-		 */
-		std::vector<SectionGroup*> _groups;
-	
+		
 		/**
 		 * Returns the type of the section
 		 * @param section determines the type it is

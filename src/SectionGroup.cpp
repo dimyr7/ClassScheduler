@@ -73,14 +73,17 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombos(){
 
 std::vector<SectionCombo*> Course::SectionGroup::getCombosHelper(std::valarray<size_t>  index, size_t depth){
 	std::vector<SectionCombo*> combosSoFar;	
-	// iterate through all sections of a certain type
+
+	// iterate through all sections of a certain type and try to add on to the current running list of sections
 	for(size_t i = 0; i < this->_sections[depth].size(); i++){
+		
 		// If any overlap with any previous section, skip it
 		bool thisOverlaps = false;
 		Section* thisSection = this->_sections[depth][i];
 		for(size_t j  = 0; i < depth; i++){
 			size_t indexOfPrevSection = index[j];
 			Section* currPrevSection = this->_sections[j][indexOfPrevSection];
+
 			// this section overlaps with a previously chosen section
 			if(Section::overlap(thisSection, currPrevSection)){
 				thisOverlaps = true;	
@@ -90,26 +93,26 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombosHelper(std::valarray<s
 		if(thisOverlaps){
 			continue;
 		}
-		std::valarray<size_t> newIndex = std::valarray<size_t>(depth+1);
-		std::copy(std::begin(index) , std::end(index), std::begin(newIndex));
-		newIndex[depth] = i;
+		index[depth] = i;
+
 		// if leaf node
 		if(depth+1 == this->_numTypes){
-			assert(depth == this->_numTypes - 1);
 			SectionCombo* newCombo = new SectionCombo();
-			std::cout << "=== Creating a new Section Combo ===" << std::endl;
+
+			//std::cout << "=== Creating a new Section Combo ===" << std::endl;
 			for(size_t j = 0; j < this->_numTypes; j++){
-				size_t sectionIndex = newIndex[j];
+				size_t sectionIndex = index[j];
 				Section* theSection = this->_sections[j][sectionIndex];
 				assert(theSection != NULL);
 				newCombo->addSection(theSection);	
-				std::cout << theSection->getSectionName() << std::endl;
+				//std::cout << theSection->getSectionName() << std::endl;
 			}
 			combosSoFar.push_back(newCombo);
 		}
+
 		// if not leaf node
 		else{
-			std::vector<SectionCombo*> combosRet = this->getCombosHelper(newIndex, depth+1);
+			std::vector<SectionCombo*> combosRet = this->getCombosHelper(index, depth+1);
 			combosSoFar.insert(combosSoFar.end(), combosRet.begin(), combosRet.end());
 		}
 	}
