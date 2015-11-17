@@ -1,15 +1,16 @@
 #ifndef PARSE_H
 #define PARSE_H
-
-#include <vector>
-#include <string>
-#include "../lib/rapidjson/document.h"
 #include "Section.hpp"
+<<<<<<< HEAD
+#include "../lib/rapidjson/document.h"
+#include <vector>
+=======
 
 /* 
  * Parser is a class that reads and parses json containing UIUC scheduling information for a class.
  * From the parsed information, it uses SectionBuilder to creates Sections, which can then be returned.
  */
+>>>>>>> master
 class Parser {
     public:
         /*
@@ -23,19 +24,29 @@ class Parser {
          */
         Parser(std::string jsonFileName);
         
+<<<<<<< HEAD
+        // Returns a vector of pointers to all sections in file
+        std::vector<Section*> getAll();
+=======
         /*
          * Returns a vector of pointers to all sections in the json file.
          */
         std::vector<Section::Section*> getAll();
+>>>>>>> master
 
         /*
          * Returns a pointer to a single section
          */
         Section*            getNext();
+<<<<<<< HEAD
+        ;
+        // Returns number of sections in the file
+=======
         
         /*
          * Returns the number of sections contained the json file
          */
+>>>>>>> master
         int                 getSize();
 
         // Returns if there is a section remaining

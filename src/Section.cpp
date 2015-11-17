@@ -1,10 +1,4 @@
 #include "Section.hpp"
-#include "Instructor.hpp"
-#include "Week.hpp"
-#include "Semester.hpp"
-#include "Location.hpp"
-#include <string>
-
 /*
  * ======================================================
  * Object Creation
@@ -118,19 +112,19 @@ std::string Section::getDescription() const{
 	return this->_description;
 }
 
-std::vector<Section::Instructor*>   Section::getInstructor() const{
+std::vector<Instructor*>   Section::getInstructor() const{
 	return this->_instructor;
 }
 
-Section::Week* Section::getWeek() const{
+Week* Section::getWeek() const{
 	return this->_daysOfWeek;
 }
 
-Section::Semester* Section::getSemester() const{
+Semester* Section::getSemester() const{
 	return this->_dates;
 }
 
-Section::Location* Section::getBuilding() const{
+Location* Section::getBuilding() const{
 	return this->_bulding;
 }
 
@@ -161,4 +155,29 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << *section.getBuilding();
 
 	return os;
+}
+
+/*
+ * ======================================================
+ * helper functions
+ * ======================================================
+ */
+bool Section::overlap(Section* a, Section* b){
+	Week* weekA = a->getWeek();
+	Week* weekB = b->getWeek();
+	for(int d = 0; d != Week::TIMESINDAY; d++){
+		Time* timeAStart = weekA->getTimes((Week::Day)d, true);
+		Time* timeAEnd	 = weekA->getTimes((Week::Day)d, false);
+		Time* timeBStart = weekB->getTimes((Week::Day)d, true);
+		Time* timeBEnd	 = weekB->getTimes((Week::Day)d, false);
+		
+		if(timeAStart == NULL or timeBStart == NULL){
+			continue;
+		}
+
+		if(not Time::before(timeAEnd, timeBStart) and not Time::before(timeBEnd, timeAStart)){
+			return true;
+		}
+	}
+	return false;
 }

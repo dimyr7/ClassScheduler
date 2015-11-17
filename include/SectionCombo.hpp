@@ -1,7 +1,9 @@
-#ifndef COMBOBASE_H 
-#define COMBOBASE_H 
-#include <vector>
+#ifndef	SECTION_COMBO_H 
+#define SECTION_COMBO_H
+
 #include "Section.hpp"
+#include <vector>
+
 /*
  * Represents a valid combinations of sections required to register for a class
  * Something line A1(Lecture), L2A(Lab), and D4B(Discussion) for physics

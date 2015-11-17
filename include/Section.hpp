@@ -1,18 +1,16 @@
 #ifndef SECTION_H 
 #define SECTION_H
+
+#include "Week.hpp"
+#include "Location.hpp"
+#include "Instructor.hpp"
+#include "Semester.hpp"
+
 #include <string>
 #include <vector>
-
 class Section{
-	friend class Course;
-	friend class SectionCombo;
 	public:
-		class Instructor;
-		class Semester;
-		class Location;
-		class Week;
 		class SectionBuilder;
-
 		/*
 		 * Getters
 		 */
@@ -48,6 +46,13 @@ class Section{
 		 */
 		Section& operator=(const Section& copy);
 
+		/*
+		 * Getters
+		 */
+		static bool overlap(Section* a, Section* b);
+	private:
+		
+		
 		/*
 		 * Setters
 		 */

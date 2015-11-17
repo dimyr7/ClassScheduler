@@ -1,12 +1,11 @@
 #include "Location.hpp"
-#include <iostream>
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
 
-Section::Location::Location(double latitude, double longitude){
+Location::Location(std::string  buildingName, std:: string room, double latitude, double longitude){
 	if(not Location::validLatitude(latitude) or not Location::validLongitude(longitude)){
 		this->_latitude  = 0;
 		this->_longitude = 0;
@@ -15,21 +14,21 @@ Section::Location::Location(double latitude, double longitude){
 		this->_latitude	 = latitude;
 		this->_longitude = longitude;
 	}
-	this->_buildingName = "";
-	this->_roomNumber = "";
+	this->_buildingName = buildingName;
+	this->_roomNumber = room;
 }
-Section::Location::~Location(){
+Location::~Location(){
 	return;
 }
 
-Section::Location::Location(const Location& copy){
+Location::Location(const Location& copy){
 	this->_latitude = copy._latitude;
 	this->_longitude = copy._longitude;
 	this->_buildingName = copy._buildingName;
 	this->_roomNumber = copy._roomNumber;
 }
 
-Section::Location& Section::Location::operator=(const Location& copy){
+Location& Location::operator=(const Location& copy){
 	this->_latitude = copy._latitude;
 	this->_longitude = copy._longitude;
 	this->_buildingName = copy._buildingName;
@@ -41,48 +40,18 @@ Section::Location& Section::Location::operator=(const Location& copy){
  * Getters & Setters
  * ======================================================
  */
- 
-bool Section::Location::setCoord(double latitude, double longitude){
-	if(not validLatitude(latitude) or not validLongitude(longitude)){
-		return false;
-	}
-	this->_latitude	 = latitude;
-	this->_longitude = longitude;
-	return true;
-}
-bool Section::Location::setLatitude(double latitude){
-	if(not validLatitude(latitude)){
-		return false;
-	}
-	this->_latitude  = latitude;
-	return true;
-}
-bool Section::Location::setLongitude(double longitude){
-	if(not validLongitude(longitude)){
-		return false;
-	}
-	this->_longitude  = longitude;
-	return true;
-}
 
-void Section::Location::setBuildingName(std::string building){
-	this->_buildingName = building;
-}
-void Section::Location::setRoomNumber(std::string roomNumber){
-	this->_roomNumber = roomNumber;
-}
-
-double Section::Location::getLatitude() const{
+double Location::getLatitude() const{
 	return this->_latitude;
 }
-double Section::Location::getLongitude() const{
+double Location::getLongitude() const{
 	return this->_longitude;
 }
 
-std::string Section::Location::getBuildingName() const{
+std::string Location::getBuildingName() const{
 	return this->_buildingName;
 }
-std::string Section::Location::getRoomNumber() const{
+std::string Location::getRoomNumber() const{
 	return this->_roomNumber;
 }
 /*
@@ -91,14 +60,14 @@ std::string Section::Location::getRoomNumber() const{
  * ======================================================
  */
 
-bool Section::Location::validLatitude(double latitude){
+bool Location::validLatitude(double latitude){
 	return (latitude >= -90) and (latitude <= 90);
 }
-bool Section::Location::validLongitude(double longitude){
+bool Location::validLongitude(double longitude){
 	return (longitude >= -180) and (longitude <= 180);
 }
 
-std::ostream& operator<<(std::ostream& os, const Section::Location& location){
+std::ostream& operator<<(std::ostream& os, const Location& location){
 	os << location.getBuildingName() << " - " << location.getRoomNumber() << std::endl;
 	os << "(" << location.getLatitude() << " , " << location.getLongitude() << ")" << std::endl;
 	return os;

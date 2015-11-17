@@ -1,15 +1,9 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-
+#include "Parser.hpp"
+#include "Section.hpp"
+#include "SectionBuilder.hpp"
 #include "../lib/rapidjson/document.h"
-#include "../include/Section.hpp"
-#include "../include/Week.hpp"
-#include "../include/SectionBuilder.hpp"
-#include "../include/Parser.hpp"
-#include <stdexcept>
-
+#include <fstream>
+#include <cassert>
 using namespace rapidjson;
 
 /*
@@ -50,7 +44,7 @@ std::vector<Section::Section*> Parser::getAll() {
  * Returns a pointer to a single Section object
  */
 Section* Parser::getNext() {
-    if (_index == _sizeInit) {
+    if (this->_index == (int)this->_sizeInit) {
         throw std::out_of_range("No more sections");
     }
     return _sections[_index++];
@@ -60,7 +54,7 @@ Section* Parser::getNext() {
  *  Returns total number of sections in json file
  */
 int Parser::getSize() {
-    return _sizeInit;
+    return this->_sizeInit;
 }
 
 /*
@@ -68,7 +62,7 @@ int Parser::getSize() {
  * not yet been returned.  Returns false otherwise.
  */
 bool Parser::hasNext() {
-    return _sizeInit - _index;
+    return this->_sizeInit - this->_index;
 }
 
 /*
@@ -82,7 +76,7 @@ bool Parser::hasNext() {
  * and stores them in vector _sections
  */
 void Parser::buildAllSections() {
-    for (int index = 0; index < _sizeInit; index++) {
+    for (int index = 0; index < (int)_sizeInit; index++) {
         const Value &section = _dom["Sections"][index];        // An individual section
         
         Section::SectionBuilder sectBuild;                     // Information per section
@@ -108,7 +102,7 @@ void Parser::buildAllSections() {
         sectBuild.setSemesterSeason("Spring");
         
         // const Value &meeting = section["Meetings"][0];
-        for (auto i = 0; i < section["Meetings"].Size(); i++) {
+        for (auto i = 0; i < (int)section["Meetings"].Size(); i++) {
             const Value &meeting = section["Meetings"][i];
 
             std::string start(meeting["Start"].GetString());    
@@ -122,20 +116,20 @@ void Parser::buildAllSections() {
 
             for (int i = 0; i < (int)strlen(days); i++) {
                 if (days[i] == 'M') {
-                    sectBuild.setStartTime(Section::Week::Day::monday, startTime[0], startTime[1]);
-                    sectBuild.setEndTime(Section::Week::Day::monday, endTime[0], endTime[1]);
+                    sectBuild.setStartTime(Week::Day::monday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Week::Day::monday, endTime[0], endTime[1]);
                 } else if (days[i] == 'T') {
-                    sectBuild.setStartTime(Section::Week::Day::tuesday, startTime[0], startTime[1]);
-                    sectBuild.setEndTime(Section::Week::Day::tuesday, endTime[0], endTime[1]);
+                    sectBuild.setStartTime(Week::Day::tuesday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Week::Day::tuesday, endTime[0], endTime[1]);
                 } else if (days[i] == 'W') {
-                    sectBuild.setStartTime(Section::Week::Day::wednesday, startTime[0], startTime[1]);
-                    sectBuild.setEndTime(Section::Week::Day::wednesday, endTime[0], endTime[1]); 
+                    sectBuild.setStartTime(Week::Day::wednesday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Week::Day::wednesday, endTime[0], endTime[1]); 
                 } else if (days[i] == 'R') {
-                    sectBuild.setStartTime(Section::Week::Day::thursday, startTime[0], startTime[1]);
-                    sectBuild.setEndTime(Section::Week::Day::thursday, endTime[0], endTime[1]); 
+                    sectBuild.setStartTime(Week::Day::thursday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Week::Day::thursday, endTime[0], endTime[1]); 
                 } else if (days[i] == 'F') {
-                    sectBuild.setStartTime(Section::Week::Day::friday, startTime[0], startTime[1]);
-                    sectBuild.setEndTime(Section::Week::Day::friday, endTime[0], endTime[1]); 
+                    sectBuild.setStartTime(Week::Day::friday, startTime[0], startTime[1]);
+                    sectBuild.setEndTime(Week::Day::friday, endTime[0], endTime[1]); 
                 }
             }
             sectBuild.setLocationBuilding(meeting["Building"].GetString());
@@ -146,7 +140,7 @@ void Parser::buildAllSections() {
             sectBuild.setLocationLon(-88.224904);
             sectBuild.setLocationRoom("3340");
             
-            for (auto j = 0; j < meeting["Instructors"].Size(); j++) {
+            for (auto j = 0; j < (int)meeting["Instructors"].Size(); j++) {
                 std::string name = std::string(meeting["Instructors"][j]["LastName"].GetString()) + ", "
                                                + std::string(meeting["Instructors"][j]["FirstName"].GetString());
                 sectBuild.setInstructorName(name);
@@ -190,9 +184,9 @@ void Parser::parseJSON(std::string fileName) {
     }
     std::string contents((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
     jsonFile.close();
-    _dom.Parse(contents.c_str());
-    _index = 0;
-    _sizeInit = _dom["Sections"].Size();
-    _description = _dom["Description"].GetString();
+    this->_dom.Parse(contents.c_str());
+    this->_index = 0;
+    this->_sizeInit = this->_dom["sections"].Size();
+    this->_description = this->_dom["description"].GetString();
     buildAllSections();
 }

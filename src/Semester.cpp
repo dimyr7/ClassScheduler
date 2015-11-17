@@ -1,11 +1,11 @@
-#include "Semester.hpp"
+#include <Semester.hpp>
 #include <iostream>
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
-Section::Semester::Semester(std::string year, std::string season, std::string name){
+Semester::Semester(std::string year, std::string season, std::string name){
 	this->_year = year;
 	this->_season = season;
 	this->_name = name;
@@ -17,64 +17,68 @@ Section::Semester::Semester(std::string year, std::string season, std::string na
 	this->_endDate[0] = 31;
 	this->_endDate[1] = 12;
 	this->_endDate[2] = 2000;
-
+	
+	this->_isSet = false;
 }
 
-Section::Semester::~Semester(){
+Semester::~Semester(){
 	return;
 }
 
-const std::string Section::Semester::monthsStr[13] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",  "Dec" };
+const std::string Semester::monthsStr[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",  "Dec" };
 
 
 
-Section::Semester::Semester(const Semester& copy){
+Semester::Semester(const Semester& copy){
 	this->_year = copy._year;
 	this->_season = copy._season;
 	this->_name = copy._name;
 
-	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+	for(int i = 0; i < 3; i++){
 		this->_startDate[i] = copy._startDate[i];
 		this->_endDate[i]   = copy._endDate[i];
 
 	}
+	this->_isSet = false;
 }
 
-Section::Semester& Section::Semester::operator=(const Semester& copy){
+Semester& Semester::operator=(const Semester& copy){
 	this->_year = copy._year;
 	this->_season = copy._season;
 	this->_name = copy._name;
 
-	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+	for(int i = 0; i < 3; i++){
 		this->_startDate[i] = copy._startDate[i];
 		this->_endDate[i]   = copy._endDate[i];
 	}
+
+	this->_isSet = false;
 	return *this;
 }
 
-/*
- * ======================================================
- * Setters
- * ======================================================
- */
-void Section::Semester::setYear(std::string year){
-	this->_year = year;
-}
-void Section::Semester::setSeason(std::string season){
-	this->_season = season;
-}
-void Section::Semester::setName(std::string name){
-	this->_name = name;
-}
-
-bool Section::Semester::setDates(const int (&start)[3], const int (&end)[3]){
-	if(not Section::Semester::before(start, end)){ 
+bool Semester::setDates(const int (&start)[3], const int (&end)[3]){
+	// Setting dates multiple times is not allowed
+	if(this->_isSet){
 		return false;
 	}
-	for(int i = 0; i < Section::Semester::NUMOFDATESPECIFIER; i++){
+	// Start date is not valid
+	if(not Semester::validDate(start)){
+		return false;
+	}
+	// End date is not valid
+	if(not Semester::validDate(end)){
+		return false;
+	}
+	// Start date should actually be before the end date
+	if(not Semester::before(start, end)){ 
+		return false;
+	}
+	// TODO validate the dates are actual dates
+	for(int i = 0; i < 3 ; i++){
 		this->_startDate[i] = start[i];
 		this->_endDate[i]   = end[i];
 	}
+	this->_isSet = true;
 	return true;
 
 }
@@ -85,81 +89,101 @@ bool Section::Semester::setDates(const int (&start)[3], const int (&end)[3]){
  * ======================================================
  */
 
-std::string Section::Semester::getYear() const{
+std::string Semester::getYear() const{
 	return _year;
 }
-std::string Section::Semester::getSeason() const{
+std::string Semester::getSeason() const{
 	return _season;
 }
-std::string Section::Semester::getName() const{
+std::string Semester::getName() const{
 	return _name;
 }
 
-int Section::Semester::getDay(bool start) const{
-	if(start){
-		return this->_startDate[0];
-	}
+int Semester::getStartDay() const{
+	return this->_startDate[0];
+}
+int Semester::getStartMonth() const{
+	return this->_startDate[1];
+}
+int Semester::getStartYear() const{
+	return this->_startDate[2];
+}
+
+int Semester::getEndDay() const{
 	return this->_endDate[0];
 }
-int Section::Semester::getMonth(bool start) const{
-	if(start){
-		return this->_startDate[1];
-	}
+
+int Semester::getEndMonth() const{
 	return this->_endDate[1];
 }
-int Section::Semester::getYear(bool start) const{
-	if(start){
-		return this->_startDate[2];
-	}
+
+int Semester::getEndYear() const{
 	return this->_endDate[2];
 }
+
+
 /*
  * ======================================================
  * Validators
  * ======================================================
  */
 
-bool Section::Semester::validDay(int day){
+bool Semester::validDate(const int (&day)[3]){
+	bool vDay = Semester::validDay(day[0]);
+	bool vMonth = Semester::validMonth(day[1]);
+	bool vYear = Semester::validYear(day[2]);
+	return (vDay && vMonth && vYear);
+}
+bool Semester::validDay(int day){
 	return (day >= 1) and (day <= 31);
 }
-bool Section::Semester::validMonth(int month){
+bool Semester::validMonth(int month){
 	return (month >= 1) and (month <= 12);
 }
-bool Section::Semester::validYear(int year){
+bool Semester::validYear(int year){
 	return (year >= 1990) and (year <= 2100);
 }
 
-bool Section::Semester::before(const int (&first)[3], const int (&second)[3]){
-	if(not Section::Semester::validDay(first[0])){
+bool Semester::before(const int (&first)[3], const int (&second)[3]){
+	// Is the start day valid
+	if(not Semester::validDay(first[0])){
 		return false;
 	}
-	else if(not Section::Semester::validDay(second[0])){
+	// Is the end day valid
+	else if(not Semester::validDay(second[0])){
 		return false;
 	}
-	else if(not Section::Semester::validMonth(first[1])){
+	// Is the start month valid
+	else if(not Semester::validMonth(first[1])){
 		return false;
 	}
-	else if(not Section::Semester::validMonth(second[1])){
+	// Is the end month valid
+	else if(not Semester::validMonth(second[1])){
 		return false;
 	}
-	else if(not Section::Semester::validYear(first[2])){
+	// Is the stary year valid
+	else if(not Semester::validYear(first[2])){
 		return false;
 	}
-	else if(not Section::Semester::validYear(second[2])){
+	// Is the end year valid
+	else if(not Semester::validYear(second[2])){
 		return false;
 	}
+	// Check the years of the dates
 	else if(first[2] > second[2]){
 		return false;
 	}
 	else if(first[2] < second[2]){
 		return true;
 	}
+	// Check the months of the dates
 	else if(first[1] > second[1]){
 		return false;
 	}
 	else if(first[1] < second[1]){
 		return true;
 	}
+	// Check the days of the dates
 	else if(first[0] >= second[0]){
 		return false;
 	}
@@ -168,9 +192,9 @@ bool Section::Semester::before(const int (&first)[3], const int (&second)[3]){
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, const Section::Semester& semester){
+std::ostream& operator<<(std::ostream& os, const Semester& semester){
 	os << semester.getYear() << " - " << semester.getSeason() << " - " << semester.getName() <<std::endl;
-	os << Section::Semester::monthsStr[semester.getMonth(true)] << " " << semester.getDay(true) << ", " << semester.getYear(true) << std::endl;
-	os << Section::Semester::monthsStr[semester.getMonth(false)] << " " << semester.getDay(false) << ", " << semester.getYear(false) << std::endl;
+	os << "Starting Date: " << Semester::monthsStr[semester.getStartMonth()] << " " << semester.getStartDay() << ", " << semester.getStartYear() << std::endl;
+	os << "Ending Date:: " << Semester::monthsStr[semester.getEndMonth()] << " " << semester.getEndDay() << ", " << semester.getEndYear() << std::endl;
 	return os;
 }
