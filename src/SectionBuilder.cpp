@@ -6,7 +6,6 @@ Section::SectionBuilder::SectionBuilder(){
 	this->_sectionType = "";
 	this->_description = "";
 	this->_crn = "";
-
 	// Instructor
 	this->_instructorName = "";	
 	
@@ -58,10 +57,14 @@ Section* Section::SectionBuilder::buildSection(){
 		
 		week->setDay((Week::Day)i, startTime, endTime);
 	}
+	/*
+	 * Creating Instructor
+	 */
+    std::vector<Instructor*> instructor;
+    for (auto instruct : this->_instructorName) {
+        instructor.push_back(new Instructor(instruct));
+    }
 
-
-	// Creating an instructor
-	Instructor* instructor = new Instructor(this->_instructorName);
 	
 	// Creating a Location	
 	Location* building = new Location(this->_locationBuildingName, this->_locationRoomNumber, this->_locationLat, this->_locationLon);
@@ -80,8 +83,11 @@ Section* Section::SectionBuilder::buildSection(){
 	sec->setSectionType(this->_sectionType);
 	sec->setCRN(this->_crn);
 
-	sec->setInstructor(instructor);
-	sec->setDaysOfWeek(week);
+	for (auto instruct : instructor) {
+        sec->setInstructor(instruct);
+    }
+    
+    sec->setDaysOfWeek(week);
 	sec->setSemester(semester);
 	sec->setLocation(building);
 
@@ -154,7 +160,7 @@ void Section::SectionBuilder::setCRN(std::string crn){
  * Setters for Instructor object
  */
 void Section::SectionBuilder::setInstructorName(std::string instructor){
-	this->_instructorName = instructor;
+	this->_instructorName.push_back(instructor);
 }
 
 /*
@@ -214,5 +220,4 @@ void Section::SectionBuilder::setLocationBuilding(std::string name){
 void Section::SectionBuilder::setLocationRoom(std::string room){
 	this->_locationRoomNumber = room;
 }
-
 

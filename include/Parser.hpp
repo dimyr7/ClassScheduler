@@ -1,39 +1,79 @@
 #ifndef PARSE_H
 #define PARSE_H
 #include "Section.hpp"
+<<<<<<< HEAD
 #include "../lib/rapidjson/document.h"
 #include <vector>
+=======
+
+/* 
+ * Parser is a class that reads and parses json containing UIUC scheduling information for a class.
+ * From the parsed information, it uses SectionBuilder to creates Sections, which can then be returned.
+ */
+>>>>>>> master
 class Parser {
     public:
-        // Parses example.json 
+        /*
+         * Creates a Parser object that parses the json in the file example.json by default.
+         */
         Parser();
 
-        // Parses json from a file
-        Parser(std::string jsonFile);
+        /*
+         * Creates a Parser object that parses the json from a file.  jsonFileName
+         * is the name of the file to read from.
+         */
+        Parser(std::string jsonFileName);
         
+<<<<<<< HEAD
         // Returns a vector of pointers to all sections in file
         std::vector<Section*> getAll();
+=======
+        /*
+         * Returns a vector of pointers to all sections in the json file.
+         */
+        std::vector<Section::Section*> getAll();
+>>>>>>> master
 
-        // Returns a pointer to a single section
+        /*
+         * Returns a pointer to a single section
+         */
         Section*            getNext();
+<<<<<<< HEAD
         ;
         // Returns number of sections in the file
+=======
+        
+        /*
+         * Returns the number of sections contained the json file
+         */
+>>>>>>> master
         int                 getSize();
 
-        // Returns number of sections remaining
-        // Counts number of times getNext is called
-        int                 getSizeLeft();
-        
         // Returns if there is a section remaining
         bool                hasNext();
 
     private:
-        rapidjson::Document _dom;        
-        int                 _sizeInit;
-        int                 _index;
-        std::string         _description; 
+        rapidjson::Document               _dom;
+        std::vector<Section::Section*>    _sections;     
+        rapidjson::SizeType               _sizeInit;
+        int                               _index;
+        std::string                       _description; 
 
-        void                parseJSON(std::string fileName);
-        void                getClassTime(const char*, const char*, int*);
+        /*
+         * Builds all sections contained in json file and adds to _sections vector
+         */
+        void                    buildAllSections();
+        
+        /*
+         * Converts string of time to integers hour and minutes in 24 hour time
+         * vector[0] is the hour, vector of [1] is the minutes.
+         * E.g. "3:50 PM" -> [15, 50]
+         */
+        std::vector<int>        convertTime(std::string time); 
+        
+        /* 
+         * Opens the file fileName and parses the json
+         */ 
+       void                    parseJSON(std::string fileName);
 };
 #endif

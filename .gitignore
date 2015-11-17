@@ -29,8 +29,11 @@
 
 # More executibles
 build
-# lib
+
 bin
+bin/autoschedule
+bin/tester
+
 # Mac specific files
 .DS_Store
 .ycm_extra_conf.py

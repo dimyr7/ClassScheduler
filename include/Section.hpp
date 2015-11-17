@@ -7,10 +7,26 @@
 #include "Semester.hpp"
 
 #include <string>
+#include <vector>
 class Section{
 	public:
 		class SectionBuilder;
 		/*
+		 * Getters
+		 */
+		std::string 		getSectionName() const;
+		std::string 		getSectionType() const;
+		std::string 		getDescription() const;
+		std::string 		getCRN() const;
+
+
+        std::vector<Instructor*> 		getInstructor() const;
+		Week* 			                getWeek() const;
+		Semester*		                getSemester() const;
+		Location* 		                getBuilding() const;
+		
+	private:
+			/*
 		 * Constructor
 		 */
 		Section();
@@ -33,17 +49,6 @@ class Section{
 		/*
 		 * Getters
 		 */
-		std::string 		getSectionName() const;
-		std::string 		getSectionType() const;
-		std::string 		getDescription() const;
-		std::string 		getCRN() const;
-
-
-		Instructor*		getInstructor() const;
-		Week* 			getWeek() const;
-		Semester*		getSemester() const;
-		Location* 		getBuilding() const;
-		
 		static bool overlap(Section* a, Section* b);
 	private:
 		
@@ -71,10 +76,10 @@ class Section{
 		std::string 	_description;
 		std::string 	_crn;
 
-		Instructor*	_instructor; 
-		Week* 		_daysOfWeek;
-		Semester* 	_dates;
-		Location* 	_bulding;
+        std::vector<Instructor*> 	_instructor; 
+		Week* 		                _daysOfWeek;
+		Semester* 	                _dates;
+		Location* 	                _bulding;
 
 };
 #endif
