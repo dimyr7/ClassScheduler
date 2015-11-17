@@ -1,5 +1,4 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o sectiongroupfactory.o sgleclbd.o sgleclab.o sglecdis.o
-TESTOBJS = test.o
+OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o 
 MAINOBJS = main.o
 OBJPATH = ./build
 
@@ -10,34 +9,19 @@ LFLAGS = -o
 
 SRCDIR = src/
 BUILDDIR = build/
-TESTDIR = test/
 
 TARGET = bin/autoschedule
-TESTER = bin/tester
 
 SRCEXT = cpp
 INC = -I include 
-LIBS = -lboost_unit_test_framework
-all: $(TARGET) $(TESTER)
+all: $(TARGET) 
 
 autoschedule: $(TARGET)
-
-tester: $(TESTER)
-
-# Linking the testing executible
-$(TESTER): $(addprefix $(BUILDDIR), $(TESTOBJS) $(OBJS))
-	@echo "Building tester"
-	$(LINKER) $(addprefix $(BUILDDIR), $(TESTOBJS) $(OBJS)) $(INC) $(LIBS) $(LFLAGS) $(TESTER)
 
 # Linking the autoschedule executible
 $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
 	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LIBS) $(LFLAGS) $(TARGET)
-
-$(BUILDDIR)test.o: $(TESTDIR)Test.cpp 
-	$(CC) $(CFLAGS) $(TESTDIR)Test.cpp
-	@mv test.o $(BUILDDIR)
-
 
 # Compiling main.o
 $(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o)
@@ -51,7 +35,7 @@ $(BUILDDIR)parser.o: $(SRCDIR)Parser.cpp $(addprefix $(BUILDDIR), section.o sect
 
 
 # Compiling course.o
-$(BUILDDIR)course.o: $(SRCDIR)Course.cpp $(addprefix $(BUILDDIR), section.o sectioncombo.o sectiongroup.o sectiongroupfactory.o)
+$(BUILDDIR)course.o: $(SRCDIR)Course.cpp $(addprefix $(BUILDDIR), section.o sectioncombo.o sectiongroup.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course.cpp
 	@mv course.o $(BUILDDIR)
 
@@ -103,25 +87,5 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)SectionGroup.cpp $(addprefix $(BUILDDIR), se
 	$(CC) $(CFLAGS) $(SRCDIR)SectionGroup.cpp
 	@mv sectiongroup.o $(BUILDDIR)
 	
-# compiling sectiongroupfactory.o
-$(BUILDDIR)sectiongroupfactory.o: $(SRCDIR)SectionGroupFactory.cpp $(addprefix $(BUILDDIR), sgleclbd.o)
-	$(CC) $(CFLAGS) $(SRCDIR)SectionGroupFactory.cpp
-	@mv sectiongroupfactory.o $(BUILDDIR)
-
-# compiling SGLecLBD.o
-$(BUILDDIR)sgleclbd.o: $(SRCDIR)SGLecLBD.cpp 
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecLBD.cpp
-	@mv sgleclbd.o $(BUILDDIR)
-
-# compiling sgleclab.o
-$(BUILDDIR)sgleclab.o: $(SRCDIR)SGLecLab.cpp
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecLab.cpp
-	@mv sgleclab.o $(BUILDDIR)
-
-# compiling SGLecDis
-$(BUILDDIR)sglecdis.o: $(SRCDIR)SGLecDis.cpp
-	$(CC) $(CFLAGS) $(SRCDIR)SGLecDis.cpp
-	@mv sglecdis.o $(BUILDDIR)
-
 clean:
-	-rm -f build/*.o bin/autoscheduler bin/tester
+	-rm -f build/*.o bin/autoscheduler 

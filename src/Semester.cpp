@@ -61,7 +61,14 @@ bool Semester::setDates(const int (&start)[3], const int (&end)[3]){
 	if(this->_isSet){
 		return false;
 	}
-
+	// Start date is not valid
+	if(not Semester::validDate(start)){
+		return false;
+	}
+	// End date is not valid
+	if(not Semester::validDate(end)){
+		return false;
+	}
 	// Start date should actually be before the end date
 	if(not Semester::before(start, end)){ 
 		return false;
@@ -121,6 +128,12 @@ int Semester::getEndYear() const{
  * ======================================================
  */
 
+bool Semester::validDate(const int (&day)[3]){
+	bool vDay = Semester::validDay(day[0]);
+	bool vMonth = Semester::validMonth(day[1]);
+	bool vYear = Semester::validYear(day[2]);
+	return (vDay && vMonth && vYear);
+}
 bool Semester::validDay(int day){
 	return (day >= 1) and (day <= 31);
 }

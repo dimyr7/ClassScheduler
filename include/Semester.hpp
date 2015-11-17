@@ -109,22 +109,28 @@ class Semester{
 		static bool before(const int (&first)[3], const int (&second)[3]);
 
 	private:
- 
-		/*
+		/**
+		 * A function that determines if a day is a valid day
+		 * @param day is an int array representing an array where [day, month, year]
+		 * @return true if the day is valid, false otherwise
+		 */
+		static bool validDate(const int (&day)[3]);
+
+		/**
 	 	 * A function that determines if a year is valid
 		 * @param year is an int representing a year to validate
 		 * @return true if the year is valid, false otherwise
 		 */
 		static bool validYear(int year);
 
-		/*
+		/**
 		 * A function that determines if a month is invalid
 		 * @param month is a int representing a month to validate
 		 * @return true if a month is valid, false otherwise
 		 */
 		static bool validMonth(int month);
 
-		/*
+		/**
 		 * A function that determines if a day is valid
 		 */
 		static bool validDay(int day);

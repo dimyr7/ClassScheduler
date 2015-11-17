@@ -1,7 +1,6 @@
 #include "Course.hpp"
 #include "SectionCombo.hpp"
 #include "SectionGroup.hpp"
-#include "SectionGroupFactory.hpp"
 #include <Map>
 #include <bitset>
 /*
@@ -16,12 +15,13 @@ Course::Course(std::string department, std::string courseNumber){
 }
 
 Course::~Course(){
-	// TODO delete other pointers
 	// Iterates through all Sections and deletes it
 	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
 		delete *it;
 	}
-
+	for(std::vector<SectionGroup*>::const_iterator it = this->_groups.begin(); it != this->_groups.end(); it++){
+		delete *it;
+	}
 	// Iterates through all the SectionCombos and delets it
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
 		delete *it;
@@ -119,7 +119,7 @@ void Course::generateSectionGroup(){
 		}
 		
 		// For each section letter ...
-		for(std::map< std::string, std::vector<Section*>>::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
+		for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
 
 			std::bitset< Course::NUM_OF_SECTION_TYPES> listOfSections;
 
@@ -129,10 +129,10 @@ void Course::generateSectionGroup(){
 				//std::cout << (*is)->getSectionType() << (int)secType << std::endl;
 				listOfSections[ (int)secType] = 1;
 			}
+			int numOfSections = listOfSections.count();
 
-			// Create a new Section Group based on the types of sections and the section letter
-			Course::SectionGroup* newGroup = SectionGroupFactory::createSectionGroup(listOfSections, it->first );
-
+			// Create a section group with a set number of sections
+			SectionGroup* newGroup = new SectionGroup(numOfSections, it->first);
 			// Push all sections to that section group
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
 				newGroup->addSection(*is);

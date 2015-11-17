@@ -2,6 +2,7 @@
 #define SECTION_GROUP_H
 #include "Course.hpp"
 #include <vector>
+#include <valarray>
 /**
  * This an abstract class made to represent a group of sections.
  * These sections will need to have the id in common. Most commonly, it is the first letter of the section Name
@@ -13,7 +14,7 @@ class Course::SectionGroup{
 		 * Constructor
 		 * @param id is the id of this section group, most commony the first letter of the name
 		 */
-		SectionGroup(std::string id);
+		SectionGroup(size_t numTypes, std::string id);
 
 		/**
 		 * Copy constructor
@@ -47,19 +48,23 @@ class Course::SectionGroup{
 		 * @param section is the section to be added
 		 * @return true if section was added successfully, false otherwise
 		 */
-		virtual bool 	addSection(Section* section) = 0;
+		bool 	addSection(Section* section);
 
 		/**
 		 * All SectionGroups must know how to generate valid section combinations
 		 * @return a vector of valid Section Groups that are generated from these sections
 		 */
-		virtual std::vector<SectionCombo*> getCombos() const = 0;
+		std::vector<SectionCombo*> getCombos();
 
 	private:
+
+		std::vector<SectionCombo*> getCombosHelper(std::valarray<size_t> inputCombo, size_t depth);	
 		/**
 		 * The id of the group
 		 */
 		std::string 	_id;
+		size_t 			_numTypes;
+		std::valarray< std::vector<Section*> >    _sections;	
+		std::valarray<std::string> _sectionTypes;
 };
-
 #endif
