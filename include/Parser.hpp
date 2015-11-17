@@ -44,7 +44,7 @@ class Parser {
     private:
         rapidjson::Document               _dom;
         std::vector<Section::Section*>    _sections;     
-        int                               _sizeInit;
+        rapidjson::SizeType               _sizeInit;
         int                               _index;
         std::string                       _description; 
 
