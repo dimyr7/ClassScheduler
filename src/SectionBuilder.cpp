@@ -6,8 +6,6 @@ Section::SectionBuilder::SectionBuilder(){
 	this->_sectionType = "";
 	this->_description = "";
 	this->_crn = "";
-	// Instructor
-	this->_instructorName = "";	
 	
 	// Week 
 	for(int i = 0; i < Week::DAYSINWEEK; i++){

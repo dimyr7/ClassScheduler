@@ -9,15 +9,6 @@ using std::iostream;
 using std::ifstream;
 using namespace std;
 int main(){
-	/*
-	struct rlimit r1;
-	getrlimit(RLIMIT_AS, &r1);
-	
-	struct rlimit r2;
-	r2.rlim_max = (rlim_t)(-1);		
-	setrlimit(RLIMIT_AS, &r2);
-	std::cout << "The current limit is: " << (long long int)r1.rlim_cur << std::endl;
-	*/
     Parser parse("cs125.json");
 	Course cs125("PHYS", "211");
 	std::vector<Section*> sections = parse.getAll();

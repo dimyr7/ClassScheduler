@@ -30,7 +30,7 @@
 # More executibles
 build
 
-bin
+bin/*
 bin/autoschedule
 bin/tester
 
@@ -39,3 +39,6 @@ bin/tester
 .ycm_extra_conf.py
 .ycm_extra_conf.pyc
 *.swp
+
+# Ignore json files
+*.json

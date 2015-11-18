@@ -12,6 +12,11 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
 
+
+#ifdef DEBUG
+#include <iostream>
+#endif
+
 #ifndef RAPIDJSON_DOCUMENT_H_
 #define RAPIDJSON_DOCUMENT_H_
 
@@ -863,6 +868,9 @@ public:
         if (member != MemberEnd())
             return member->value;
         else {
+#ifdef DEBUG
+			std::cout << "Cannot find field: " << name.GetString() << std::endl;
+#endif
             RAPIDJSON_ASSERT(false);    // see above note
             static GenericValue NullValue;
             return NullValue;

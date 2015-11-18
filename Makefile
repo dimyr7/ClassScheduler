@@ -3,9 +3,17 @@ MAINOBJS = main.o
 OBJPATH = ./build
 
 CC = g++
-CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include
+CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include 
 LINKER = g++
 LFLAGS = -o
+
+ifdef DEBUG
+	CFLAGS += -DNDEBUG
+else
+	CFLAGS += -DDEBUG
+endif
+
+
 
 SRCDIR = src/
 BUILDDIR = build/
@@ -88,4 +96,4 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)SectionGroup.cpp $(addprefix $(BUILDDIR), se
 	@mv sectiongroup.o $(BUILDDIR)
 	
 clean:
-	-rm -f build/*.o bin/autoscheduler 
+	-rm -f build/*.o bin/autoschedule

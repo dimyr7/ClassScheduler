@@ -1,7 +1,8 @@
 #include "Parser.hpp"
 #include "Section.hpp"
 #include "SectionBuilder.hpp"
-#include "../lib/rapidjson/document.h"
+
+#include <../lib/rapidjson/document.h>
 #include <fstream>
 #include <cassert>
 using namespace rapidjson;
@@ -77,20 +78,20 @@ bool Parser::hasNext() {
  */
 void Parser::buildAllSections() {
     for (int index = 0; index < (int)_sizeInit; index++) {
-        const Value &section = _dom["Sections"][index];        // An individual section
+        const Value &section = _dom["sections"][index];        // An individual section
         
         Section::SectionBuilder sectBuild;                     // Information per section
-        sectBuild.setCRN(section["CRN"].GetString());
-        sectBuild.setSectionType(section["Code"].GetString());
+        sectBuild.setCRN(section["crn"].GetString());
+        sectBuild.setSectionType(section["code"].GetString());
         sectBuild.setDescription(_description);
 
         // Semester start and end dates
-        std::string startSemester(section["Start"].GetString());
+        std::string startSemester(section["start"].GetString());
         int year = stoi(startSemester.substr(0, 4));
         int month = stoi(startSemester.substr(5, 7));
         int day = stoi(startSemester.substr(8, 10));
         sectBuild.setSemesterStart(day, month, year);
-        std::string endSemester(section["End"].GetString());
+        std::string endSemester(section["end"].GetString());
         year = stoi(endSemester.substr(0, 4));
         month = stoi(endSemester.substr(5, 7));
         day = stoi(endSemester.substr(8, 10));
@@ -102,13 +103,13 @@ void Parser::buildAllSections() {
         sectBuild.setSemesterSeason("Spring");
         
         // const Value &meeting = section["Meetings"][0];
-        for (auto i = 0; i < (int)section["Meetings"].Size(); i++) {
-            const Value &meeting = section["Meetings"][i];
+        for (auto i = 0; i < (int)section["meetings"].Size(); i++) {
+            const Value &meeting = section["meetings"][i];
 
-            std::string start(meeting["Start"].GetString());    
-            std::string end(meeting["End"].GetString());    
+            std::string start(meeting["start"].GetString());    
+            std::string end(meeting["end"].GetString());    
 
-            const char *days = meeting["Days"].GetString();
+            const char *days = meeting["days"].GetString();
 
             std::vector<int> startTime = convertTime(start);
             std::vector<int> endTime = convertTime(end);
@@ -132,19 +133,20 @@ void Parser::buildAllSections() {
                     sectBuild.setEndTime(Week::Day::friday, endTime[0], endTime[1]); 
                 }
             }
-            sectBuild.setLocationBuilding(meeting["Building"].GetString());
-            sectBuild.setSectionName(meeting["Type"]["Name"].GetString());
+            sectBuild.setLocationBuilding(meeting["building"].GetString());
+            sectBuild.setSectionName(meeting["type"]["name"].GetString());
         
             // Information we don't have yet in the json files
             sectBuild.setLocationLat(40.113803);
             sectBuild.setLocationLon(-88.224904);
             sectBuild.setLocationRoom("3340");
-            
-            for (auto j = 0; j < (int)meeting["Instructors"].Size(); j++) {
-                std::string name = std::string(meeting["Instructors"][j]["LastName"].GetString()) + ", "
-                                               + std::string(meeting["Instructors"][j]["FirstName"].GetString());
-                sectBuild.setInstructorName(name);
-            }
+			if(meeting.HasMember("instrustor")){
+				for (auto j = 0; j < (int)meeting["instructors"].Size(); j++) {
+					std::string name = std::string(meeting["instructors"][j]["last"].GetString()) + ", "
+						+ std::string(meeting["instructors"][j]["first"].GetString());
+					sectBuild.setInstructorName(name);
+				}
+			}
         }
 
         // Build section and add to vector _sections
