@@ -82,7 +82,7 @@ void Parser::buildAllSections() {
         
         Section::SectionBuilder sectBuild;                     // Information per section
         sectBuild.setCRN(section["crn"].GetString());
-        sectBuild.setSectionType(section["code"].GetString());
+        //sectBuild.setSectionType(section["code"].GetString());
         sectBuild.setDescription(_description);
 
         // Semester start and end dates
@@ -134,8 +134,8 @@ void Parser::buildAllSections() {
                 }
             }
             sectBuild.setLocationBuilding(meeting["building"].GetString());
-            sectBuild.setSectionName(meeting["type"]["name"].GetString());
-        
+            sectBuild.setSectionName(section["code"].GetString());
+        	sectBuild.setSectionType(meeting["type"]["name"].GetString());
             // Information we don't have yet in the json files
             sectBuild.setLocationLat(40.113803);
             sectBuild.setLocationLon(-88.224904);

@@ -121,7 +121,6 @@ std::vector<SectionCombo*> Course::getCombos(){
 			// .. Find out all types of sections for that letter
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
 				Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
-				//std::cout << (*is)->getSectionType() << (int)secType << std::endl;
 				listOfSections[ (int)secType] = 1;
 			}
 			int numOfTypes = listOfSections.count();

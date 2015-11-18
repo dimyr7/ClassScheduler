@@ -9,7 +9,7 @@ using std::iostream;
 using std::ifstream;
 using namespace std;
 int main(){
-    Parser parse("cs125.json");
+    Parser parse("phys211.json");
 	Course cs125("PHYS", "211");
 	std::vector<Section*> sections = parse.getAll();
 	
@@ -18,7 +18,6 @@ int main(){
 		cs125.addSection(sections[i]);
     }
 	std::vector<SectionCombo*> combos = cs125.getCombos();	
-	//std::cout << combos.size() << " Combos Generated" << std::endl;
 	for(std::vector<SectionCombo*>::const_iterator it = combos.begin(); it != combos.end(); it++){
 		//std::cout << "=== New Combo ===" << std::endl;
 		std::vector<Section*> sections = (*it)->getSections();
