@@ -9,15 +9,18 @@ class Instructor{
 		 * @param name is the full name of the instructor. Defaults to empty string
 		 */
 		Instructor(std::string name = "");
-		/*
+
+		/**
 		 * Destructor
 		 */
 		~Instructor();
+
 		/**
 		 * Copy constructor
 		 * @param copy is the Instructor object to be copied
 		 */
 		Instructor(const Instructor& copy);
+
 		/**
 		 * Assignment operator
 		 * @param copy is the instructor object to be copied

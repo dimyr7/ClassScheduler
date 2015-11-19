@@ -8,6 +8,9 @@
 
 #include <string>
 #include <vector>
+/**
+ * This represents a section that belongs to a class
+ */
 class Section{
 	public:
 		class SectionBuilder;
@@ -20,7 +23,7 @@ class Section{
 		std::string 		getCRN() const;
 
 
-        std::vector<Instructor*> 		getInstructor() const;
+        std::vector<Instructor*> 		getInstructors() const;
 		Week* 			                getWeek() const;
 		Semester*		                getSemester() const;
 		Location* 		                getBuilding() const;
@@ -60,7 +63,7 @@ class Section{
 		void setDescription(std::string description);
 		void setCRN(std::string crn);
 
-		void setInstructor(Instructor* instructor);
+		void addInstructor(Instructor* instructor);
 		void setDaysOfWeek(Week* daysOfWeek);
 		void setSemester(Semester* semester);
 		void setLocation(Location* building);
@@ -75,7 +78,7 @@ class Section{
 		std::string 	_description;
 		std::string 	_crn;
 
-        std::vector<Instructor*> 	_instructor; 
+        std::vector<Instructor*> 	_instructors; 
 		Week* 		                _daysOfWeek;
 		Semester* 	                _dates;
 		Location* 	                _bulding;

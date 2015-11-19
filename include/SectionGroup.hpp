@@ -58,13 +58,33 @@ class Course::SectionGroup{
 
 	private:
 
+		/**
+		 * A helper function that gets the combos from this section group
+		 * It is wrapped by getCombos()
+		 * @param inputCombo is an array of indicies of sections, one from each type of section, that have been chosen so far
+		 * @param depth is the number of types of sections that have already been chosen
+		 * @return a vector of valid section combos given the constraints in the parameters
+		 */
 		std::vector<SectionCombo*> getCombosHelper(std::valarray<size_t> inputCombo, size_t depth);	
+
 		/**
 		 * The id of the group
 		 */
 		std::string 	_id;
+
+		/**
+		 * Number of types of sections
+		 */
 		size_t 			_numTypes;
+
+		/**
+		 * Sections that belong to this group catagorized by section type
+		 */
 		std::valarray< std::vector<Section*> >    _sections;	
+
+		/**
+		 * The different section types
+		 */
 		std::valarray<std::string> _sectionTypes;
 };
 #endif

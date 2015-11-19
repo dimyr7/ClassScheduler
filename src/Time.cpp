@@ -40,20 +40,7 @@ int Time::getHour() const {
 int Time::getMinute() const {
 	return _minute;
 }
-bool Time::setHour(int hour){
-	if(not Time::validHour(hour)){
-		return false;
-	}
-	this->_hour = hour;
-	return true;
-}
-bool Time::setMinute(int minute){
-	if(not Time::validMinute(minute)){
-		return false;
-	}
-	this->_minute = minute;
-	return true;
-}
+
 
 /*
  * ======================================================
@@ -83,19 +70,7 @@ bool Time::validMinute(int minute){
  * Additional Functionality
  * ======================================================
  */
-Time Time::operator+(const Time& second) const{
-	Time t;
-	bool minOverflow = false;
-	if(this->_minute + second._minute> 59){
-		minOverflow = true;	
-		t._minute = (this->_minute + second._minute)%60;
-	}
-	t._hour = (this->_hour + second._hour)%24;
-	if(minOverflow){
-		t._hour++;
-	}
-	return t;
-}
+
 std::ostream& operator<<(std::ostream& os, const Time& time){
 	
 	std::string min = std::to_string(time._minute);

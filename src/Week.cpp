@@ -54,24 +54,18 @@ bool Week::setDay(Day day, Time* const start, Time* const end){
 	return true;
 }
 
-void Week::unsetDay(Day day){
-	delete _times[day][0];
-	delete _times[day][1];
-	_times[day][0] = NULL;
-	_times[day][1] = NULL;
+Time* Week::getStartTime(Day day) const{
+	return this->_times[day][0];
 }
 
-Time* Week::getTimes(Day day, bool start) const {
-	if(start){
-		return this->_times[day][0];
-	}
+Time* Week::getEndTime(Day day) const{
 	return this->_times[day][1];
 }
 
 std::ostream& operator<<(std::ostream& os, const Week& week){
 	for(int i = 0; i < Week::DAYSINWEEK; i++){
-		Time* start = week.getTimes((Week::Day)i, true);
-		Time* end   = week.getTimes((Week::Day)i, false);
+		Time* start = week.getStartTime((Week::Day)i);
+		Time* end   = week.getEndTime((Week::Day)i);
 		if(start == NULL){
 			continue;
 		}

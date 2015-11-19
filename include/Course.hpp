@@ -19,7 +19,6 @@ class Course{
 		Course(std::string department, std::string courseNumber);
 
 		/**
-		 * TODO update to delete section groups
 		 * Destructor for course object
 		 * Deletes all sections, sectiongroups, and sectioncombos
 		 */
@@ -56,12 +55,7 @@ class Course{
 		 */
 		void addSection(Section* section);
 
-		/**
-		 * A SectionGroup is a way to categorize sections. e.g. Lecture & Lab-Discussion
-		 * One Section from each group will be a valid combination.
-		 */
-		class SectionGroup;
-	
+			
 		
 		/**
 		 * Number of lecture types
@@ -69,6 +63,12 @@ class Course{
 		static const int NUM_OF_SECTION_TYPES = 11;
 
 	private:
+		/**
+		 * A SectionGroup is a way to categorize sections. e.g. Lecture & Lab-Discussion
+		 * One Section from each group will be a valid combination.
+		 */
+		class SectionGroup;
+
 		/**
 		 * All lecture types enumerated
 		 */
@@ -89,11 +89,13 @@ class Course{
 				
 		/**
 		 * A string that holds the department code
+		 * e.g. CS
 		 */
 		std::string	_department;
 		
 		/**
 		 * A string that holds the course number
+		 * e.g. 125
 		 */
 		std::string	_courseNumber;
 
@@ -117,8 +119,8 @@ class Course{
 		static TypeOfSection getTypeOfSection(const Section* section);
 
 		/**
-		 * A boolean that is true when the sectongroups and sectioncombos are syncd with the sections
+		 *
 		 */
-		bool _sync;
-};
+		static size_t getNumSectionTypes(const std::vector<Section*> sections);
+	};
 #endif

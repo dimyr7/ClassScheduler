@@ -3,6 +3,11 @@
 #include "SectionGroup.hpp"
 #include <Map>
 #include <bitset>
+
+#ifdef DEBUG
+#include <cassert>
+#endif
+
 /*
  * ============================== 
  * Object Creation
@@ -11,7 +16,6 @@
 Course::Course(std::string department, std::string courseNumber){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
-	this->_sync = false;
 }
 
 Course::~Course(){
@@ -84,55 +88,61 @@ Course::TypeOfSection Course::getTypeOfSection(const Section* section){
 	}
 }	
 
+size_t Course::getNumSectionTypes(const std::vector<Section*> sections){
+	std::bitset<Course::NUM_OF_SECTION_TYPES> numOfTypes;
+	for(std::vector<Section*>::const_iterator it = sections.begin(); it != sections.end(); it++){
+		Course::TypeOfSection secType = Course::getTypeOfSection(*it);
+		numOfTypes[(int)secType] = 1;
+	}
+	return numOfTypes.count();
+}
+
 std::vector<SectionCombo*> Course::getCombos(){
-	// Delete the old section groups
 	if( this->_department.compare("PHYS") == 0){
-		std::bitset< Course::NUM_OF_SECTION_TYPES > listOfSections;
+		// PHYS courses are weird
+		// Any combination of sections will work
+		int numOfTypes = Course::getNumSectionTypes(this->_sections);
+		
+		// Add ALL sections to the same section group
+		SectionGroup physGroup(numOfTypes, this->_courseNumber);
 		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			Course::TypeOfSection secType = Course::getTypeOfSection((*it));
-			listOfSections[ (int)secType] = 1;
+			physGroup.addSection(*it);
 		}
-		int numOfTypes = listOfSections.count();
-		SectionGroup* physGroup = new SectionGroup(numOfTypes, this->_courseNumber);
-		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			physGroup->addSection((*it));
-		}
-		this->_combos = physGroup->getCombos();
-		delete physGroup;
+
+		this->_combos = physGroup.getCombos();
+	}
+	else if(this->_department.compare("CS") == 0 and this->_courseNumber.compare("233")){
+		// TODO handle CS 233
+		std::cout<< "Tryig to work with CS233" << std::endl;
+#ifdef DEBUG
+		assert(false);
+#endif
 	}
 	// TODO add if its a special topics class
 	// TODO check for honours course
-	// TODO CS 233 is a bit weird
 	else{
 		// This will map the section Letter  to a vector of Sections
 		std::map<std::string, std::vector<Section*>> sectionGroupMap;
 
 		// For each section, assign it to a section letter
 		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			std::string firstChar = (*it)->getSectionName().substr(0, 1);
-			sectionGroupMap[firstChar].push_back((*it));
+			std::string sectionCode = (*it)->getSectionName().substr(0, 1);
+			sectionGroupMap[sectionCode].push_back((*it));
 		}
 		
 		// For each section letter ...
 		for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
-
-			std::bitset< Course::NUM_OF_SECTION_TYPES> listOfSections;
-
-			// .. Find out all types of sections for that letter
-			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
-				Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
-				listOfSections[ (int)secType] = 1;
-			}
-			int numOfTypes = listOfSections.count();
+			int numOfTypes = Course::getNumSectionTypes(it->second);
 
 			// Create a section group with a set number of sections
-			SectionGroup* newGroup = new SectionGroup(numOfTypes, it->first);
+			SectionGroup newGroup(numOfTypes, it->first);
+			
 			// Push all sections to that section group
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
-				newGroup->addSection(*is);
+				newGroup.addSection(*is);
 			}
-			this->_combos = newGroup->getCombos();
-			delete newGroup;
+			std::vector<SectionCombo*> newCombos = newGroup.getCombos();
+			this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
 		}
 	}
 
