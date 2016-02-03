@@ -1,4 +1,5 @@
 #include "SectionCombo.hpp"
+#include <iostream>
 SectionCombo::SectionCombo(){
 	return;
 }
@@ -6,6 +7,15 @@ SectionCombo::SectionCombo(){
 SectionCombo::~SectionCombo(){
 	// Don't delete any sections
 	return;
+}
+
+SectionCombo::SectionCombo(const SectionCombo& copy){
+	this->_sections = copy._sections;
+}
+
+SectionCombo& SectionCombo::operator=(const SectionCombo& copy){
+	this->_sections = copy._sections;
+	return *this;
 }
 
 void SectionCombo::addSection(Section* section){
@@ -34,4 +44,11 @@ bool SectionCombo::overlap(SectionCombo* one, SectionCombo* two){
 		}
 	}
 	return false;
+}
+
+std::ostream& operator<<(std::ostream& os, SectionCombo& combo){
+	for(std::vector<Section*>::const_iterator it = combo.getSections().begin(); it != combo.getSections().end(); it++){
+		os << (*it)->getSectionName() << std::endl;
+	}
+	return os;
 }

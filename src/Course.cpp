@@ -14,6 +14,7 @@
  * ============================== 
  */
 Course::Course(std::string department, std::string courseNumber){
+	this->_syncd = false;
 	this->_department = department;
 	this->_courseNumber = courseNumber;
 }
@@ -48,6 +49,7 @@ std::vector<Section*> Course::getSections() const{
 
 
 void Course::addSection(Section* section){
+	this->_syncd = false;
 	this->_sections.push_back(section);
 }
 
@@ -98,6 +100,13 @@ size_t Course::getNumSectionTypes(const std::vector<Section*> sections){
 }
 
 std::vector<SectionCombo*> Course::getCombos(){
+	if(this->_syncd){
+		return this->_combos;
+	}
+
+	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
+		delete (*it);
+	}
 	if( this->_department.compare("PHYS") == 0){
 		// PHYS courses are weird
 		// Any combination of sections will work
@@ -111,7 +120,7 @@ std::vector<SectionCombo*> Course::getCombos(){
 
 		this->_combos = physGroup.getCombos();
 	}
-	else if(this->_department.compare("CS") == 0 and this->_courseNumber.compare("233")){
+	else if(this->_department.compare("CS") == 0 and this->_courseNumber.compare("233") == 0){
 		// TODO handle CS 233
 		std::cout<< "Tryig to work with CS233" << std::endl;
 #ifdef DEBUG
@@ -145,6 +154,6 @@ std::vector<SectionCombo*> Course::getCombos(){
 			this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
 		}
 	}
-
+	this->_syncd = true;
 	return this->_combos;
 }

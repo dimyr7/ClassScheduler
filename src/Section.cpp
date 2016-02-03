@@ -17,7 +17,7 @@ Section::Section(){
 }
 
 Section::~Section(){
-	for (auto instructor : this->_instructor) {
+	for (auto instructor : this->_instructors) {
         delete instructor;
     }
 	delete this->_daysOfWeek;
@@ -31,7 +31,7 @@ Section::Section(const Section& copy){
 	this->_description = copy._description;
 	this->_crn 		   = copy._crn;
 
-    this->_instructor = copy._instructor;
+    this->_instructors = copy._instructors;
     
     *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
@@ -44,7 +44,7 @@ Section& Section::operator=(const Section& copy){
 	this->_description = copy._description;
 	this->_crn         = copy._crn;
 
-    this->_instructor = copy._instructor;
+    this->_instructors = copy._instructors;
 
     *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
@@ -73,8 +73,8 @@ void Section::setDescription(std::string description){
 	this->_description = description;
 }
 
-void Section::setInstructor(Instructor* instructor){
-	this->_instructor.push_back(instructor);
+void Section::addInstructor(Instructor* instructor){
+	this->_instructors.push_back(instructor);
 }
 
 void Section::setDaysOfWeek(Week* daysOfWeek){
@@ -112,8 +112,8 @@ std::string Section::getDescription() const{
 	return this->_description;
 }
 
-std::vector<Instructor*>   Section::getInstructor() const{
-	return this->_instructor;
+std::vector<Instructor*> Section::getInstructors() const{
+	return this->_instructors;
 }
 
 Week* Section::getWeek() const{
@@ -141,7 +141,7 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << section.getCRN() << std::endl;
 
 	os << "=== Instructor(s) ==="<< std::endl;
-    for (auto instructor : section.getInstructor()) {
+    for (auto instructor : section.getInstructors()) {
         os << *instructor;
     }
 
@@ -166,10 +166,10 @@ bool Section::overlap(Section* a, Section* b){
 	Week* weekA = a->getWeek();
 	Week* weekB = b->getWeek();
 	for(int d = 0; d != Week::TIMESINDAY; d++){
-		Time* timeAStart = weekA->getTimes((Week::Day)d, true);
-		Time* timeAEnd	 = weekA->getTimes((Week::Day)d, false);
-		Time* timeBStart = weekB->getTimes((Week::Day)d, true);
-		Time* timeBEnd	 = weekB->getTimes((Week::Day)d, false);
+		Time* timeAStart = weekA->getStartTime((Week::Day)d);
+		Time* timeAEnd	 = weekA->getEndTime((Week::Day)d);
+		Time* timeBStart = weekB->getStartTime((Week::Day)d);
+		Time* timeBEnd	 = weekB->getEndTime((Week::Day)d);
 		
 		if(timeAStart == NULL or timeBStart == NULL){
 			continue;

@@ -82,7 +82,7 @@ Section* Section::SectionBuilder::buildSection(){
 	sec->setCRN(this->_crn);
 
 	for (auto instruct : instructor) {
-        sec->setInstructor(instruct);
+        sec->addInstructor(instruct);
     }
     
     sec->setDaysOfWeek(week);

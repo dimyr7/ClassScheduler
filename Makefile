@@ -1,4 +1,4 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o 
+OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o schedule.o
 MAINOBJS = main.o
 OBJPATH = ./build
 
@@ -32,11 +32,16 @@ $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LIBS) $(LFLAGS) $(TARGET)
 
 # Compiling main.o
-$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o)
+$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o schedule.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Main.cpp
 	@mv main.o $(BUILDDIR)
 
-#compiling parser.o
+# Compiling schedule.o
+$(BUILDDIR)schedule.o: $(SRCDIR)Schedule.cpp $(addprefix $(BUILDDIR), sectioncombo.o)
+	$(CC) $(CFLAGS) $(SRCDIR)Schedule.cpp
+	@mv schedule.o $(BUILDDIR)
+
+# compiling parser.o
 $(BUILDDIR)parser.o: $(SRCDIR)Parser.cpp $(addprefix $(BUILDDIR), section.o sectionbuilder.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Parser.cpp
 	@mv parser.o $(BUILDDIR)

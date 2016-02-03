@@ -110,7 +110,11 @@ class Course{
 		 */
 		std::vector<SectionCombo*> _combos;
 
-		
+		/**
+		 * values that is used to make sure combos aren't recomputed if not neaded
+		 */
+		bool _syncd;
+
 		/**
 		 * Returns the type of the section
 		 * @param section determines the type it is

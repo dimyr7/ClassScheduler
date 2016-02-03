@@ -80,7 +80,7 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombosHelper(std::valarray<s
 		// If any overlap with any previous section, skip it
 		bool thisOverlaps = false;
 		Section* thisSection = this->_sections[depth][i];
-		for(size_t j  = 0; i < depth; i++){
+		for(size_t j  = 0; j < depth; j++){
 			size_t indexOfPrevSection = index[j];
 			Section* currPrevSection = this->_sections[j][indexOfPrevSection];
 
