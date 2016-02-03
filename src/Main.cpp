@@ -9,23 +9,14 @@ using std::iostream;
 using std::ifstream;
 using namespace std;
 int main(){
-	/*
-	struct rlimit r1;
-	getrlimit(RLIMIT_AS, &r1);
-	
-	struct rlimit r2;
-	r2.rlim_max = (rlim_t)(-1);		
-	setrlimit(RLIMIT_AS, &r2);
-	std::cout << "The current limit is: " << (long long int)r1.rlim_cur << std::endl;
-	*/
+
     Parser parse("cs125.json");
-	Course cs125("PHYS", "211");
-	std::vector<Section*> sections = parse.getAll();
-	
-    for (int i = 0; i < (int)sections.size(); i++) {
-        //cout << *sections[i] << endl;
-		cs125.addSection(sections[i]);
+	std::vector<Section*> cs125S = parse.getAll();
+	Course cs125("CS", "125", "Intro to Computer Science");
+    for (int i = 0; i < (int)cs125S.size(); i++) {
+		cs125.addSection(cs125S[i]);
     }
+
 	std::vector<SectionCombo*> combos = cs125.getCombos();	
 	//std::cout << combos.size() << " Combos Generated" << std::endl;
 	for(std::vector<SectionCombo*>::const_iterator it = combos.begin(); it != combos.end(); it++){

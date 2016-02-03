@@ -30,7 +30,7 @@
 # More executibles
 build
 
-bin
+bin/*
 bin/autoschedule
 bin/tester
 

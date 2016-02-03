@@ -88,4 +88,4 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)SectionGroup.cpp $(addprefix $(BUILDDIR), se
 	@mv sectiongroup.o $(BUILDDIR)
 	
 clean:
-	-rm -f build/*.o bin/autoscheduler 
+	-rm -f build/*.o bin/autoschedule

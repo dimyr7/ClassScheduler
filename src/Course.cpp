@@ -8,9 +8,10 @@
  * Object Creation
  * ============================== 
  */
-Course::Course(std::string department, std::string courseNumber){
+Course::Course(std::string department, std::string courseNumber, std::string name){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
+	this->_courseName = name;
 	this->_sync = false;
 }
 
@@ -33,11 +34,12 @@ Course::~Course(){
 std::string Course::getDepartment() const{
 	return this->_department;
 }
-
 std::string Course::getCourseNumber() const{
 	return this->_courseNumber;
 }
-
+std::string Course::getCourseName() const{
+	return this->_courseName;
+}
 std::vector<Section*> Course::getSections() const{
 	return this->_sections;
 }
@@ -83,48 +85,69 @@ Course::TypeOfSection Course::getTypeOfSection(const Section* section){
 		return Course::TypeOfSection::STA;
 	}
 }	
-
+bool Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> types){
+	// Check for Lecture-Discussion & Lecture
+	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::LEC] == 1){
+		return false;
+	}
+	// Check for Lecture-Discussion & Discussion
+	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::DIS] == 1){
+		return false;
+	}
+	if(types[(int)Course::TypeOfSection::LBD] == 1 and types[(int)Course::TypeOfSection::LAB] == 1){
+		return false;
+	}
+	if(types[(int)Course::TypeOfSection::LBD] == 1 and types[(int)Course::TypeOfSection::DIS] == 1){
+		return false;
+	}
+	return true;
+}
 std::vector<SectionCombo*> Course::getCombos(){
 	// Delete the old section groups
-	if( this->_department.compare("PHYS") == 0){
-		std::bitset< Course::NUM_OF_SECTION_TYPES > listOfSections;
-		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			Course::TypeOfSection secType = Course::getTypeOfSection((*it));
-			listOfSections[ (int)secType] = 1;
-		}
-		int numOfTypes = listOfSections.count();
-		SectionGroup* physGroup = new SectionGroup(numOfTypes, this->_courseNumber);
-		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			physGroup->addSection((*it));
-		}
-		this->_combos = physGroup->getCombos();
-		delete physGroup;
+	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
+		delete *it;
 	}
 	// TODO add if its a special topics class
+	if(this->getCourseName().find("Special") != std::string::npos){
+
+	}
 	// TODO check for honours course
-	// TODO CS 233 is a bit weird
-	else{
-		// This will map the section Letter  to a vector of Sections
-		std::map<std::string, std::vector<Section*>> sectionGroupMap;
+	if(this->getCourseNumber().find("Honor") != std::string::npos){
 
-		// For each section, assign it to a section letter
-		for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
-			std::string firstChar = (*it)->getSectionName().substr(0, 1);
-			sectionGroupMap[firstChar].push_back((*it));
+	}
+	// TODO CS233 is a bit weird
+	if(this->getDepartment().compare("CS") == 0 and this->getCourseNumber().compare("233") == 0){
+
+	}
+	// TODO physics courses are also weird
+	if(this->getDepartment().compare("PHYS") == 0){
+
+	}
+	// This will map the section Letter  to a vector of Sections
+	std::map<std::string, std::vector<Section*>> sectionGroupMap;
+
+	// For each section, assign it to a section letter
+	for(std::vector<Section*>::const_iterator it = this->_sections.begin(); it != this->_sections.end(); it++){
+		std::string firstChar = (*it)->getSectionName().substr(0, 1);
+		sectionGroupMap[firstChar].push_back((*it));
+	}
+	
+	// For each section letter ...
+	for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
+
+		std::bitset< Course::NUM_OF_SECTION_TYPES> typesOfSections;
+
+		// .. Find out all types of sections for that letter
+		for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
+			Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
+			typesOfSections[ (int)secType] = 1;
 		}
-		
-		// For each section letter ...
-		for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
-
-			std::bitset< Course::NUM_OF_SECTION_TYPES> listOfSections;
-
-			// .. Find out all types of sections for that letter
-			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
-				Course::TypeOfSection secType =  Course::getTypeOfSection( *is );
-				//std::cout << (*is)->getSectionType() << (int)secType << std::endl;
-				listOfSections[ (int)secType] = 1;
-			}
-			int numOfTypes = listOfSections.count();
+		bool sectionError = Course::checkSectionTypeError(typesOfSections);
+		if(sectionError){
+			//TODO error handle
+		}
+		else{
+			int numOfTypes = typesOfSections.count();
 
 			// Create a section group with a set number of sections
 			SectionGroup* newGroup = new SectionGroup(numOfTypes, it->first);
@@ -132,7 +155,8 @@ std::vector<SectionCombo*> Course::getCombos(){
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
 				newGroup->addSection(*is);
 			}
-			this->_combos = newGroup->getCombos();
+			std::vector<SectionCombo*> newCombos = newGroup->getCombos();
+			this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
 			delete newGroup;
 		}
 	}

@@ -1,0 +1,2200 @@
+{
+    "courseNumber": "211",
+    "creditHours": "4",
+    "degreeAttributes": [
+        "Physical Sciences",
+        "Quant Reasoning II"
+    ],
+    "department": "PHYS",
+    "description": "Newton's Laws, work and energy, static properties and fluids, oscillations, transverse waves, systems of particles, and rotations. A calculus-based approach for majors in engineering, mathematics, physics and chemistry. Credit is not given for both PHYS 211 and PHYS 101. Prerequisite: Credit or concurrent registration in MATH 231.",
+    "name": "University Physics: Mechanics",
+    "sections": [
+        {
+            "code": "A1",
+            "crn": "35801",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "09:50 AM",
+                    "instructors": [
+                        {
+                            "first": "G",
+                            "last": "Gollin"
+                        },
+                        {
+                            "first": "A",
+                            "last": "Sickles"
+                        }
+                    ],
+                    "start": "09:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A11",
+            "crn": "56097",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "09:50 AM",
+                    "start": "09:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A2",
+            "crn": "35802",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "10:50 AM",
+                    "instructors": [
+                        {
+                            "first": "G",
+                            "last": "Gollin"
+                        },
+                        {
+                            "first": "A",
+                            "last": "Sickles"
+                        }
+                    ],
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A22",
+            "crn": "56098",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "10:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A3",
+            "crn": "35803",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "11:50 AM",
+                    "instructors": [
+                        {
+                            "first": "G",
+                            "last": "Gollin"
+                        },
+                        {
+                            "first": "A",
+                            "last": "Sickles"
+                        }
+                    ],
+                    "start": "11:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A33",
+            "crn": "56099",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "11:50 AM",
+                    "start": "11:00 AM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A4",
+            "crn": "35804",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "12:50 PM",
+                    "instructors": [
+                        {
+                            "first": "G",
+                            "last": "Gollin"
+                        },
+                        {
+                            "first": "A",
+                            "last": "Sickles"
+                        }
+                    ],
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "A44",
+            "crn": "56100",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "TR",
+                    "end": "12:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LEC",
+                        "name": "Lecture"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1A",
+            "crn": "47451",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1B",
+            "crn": "35808",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1E",
+            "crn": "35818",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1F",
+            "crn": "38007",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1J",
+            "crn": "49446",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1K",
+            "crn": "35820",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1M",
+            "crn": "35823",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1N",
+            "crn": "41645",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1R",
+            "crn": "35806",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1S",
+            "crn": "51928",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1U",
+            "crn": "52805",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D1V",
+            "crn": "35824",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2A",
+            "crn": "35809",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2B",
+            "crn": "52874",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2E",
+            "crn": "35810",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2F",
+            "crn": "46833",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2J",
+            "crn": "35811",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open (Restricted)",
+            "meetings": [
+                {
+                    "building": "Allen Residence Hall",
+                    "days": "T",
+                    "end": "02:50 PM",
+                    "start": "01:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2K",
+            "crn": "53113",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2L",
+            "crn": "51927",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2M",
+            "crn": "35812",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2N",
+            "crn": "35828",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2R",
+            "crn": "35815",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2S",
+            "crn": "35814",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2U",
+            "crn": "56180",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D2V",
+            "crn": "35816",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3A",
+            "crn": "35817",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3B",
+            "crn": "35807",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3E",
+            "crn": "35826",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3F",
+            "crn": "35813",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3J",
+            "crn": "35819",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3K",
+            "crn": "36097",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3M",
+            "crn": "35847",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3N",
+            "crn": "35821",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3R",
+            "crn": "36093",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D3S",
+            "crn": "35822",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4A",
+            "crn": "35848",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4B",
+            "crn": "58660",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4E",
+            "crn": "35849",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4F",
+            "crn": "58657",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4J",
+            "crn": "35833",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4K",
+            "crn": "35843",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4M",
+            "crn": "53114",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4N",
+            "crn": "35955",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4R",
+            "crn": "35850",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4S",
+            "crn": "35827",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4U",
+            "crn": "35830",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D4V",
+            "crn": "35975",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5A",
+            "crn": "35805",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5B",
+            "crn": "35825",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5E",
+            "crn": "35959",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5F",
+            "crn": "35962",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5J",
+            "crn": "35969",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5K",
+            "crn": "35965",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5M",
+            "crn": "48279",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5N",
+            "crn": "35971",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5R",
+            "crn": "53112",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "D5S",
+            "crn": "51773",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "F",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "DIS",
+                        "name": "Discussion/Recitation"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1A",
+            "crn": "60731",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1B",
+            "crn": "60732",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1E",
+            "crn": "38026",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1F",
+            "crn": "58975",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1J",
+            "crn": "58970",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1K",
+            "crn": "38020",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1M",
+            "crn": "51772",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1N",
+            "crn": "38015",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1R",
+            "crn": "36089",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1S",
+            "crn": "47452",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1U",
+            "crn": "58969",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1V",
+            "crn": "36006",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1Y",
+            "crn": "60195",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L1Z",
+            "crn": "38023",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "M",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2A",
+            "crn": "35979",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2B",
+            "crn": "35981",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2E",
+            "crn": "35984",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2F",
+            "crn": "48280",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2J",
+            "crn": "36010",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2K",
+            "crn": "36017",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2M",
+            "crn": "36022",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2N",
+            "crn": "36030",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2R",
+            "crn": "36034",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2S",
+            "crn": "36040",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2U",
+            "crn": "46834",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2V",
+            "crn": "36046",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2Y",
+            "crn": "35987",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L2Z",
+            "crn": "41649",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "T",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3A",
+            "crn": "36053",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3B",
+            "crn": "36007",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3E",
+            "crn": "36058",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3F",
+            "crn": "49447",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3J",
+            "crn": "36064",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3K",
+            "crn": "36008",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3M",
+            "crn": "36068",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3N",
+            "crn": "36073",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "03:50 PM",
+                    "start": "02:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3R",
+            "crn": "36077",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3S",
+            "crn": "36083",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "05:50 PM",
+                    "start": "04:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3U",
+            "crn": "35995",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3V",
+            "crn": "35992",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "07:50 PM",
+                    "start": "06:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3Y",
+            "crn": "36003",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L3Z",
+            "crn": "35999",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Closed",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "W",
+                    "end": "09:50 PM",
+                    "start": "08:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4A",
+            "crn": "36086",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4B",
+            "crn": "58972",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "09:50 AM",
+                    "start": "08:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4E",
+            "crn": "38008",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4F",
+            "crn": "58973",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "11:50 AM",
+                    "start": "10:00 AM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4J",
+            "crn": "38012",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        },
+        {
+            "code": "L4K",
+            "crn": "38010",
+            "end": "2016-05-04-05:00",
+            "enrollmentStatus": "Open",
+            "meetings": [
+                {
+                    "building": "Loomis Laboratory",
+                    "days": "R",
+                    "end": "01:50 PM",
+                    "start": "12:00 PM",
+                    "type": {
+                        "code": "LAB",
+                        "name": "Laboratory"
+                    }
+                }
+            ],
+            "start": "2016-01-19-06:00"
+        }
+    ]
+}

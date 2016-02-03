@@ -12,19 +12,9 @@ using namespace rapidjson;
  * =======================================
  */
 
-/*
- * Creates a Parser object that parses the json in the file example.json by default.
- */
-Parser::Parser() {
-    parseJSON("example.json");
-}
 
-/*
- * Creates a Parser object that parses the json from a file.  jsonFileName
- * is the name of the file to read from.
- */
 Parser::Parser(std::string fileName) {
-    parseJSON(fileName);
+    this->parseJSON(fileName);
 }
 
 /*
@@ -33,37 +23,16 @@ Parser::Parser(std::string fileName) {
  * ======================================
  */
 
-/*
- * Returns a vector of pointers to all Section objects created
- */
 std::vector<Section::Section*> Parser::getAll() {
     return _sections;
 }
 
-/*
- * Returns a pointer to a single Section object
- */
-Section* Parser::getNext() {
-    if (this->_index == (int)this->_sizeInit) {
-        throw std::out_of_range("No more sections");
-    }
-    return _sections[_index++];
-}
 
-/*
- *  Returns total number of sections in json file
- */
 int Parser::getSize() {
     return this->_sizeInit;
 }
 
-/*
- * Returns true if there is a section remaining that has 
- * not yet been returned.  Returns false otherwise.
- */
-bool Parser::hasNext() {
-    return this->_sizeInit - this->_index;
-}
+
 
 /*
  * ===============================================
@@ -71,10 +40,6 @@ bool Parser::hasNext() {
  * ===============================================
  */
 
-/*
- * Builds all sections contained in the json file
- * and stores them in vector _sections
- */
 void Parser::buildAllSections() {
     for (int index = 0; index < (int)_sizeInit; index++) {
         const Value &section = _dom["Sections"][index];        // An individual section
@@ -178,14 +143,12 @@ void Parser::parseJSON(std::string fileName) {
     std::ifstream jsonFile;
     jsonFile.open(fileName);
     while(!jsonFile.is_open()) {
-        std::cout << "File not found. Enter file name: ";
-        std::cin >> fileName;
-        jsonFile.open(fileName);
+        std::cout << "File not found.";
+		exit(1);
     }
     std::string contents((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
     jsonFile.close();
     this->_dom.Parse(contents.c_str());
-    this->_index = 0;
     this->_sizeInit = this->_dom["sections"].Size();
     this->_description = this->_dom["description"].GetString();
     buildAllSections();
