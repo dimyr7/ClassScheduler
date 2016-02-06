@@ -1,4 +1,5 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o 
+OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o
+TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
 
@@ -11,6 +12,7 @@ SRCDIR = src/
 BUILDDIR = build/
 
 TARGET = bin/autoschedule
+TESTER = bin/phase1test
 
 SRCEXT = cpp
 INC = -I include 
@@ -22,6 +24,10 @@ autoschedule: $(TARGET)
 $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
 	$(LINKER) $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))  $(INC) $(LIBS) $(LFLAGS) $(TARGET)
+
+$(BUILDDIR)phase1test.o: $(TESTDIR)Phase1Test.cpp
+	$(CC) $(CFLAGS) $(TESTDIR)Phase1Test.cpp
+	@mv phase1test.o $(BUILDDIR)
 
 # Compiling main.o
 $(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o)
@@ -84,7 +90,6 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)Course/SectionGroup.cpp $(addprefix $(BUILDD
 	$(CC) $(CFLAGS) $(SRCDIR)Course/SectionGroup.cpp
 	@mv sectiongroup.o $(BUILDDIR)
 	
-
 
 #client
 client.o: 

@@ -28,11 +28,10 @@
 *.app
 
 # More executibles
-build
-
+build/*
 bin/*
-bin/autoschedule
-bin/tester
+bin/*
+
 
 # Mac specific files
 .DS_Store
