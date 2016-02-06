@@ -1,5 +1,5 @@
-#include "SectionBuilder.hpp"
-#include "Section.hpp"
+#include "Course/SectionBuilder.hpp"
+#include "Course/Section.hpp"
 Section::SectionBuilder::SectionBuilder(){
 	// Section Info
 	this->_sectionName = "";
