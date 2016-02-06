@@ -1,10 +1,10 @@
-#include "Time.hpp"
+#include "Course/Time.hpp"
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
-Section::Week::Time::Time(int hour, int minute){
+Time::Time(int hour, int minute){
 	if(not Time::validHour(hour) or not Time::validMinute(minute)){
 		this->_hour = 0;
 		this->_minute = 0;
@@ -15,14 +15,14 @@ Section::Week::Time::Time(int hour, int minute){
 	}
 
 }
-Section::Week::Time::Time(const Time& copy){
+Time::Time(const Time& copy){
 	this->_hour = copy._hour;
 	this->_minute = copy._minute;
 }
-Section::Week::Time::~Time(){
+Time::~Time(){
 	return;
 }
-Section::Week::Time& Section::Week::Time::operator=(const Time& copy){
+Time& Time::operator=(const Time& copy){
 	this->_hour = copy._hour;
 	this->_minute = copy._minute;
 	return *this;
@@ -34,20 +34,20 @@ Section::Week::Time& Section::Week::Time::operator=(const Time& copy){
  * Getters and Setters
  * ======================================================
  */
-int Section::Week::Time::getHour() const {
+int Time::getHour() const {
 	return _hour;
 }
-int Section::Week::Time::getMinute() const {
+int Time::getMinute() const {
 	return _minute;
 }
-bool Section::Week::Time::setHour(int hour){
+bool Time::setHour(int hour){
 	if(not Time::validHour(hour)){
 		return false;
 	}
 	this->_hour = hour;
 	return true;
 }
-bool Section::Week::Time::setMinute(int minute){
+bool Time::setMinute(int minute){
 	if(not Time::validMinute(minute)){
 		return false;
 	}
@@ -60,7 +60,7 @@ bool Section::Week::Time::setMinute(int minute){
  * Static functions
  * ======================================================
  */
-bool Section::Week::Time::before(const Time* first, const Time* second){
+bool Time::before(const Time* first, const Time* second){
 	if(first->getHour() > second->getHour()){
 		return false;
 	}
@@ -72,10 +72,10 @@ bool Section::Week::Time::before(const Time* first, const Time* second){
 	}
 	return true;
 }
-bool Section::Week::Time::validHour(int hour){
+bool Time::validHour(int hour){
 	return (hour <= 23) and (hour >= 0);
 }
-bool Section::Week::Time::validMinute(int minute){
+bool Time::validMinute(int minute){
 	return (minute <= 59) and (minute >= 0);
 }
 /*
@@ -83,7 +83,7 @@ bool Section::Week::Time::validMinute(int minute){
  * Additional Functionality
  * ======================================================
  */
-Section::Week::Time Section::Week::Time::operator+(const Time& second) const{
+Time Time::operator+(const Time& second) const{
 	Time t;
 	bool minOverflow = false;
 	if(this->_minute + second._minute> 59){
@@ -96,7 +96,7 @@ Section::Week::Time Section::Week::Time::operator+(const Time& second) const{
 	}
 	return t;
 }
-std::ostream& operator<<(std::ostream& os, const Section::Week::Time& time){
+std::ostream& operator<<(std::ostream& os, const Time& time){
 	
 	std::string min = std::to_string(time._minute);
 	std::string hour = std::to_string(time._hour);

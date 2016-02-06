@@ -3,6 +3,7 @@
 #include "Section.hpp"
 #include "Semester.hpp"
 #include "Week.hpp"
+#include <vector>
 class Section::SectionBuilder{
 	public:
 		SectionBuilder();
@@ -16,8 +17,8 @@ class Section::SectionBuilder{
 
 		void 	setInstructorName(std::string instructor);
 
-		void 	setStartTime(Section::Week::Day day, int hour, int minute);
-		void 	setEndTime(Section::Week::Day day, int hour, int minute);
+		void 	setStartTime(Week::Day day, int hour, int minute);
+		void 	setEndTime(Week::Day day, int hour, int minute);
 
 		void 	setSemesterStart(int day, int month, int year);
 		void 	setSemesterEnd(int day, int month, int year);
@@ -43,21 +44,21 @@ class Section::SectionBuilder{
 		/*
 		 * Instructor
 		 */
-		std::string 	_instructorName;	
+        std::vector<std::string> _instructorName;	
 
 		/*
 		 * Week
 		 * Organized by [monday, tuesday, ...][start, end][hour, minute]
 		 */
-		int _weekTimes[ Section::Week::DAYSINWEEK ][ Section::Week::DAYSINWEEK ][ 2 ];
+		int _weekTimes[ Week::DAYSINWEEK ][ Week::DAYSINWEEK ][2];
 
 
 		/*
 		 * Semester
 		 * Organized by [day][month][year]
 		 */
-		int 		_semesterStartDate[ Section::Semester::NUMOFDATESPECIFIER ];
-		int 		_semesterEndDate[ Section::Semester::NUMOFDATESPECIFIER ];
+		int 		_semesterStartDate[3];
+		int 		_semesterEndDate[3];
 		std::string 			_semesterYear;
 		std::string 			_semesterSeason;
 		std::string 			_semesterName;

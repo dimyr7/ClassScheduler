@@ -1,30 +1,25 @@
-#include "Section.hpp"
-#include "Instructor.hpp"
-#include "Week.hpp"
-#include "Semester.hpp"
-#include "Location.hpp"
-#include <string>
+#include "Course/Section.hpp"
 
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
-
 Section::Section(){
 	this->_sectionName = "";
 	this->_sectionType = "";
 	this->_description = "";
 	this->_crn = "";
 
-	this->_instructor 	= NULL;
 	this->_daysOfWeek 	= NULL;
 	this->_dates 		= NULL;
 	this->_bulding 		= NULL;
 }
 
 Section::~Section(){
-	delete this->_instructor;
+	for (auto instructor : this->_instructor) {
+        delete instructor;
+    }
 	delete this->_daysOfWeek;
 	delete this->_dates;
 	delete this->_bulding;
@@ -36,8 +31,9 @@ Section::Section(const Section& copy){
 	this->_description = copy._description;
 	this->_crn 		   = copy._crn;
 
-	*(this->_instructor) = *(copy._instructor);
-	*(this->_daysOfWeek) = *(copy._daysOfWeek);
+    this->_instructor = copy._instructor;
+    
+    *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
 	*(this->_bulding)	 = *(copy._bulding);
 }
@@ -48,8 +44,9 @@ Section& Section::operator=(const Section& copy){
 	this->_description = copy._description;
 	this->_crn         = copy._crn;
 
-	*(this->_instructor) = *(copy._instructor);
-	*(this->_daysOfWeek) = *(copy._daysOfWeek);
+    this->_instructor = copy._instructor;
+
+    *(this->_daysOfWeek) = *(copy._daysOfWeek);
 	*(this->_dates) 	 = *(copy._dates);
 	*(this->_bulding)	 = *(copy._bulding);
 
@@ -77,7 +74,7 @@ void Section::setDescription(std::string description){
 }
 
 void Section::setInstructor(Instructor* instructor){
-	this->_instructor = instructor;
+	this->_instructor.push_back(instructor);
 }
 
 void Section::setDaysOfWeek(Week* daysOfWeek){
@@ -115,19 +112,19 @@ std::string Section::getDescription() const{
 	return this->_description;
 }
 
-Section::Instructor* Section::getInstructor() const{
+std::vector<Instructor*>   Section::getInstructor() const{
 	return this->_instructor;
 }
 
-Section::Week* Section::getWeek() const{
+Week* Section::getWeek() const{
 	return this->_daysOfWeek;
 }
 
-Section::Semester* Section::getSemester() const{
+Semester* Section::getSemester() const{
 	return this->_dates;
 }
 
-Section::Location* Section::getBuilding() const{
+Location* Section::getBuilding() const{
 	return this->_bulding;
 }
 
@@ -142,10 +139,12 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << section.getSectionType() << std::endl;
 	os << section.getDescription() << std::endl;
 	os << section.getCRN() << std::endl;
-	
-	os << "=== Instructor ==="<< std::endl;
-	os << *section.getInstructor();
-	
+
+	os << "=== Instructor(s) ==="<< std::endl;
+    for (auto instructor : section.getInstructor()) {
+        os << *instructor;
+    }
+
 	os << "=== Week ==="<< std::endl;
 	os << *section.getWeek();
 
@@ -156,4 +155,29 @@ std::ostream& operator<<(std::ostream& os, const Section& section){
 	os << *section.getBuilding();
 
 	return os;
+}
+
+/*
+ * ======================================================
+ * helper functions
+ * ======================================================
+ */
+bool Section::overlap(Section* a, Section* b){
+	Week* weekA = a->getWeek();
+	Week* weekB = b->getWeek();
+	for(int d = 0; d != Week::TIMESINDAY; d++){
+		Time* timeAStart = weekA->getTimes((Week::Day)d, true);
+		Time* timeAEnd	 = weekA->getTimes((Week::Day)d, false);
+		Time* timeBStart = weekB->getTimes((Week::Day)d, true);
+		Time* timeBEnd	 = weekB->getTimes((Week::Day)d, false);
+		
+		if(timeAStart == NULL or timeBStart == NULL){
+			continue;
+		}
+
+		if(not Time::before(timeAEnd, timeBStart) and not Time::before(timeBEnd, timeAStart)){
+			return true;
+		}
+	}
+	return false;
 }

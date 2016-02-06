@@ -1,17 +1,16 @@
 #ifndef SECTION_H 
 #define SECTION_H
+
+#include "Week.hpp"
+#include "Location.hpp"
+#include "Instructor.hpp"
+#include "Semester.hpp"
+
 #include <string>
-
+#include <vector>
 class Section{
-	friend class Course;
-	friend class SectionCombo;
 	public:
-		class Instructor;
-		class Semester;
-		class Location;
-		class Week;
 		class SectionBuilder;
-
 		/*
 		 * Getters
 		 */
@@ -21,13 +20,12 @@ class Section{
 		std::string 		getCRN() const;
 
 
-		Instructor*		getInstructor() const;
-		Week* 			getWeek() const;
-		Semester*		getSemester() const;
-		Location* 		getBuilding() const;
+        std::vector<Instructor*> 		getInstructor() const;
+		Week* 			                getWeek() const;
+		Semester*		                getSemester() const;
+		Location* 		                getBuilding() const;
 		
-	private:
-			/*
+		/*
 		 * Constructor
 		 */
 		Section();
@@ -47,6 +45,13 @@ class Section{
 		 */
 		Section& operator=(const Section& copy);
 
+		/*
+		 * Getters
+		 */
+		static bool overlap(Section* a, Section* b);
+	private:
+		
+		
 		/*
 		 * Setters
 		 */
@@ -70,10 +75,10 @@ class Section{
 		std::string 	_description;
 		std::string 	_crn;
 
-		Instructor*	_instructor; 
-		Week* 		_daysOfWeek;
-		Semester* 	_dates;
-		Location* 	_bulding;
+        std::vector<Instructor*> 	_instructor; 
+		Week* 		                _daysOfWeek;
+		Semester* 	                _dates;
+		Location* 	                _bulding;
 
 };
 #endif
