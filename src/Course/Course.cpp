@@ -1,6 +1,6 @@
-#include "Course.hpp"
-#include "SectionCombo.hpp"
-#include "SectionGroup.hpp"
+#include "Course/Course.hpp"
+#include "Course/SectionCombo.hpp"
+#include "Course/SectionGroup.hpp"
 #include <Map>
 #include <bitset>
 /*
@@ -150,14 +150,14 @@ std::vector<SectionCombo*> Course::getCombos(){
 			int numOfTypes = typesOfSections.count();
 
 			// Create a section group with a set number of sections
-			SectionGroup* newGroup = new SectionGroup(numOfTypes, it->first);
+			SectionGroup newGroup(numOfTypes, it->first);
+
 			// Push all sections to that section group
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){
-				newGroup->addSection(*is);
+				newGroup.addSection(*is);
 			}
-			std::vector<SectionCombo*> newCombos = newGroup->getCombos();
+			std::vector<SectionCombo*> newCombos = newGroup.getCombos();
 			this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
-			delete newGroup;
 		}
 	}
 

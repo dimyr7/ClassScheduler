@@ -39,3 +39,7 @@ bin/tester
 .ycm_extra_conf.py
 .ycm_extra_conf.pyc
 *.swp
+
+
+# Data 
+*.json

@@ -1,4 +1,4 @@
-#include "Location.hpp"
+#include "Course/Location.hpp"
 /*
  * ======================================================
  * Object Creation

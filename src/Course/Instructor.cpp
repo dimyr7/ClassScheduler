@@ -1,4 +1,4 @@
-#include "Instructor.hpp"
+#include "Course/Instructor.hpp"
 #include <iostream>
 /*
  * ======================================================

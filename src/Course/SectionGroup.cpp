@@ -1,5 +1,5 @@
-#include "SectionGroup.hpp"
-#include "SectionCombo.hpp"
+#include "Course/SectionGroup.hpp"
+#include "Course/SectionCombo.hpp"
 
 #include <cassert>
 Course::SectionGroup::SectionGroup(size_t numTypes, std::string id){

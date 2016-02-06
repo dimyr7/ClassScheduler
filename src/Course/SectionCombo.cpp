@@ -1,4 +1,4 @@
-#include "SectionCombo.hpp"
+#include "Course/SectionCombo.hpp"
 SectionCombo::SectionCombo(){
 	this->_isValid = false;
 }
