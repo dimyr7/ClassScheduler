@@ -8,14 +8,14 @@
  * Object Creation
  * ============================== 
  */
-Course::Course(std::string department, std::string courseNumber, std::string name){
+Course::Course::Course(std::string department, std::string courseNumber, std::string name){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
 	this->_courseName = name;
 	this->_sync = false;
 }
 
-Course::~Course(){
+Course::Course::~Course(){
 	// Iterates through all the SectionCombos and delets it
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
 		delete *it;
@@ -31,25 +31,25 @@ Course::~Course(){
  * Getters
  * ============================== 
  */
-std::string Course::getDepartment() const{
+std::string Course::Course::getDepartment() const{
 	return this->_department;
 }
-std::string Course::getCourseNumber() const{
+std::string Course::Course::getCourseNumber() const{
 	return this->_courseNumber;
 }
-std::string Course::getCourseName() const{
+std::string Course::Course::getCourseName() const{
 	return this->_courseName;
 }
-std::vector<Section*> Course::getSections() const{
+std::vector<Section*> Course::Course::getSections() const{
 	return this->_sections;
 }
 
 
-void Course::addSection(Section* section){
+void Course::Course::addSection(Section* section){
 	this->_sections.push_back(section);
 }
 
-Course::TypeOfSection Course::getTypeOfSection(const Section* section){
+Course::Course::TypeOfSection Course::Course::getTypeOfSection(const Section* section){
 	std::string sectionType = section->getSectionType();
 	if(sectionType.compare("Conference") == 0){
 		return Course::TypeOfSection::LEC;
@@ -85,7 +85,7 @@ Course::TypeOfSection Course::getTypeOfSection(const Section* section){
 		return Course::TypeOfSection::STA;
 	}
 }	
-bool Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> types){
+bool Course::Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> types){
 	// Check for Lecture-Discussion & Lecture
 	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::LEC] == 1){
 		return false;
@@ -102,7 +102,7 @@ bool Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> typ
 	}
 	return true;
 }
-std::vector<SectionCombo*> Course::getCombos(){
+std::vector<SectionCombo*> Course::Course::getCombos(){
 	// Delete the old section groups
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
 		delete *it;
@@ -150,7 +150,7 @@ std::vector<SectionCombo*> Course::getCombos(){
 			int numOfTypes = typesOfSections.count();
 
 			// Create a section group with a set number of sections
-			SectionGroup newGroup(numOfTypes, it->first);
+			Course::Course::SectionGroup newGroup(numOfTypes, it->first);
 
 			// Push all sections to that section group
 			for(std::vector<Section*>::const_iterator is = it->second.begin(); is != it->second.end(); is++){

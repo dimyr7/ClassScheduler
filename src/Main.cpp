@@ -1,22 +1,28 @@
 #include "Course/Course.hpp"
 #include "Course/Section.hpp"
 #include "Course/Parser.hpp"
+#include "Course/CourseStore.hpp"
+#include "Communication/CourseFiller.hpp"
+#include "Communication/CourseStoreDB.hpp"
 
 #include <sys/resource.h>
 #include <sys/types.h>
 #include <sys/time.h>
-using std::iostream;
-using std::ifstream;
-using namespace std;
+
+
 void printSection(Section* sec){
 	std::cout<< sec->getSectionName() << std::endl;
 	std::cout<< sec->getWeek() << std::endl;
 }
 
 int main(){
+	CourseStore* store = new CourseStore();
+	CourseFiller::fill(store);
+
+	/*
     Parser parse("cs125.json");
 	std::vector<Section*> cs125S = parse.getAll();
-	Course cs125("CS", "125", "Intro to Computer Science");
+	Course::Course cs125("CS", "125", "Intro to Computer Science");
     for (int i = 0; i < (int)cs125S.size(); i++) {
 		cs125.addSection(cs125S[i]);
     }
@@ -30,7 +36,7 @@ int main(){
 			printSection(*is);
 		}
 	}
-
+*/
 
     return 0;
 }

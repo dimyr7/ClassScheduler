@@ -1,4 +1,4 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o
+OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o coursestore.o coursefiller.o coursestoredb.o
 TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
@@ -90,6 +90,20 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)Course/SectionGroup.cpp $(addprefix $(BUILDD
 	$(CC) $(CFLAGS) $(SRCDIR)Course/SectionGroup.cpp
 	@mv sectiongroup.o $(BUILDDIR)
 	
+# compiling coursestore.o
+$(BUILDDIR)coursestore.o: $(SRCDIR)Course/CourseStore.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)Course/CourseStore.cpp
+	@mv coursestore.o $(BUILDDIR)
+
+# compiling coursestoredb.o
+$(BUILDDIR)coursestoredb.o: $(SRCDIR)Communication/CourseStoreDB.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)Communication/CourseStoreDB.cpp
+	@mv coursestoredb.o $(BUILDDIR)
+
+# compiling coursefiller.o
+$(BUILDDIR)coursefiller.o: $(SRCDIR)Communication/CourseFiller.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)Communication/CourseFiller.cpp
+	@mv coursefiller.o $(BUILDDIR)
 
 #client
 client.o: 

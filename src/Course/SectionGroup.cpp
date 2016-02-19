@@ -20,7 +20,7 @@ Course::SectionGroup::SectionGroup(const SectionGroup& copy){
 	this->_sectionTypes = copy._sectionTypes;
 }
 
-Course::SectionGroup& Course::SectionGroup::operator=(const SectionGroup& copy){
+Course::SectionGroup& Course::Course::SectionGroup::operator=(const SectionGroup& copy){
 	this->_id = copy._id;
 	this->_numTypes = copy._numTypes;
 	this->_sections = copy._sections;
