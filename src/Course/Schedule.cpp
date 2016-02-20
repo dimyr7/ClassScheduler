@@ -1,4 +1,4 @@
-#include "Schedule.hpp"
+#include "Course/Schedule.hpp"
 
 Schedule::Schedule(){
 	return;

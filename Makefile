@@ -52,7 +52,7 @@ $(BUILDDIR)parser.o: $(SRCDIR)Course/Parser.cpp $(addprefix $(BUILDDIR), section
 
 # Compiling schedule.o
 $(BUILDDIR)schedule.o: $(SRCDIR)Course/Schedule.cpp $(addprefix $(BUILDDIR), sectioncombo.o)
-	$(CC) $(CFLAGS) $(SRCDIR)Schedule.cpp
+	$(CC) $(CFLAGS) $(SRCDIR)Course/Schedule.cpp
 	@mv schedule.o $(BUILDDIR)
 
 
