@@ -20,6 +20,9 @@ all: $(TARGET)
 
 autoschedule: $(TARGET)
 
+run: $(TARGET)
+	@./bin/autoschedule
+
 # Linking the autoschedule executible
 $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
