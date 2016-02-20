@@ -77,8 +77,8 @@ bool CourseGroup::nextIteration(std::valarray<size_t> &index){
 }
 
 bool CourseGroup::overlap(std::vector<SectionCombo*> potCombo){
-	for(int i = 0; i < potCombo.size()-1; i++){
-		for(int j = 1; j < potCombo.size(); j++){
+	for(size_t i = 0; i < potCombo.size()-1; i++){
+		for(size_t j = 1; j < potCombo.size(); j++){
 			SectionCombo* comboA = potCombo[i];
 			SectionCombo* comboB = potCombo[j];
 			bool overlap = SectionCombo::overlap(comboA, comboB);

@@ -5,6 +5,7 @@
 #include "SectionCombo.hpp"
 #include <string>
 #include <vector>
+#include <bitset>
 
 /**
  *  Represenets a Course oject such that each course belongs to a department and has a course number

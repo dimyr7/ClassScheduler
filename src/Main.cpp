@@ -23,7 +23,6 @@ int main(){
 	g.addCourse(cs173);
 	
 	std::vector<Schedule*> schedules = g.genSchedules();
-	std::cerr<< schedules.size()<<std::endl;
 	std::vector<SectionCombo*>  aSchedule = schedules[0]->getCombos();
 	for(std::vector<SectionCombo*>::const_iterator it = aSchedule.begin(); it != aSchedule.end(); it++){
 		SectionCombo* oneCombo = *it;

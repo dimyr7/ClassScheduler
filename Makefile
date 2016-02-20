@@ -3,9 +3,9 @@ TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
 
-CC = g++-5
-CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include 
-LINKER = g++-5
+CC = g++
+CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include
+LINKER = g++
 LFLAGS = -o
 
 ifdef DEBUG
@@ -23,7 +23,7 @@ TARGET = bin/autoschedule
 TESTER = bin/phase1test
 
 SRCEXT = cpp
-INC = -I include 
+INC = -I include
 all: $(TARGET) 
 
 autoschedule: $(TARGET)
