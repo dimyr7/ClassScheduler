@@ -4,7 +4,7 @@
 
 bool CourseFiller::fill(CourseStore* store){
 	CourseStoreDB db("104.236.4.226", "/lookup", "7819");
-	db.getGZip();
+	std::string* jsonString = db.getJson();
 	
 	store->insert("a", "dad");
 	return true;

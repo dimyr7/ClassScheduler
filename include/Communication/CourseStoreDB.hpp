@@ -30,7 +30,7 @@ class CourseStoreDB{
 		/**
 		 * Retrieves that data from the coursestore as a string
 		 */
-		std::string* getGZip();
+		std::string* getJson();
 	private:
 
 		/**
