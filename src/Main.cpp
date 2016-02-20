@@ -17,16 +17,13 @@ void printSection(Section* sec){
 int main(){
 	CourseStore* store = new CourseStore();
 	CourseFiller::fill(store);
+	
+	Course* cs125 = store->get("CS125");
 
-	/*
-    Parser parse("cs125.json");
-	std::vector<Section*> cs125S = parse.getAll();
-	Course::Course cs125("CS", "125", "Intro to Computer Science");
-    for (int i = 0; i < (int)cs125S.size(); i++) {
-		cs125.addSection(cs125S[i]);
-    }
+	std::cout << cs125->getSections().size() << std::endl;
 
-	std::vector<SectionCombo*> combos = cs125.getCombos();	
+	std::vector<SectionCombo*> combos = cs125->getCombos();	
+
 	std::cout << combos.size() << " Combos Generated" << std::endl;
 	for(std::vector<SectionCombo*>::const_iterator it = combos.begin(); it != combos.end(); it++){
 		std::cout << "=== New Combo ===" << std::endl;
@@ -35,7 +32,6 @@ int main(){
 			printSection(*is);
 		}
 	}
-*/
 
     return 0;
 }

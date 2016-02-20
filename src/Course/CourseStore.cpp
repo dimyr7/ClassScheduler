@@ -17,7 +17,7 @@ CourseStore& CourseStore::operator=(const CourseStore &copy){
 	return *this;
 }
 
-bool CourseStore::insert(std::string courseName, std::string courseData){
+bool CourseStore::insert(std::string courseName, Course* courseData){
 	if(this->_courses.find(courseName) != this->_courses.end()){
 		return false;	
 	}
@@ -26,9 +26,9 @@ bool CourseStore::insert(std::string courseName, std::string courseData){
 }
 
 
-std::string CourseStore::get(std::string courseName){
+Course* CourseStore::get(std::string courseName){
 	if(this->_courses.find(courseName) == this->_courses.end()){
-		return "";
+		return NULL;
 	}
 	return this->_courses.at(courseName);
 }

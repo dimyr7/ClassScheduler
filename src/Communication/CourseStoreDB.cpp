@@ -41,7 +41,7 @@ CourseStoreDB& CourseStoreDB::operator=(const CourseStoreDB &copy){
 	return *this;
 }
 
-std::string* CourseStoreDB::getGZip(){
+std::string* CourseStoreDB::getJson(){
 	struct addrinfo hints;
 	struct addrinfo *res;
 
@@ -74,10 +74,15 @@ std::string* CourseStoreDB::getGZip(){
 	}
 
 	std::string message = this->recvMessage(sockfd, 3*MB);
+
 	if(not this->verifyStatus(message, OK)){
 		std::cerr << "Message status failed" << std::endl;
 		return new std::string("");
 	}
+
+	message = message.substr(message.find("\r\n\r\n")+4);
+
+	
 
 
 	freeaddrinfo(res);
@@ -86,20 +91,15 @@ std::string* CourseStoreDB::getGZip(){
 }
 
 bool CourseStoreDB::verifyStatus(std::string message, int status){
-	std::cout << message << std::endl;
 	if(message.substr(0, 5).compare("HTTP/") != 0){
-		std::cout << "err 1" << std::endl;
 		return false;
 	}
 	else if(message.substr(5,3).compare(HTTP_V) != 0){
-		std::cout << "err 2" << std::endl;
 		return false;
 	}
 	else if(message.substr(8,1).compare(" ") != 0){
-		std::cout << "err 3" << std::endl;
 	}
 	else if(stoi(message.substr(9,3)) != status){
-		std::cout << "err 4" << std::endl;
 		return false;
 	}
 	return true;
