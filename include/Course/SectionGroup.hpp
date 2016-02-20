@@ -52,28 +52,20 @@ class Course::SectionGroup{
 
 		/**
 		 * All SectionGroups must know how to generate valid section combinations
-		 * @return a vector of valid Section Groups that are generated from these sections
+		 * @return a vector of valid SectionCombos that are generated from these sections in this group
 		 */
 		std::vector<SectionCombo*> getCombos();
 
 	private:
-
-		/**
-		 * A helper function that gets the combos from this section group
-		 * It is wrapped by getCombos()
-		 * @param inputCombo is an array of indicies of sections, one from each type of section, that have been chosen so far
-		 * @param depth is the number of types of sections that have already been chosen
-		 * @return a vector of valid section combos given the constraints in the parameters
-		 */
-		std::vector<SectionCombo*> getCombosHelper(std::valarray<size_t> inputCombo, size_t depth);	
-
+		int nextIteration(std::valarray<size_t> &index);		
+		static bool overlap(std::vector<Section*> potCombo);
 		/**
 		 * The id of the group
 		 */
 		std::string 	_id;
 
 		/**
-		 * Number of types of sections
+		 * number of section types in this combo
 		 */
 		size_t 			_numTypes;
 

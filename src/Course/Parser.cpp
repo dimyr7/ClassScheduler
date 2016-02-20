@@ -1,7 +1,6 @@
-#include "Parser.hpp"
-#include "Section.hpp"
-#include "SectionBuilder.hpp"
-
+#include "Course/Parser.hpp"
+#include "Course/Section.hpp"
+#include "Course/SectionBuilder.hpp"
 #include <../lib/rapidjson/document.h>
 #include <fstream>
 #include <cassert>
@@ -12,13 +11,6 @@ using namespace rapidjson;
  * Object Creation
  * =======================================
  */
-
-/*
- * Creates a Parser object that parses the json in the file example.json by default.
- */
-Parser::Parser() {
-    parseJSON("example.json");
-}
 
 /*
  * Creates a Parser object that parses the json from a file.  jsonFileName
@@ -41,29 +33,13 @@ std::vector<Section::Section*> Parser::getAll() {
     return _sections;
 }
 
-/*
- * Returns a pointer to a single Section object
- */
-Section* Parser::getNext() {
-    if (this->_index == (int)this->_sizeInit) {
-        throw std::out_of_range("No more sections");
-    }
-    return _sections[_index++];
-}
+
 
 /*
  *  Returns total number of sections in json file
  */
 int Parser::getSize() {
     return this->_sizeInit;
-}
-
-/*
- * Returns true if there is a section remaining that has 
- * not yet been returned.  Returns false otherwise.
- */
-bool Parser::hasNext() {
-    return this->_sizeInit - this->_index;
 }
 
 /*
@@ -187,7 +163,6 @@ void Parser::parseJSON(std::string fileName) {
     std::string contents((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
     jsonFile.close();
     this->_dom.Parse(contents.c_str());
-    this->_index = 0;
     this->_sizeInit = this->_dom["sections"].Size();
     this->_description = this->_dom["description"].GetString();
     buildAllSections();

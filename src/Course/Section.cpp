@@ -1,10 +1,10 @@
-#include "Section.hpp"
+#include "Course/Section.hpp"
+
 /*
  * ======================================================
  * Object Creation
  * ======================================================
  */
-
 Section::Section(){
 	this->_sectionName = "";
 	this->_sectionType = "";

@@ -1,11 +1,12 @@
-#include "SectionBuilder.hpp"
-#include "Section.hpp"
+#include "Course/SectionBuilder.hpp"
+#include "Course/Section.hpp"
 Section::SectionBuilder::SectionBuilder(){
 	// Section Info
 	this->_sectionName = "";
 	this->_sectionType = "";
 	this->_description = "";
 	this->_crn = "";
+	// Instructor
 	
 	// Week 
 	for(int i = 0; i < Week::DAYSINWEEK; i++){

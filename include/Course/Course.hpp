@@ -5,6 +5,7 @@
 #include "SectionCombo.hpp"
 #include <string>
 #include <vector>
+
 /**
  *  Represenets a Course oject such that each course belongs to a department and has a course number
  *  Each course also has many sections that are partitioned into section groups and a set of sections that are valid
@@ -16,7 +17,7 @@ class Course{
 		 * @param department is a string that is the department code e.g 'CS' and not 'Computer Science'
 		 * @param courseNumber is a string that represents a course nunmber e.g. '125'
 		 */
-		Course(std::string department, std::string courseNumber);
+		Course(std::string department, std::string courseNumber, std::string name);
 
 		/**
 		 * Destructor for course object
@@ -35,6 +36,12 @@ class Course{
 		 * @return the course number
 		 */
 		std::string getCourseNumber() const;
+
+		/**
+		 * returns the Course name
+		 * @return the course name
+		 */
+		std::string getCourseName() const;
 
 		/**
 		 * A getter function that returns a vector of section pointers 
@@ -86,7 +93,6 @@ class Course{
 			STA
 		};
 
-				
 		/**
 		 * A string that holds the department code
 		 * e.g. CS
@@ -111,9 +117,9 @@ class Course{
 		std::vector<SectionCombo*> _combos;
 
 		/**
-		 * values that is used to make sure combos aren't recomputed if not neaded
+		 * 
 		 */
-		bool _syncd;
+		std::string _courseName;
 
 		/**
 		 * Returns the type of the section
@@ -125,6 +131,11 @@ class Course{
 		/**
 		 *
 		 */
-		static size_t getNumSectionTypes(const std::vector<Section*> sections);
-	};
+		bool _sync;
+
+		/**
+		 *
+		 */
+		static bool checkSectionTypeError(std::bitset<NUM_OF_SECTION_TYPES> types);
+};
 #endif

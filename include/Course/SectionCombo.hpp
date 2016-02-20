@@ -45,6 +45,7 @@ class SectionCombo{
 		 * @param section is the new section to add
 		 */
 		void addSection(Section* section);
+		SectionCombo(std::vector<Section*> sections);
 
 		/**
 		 * Checks if two section combos overlap

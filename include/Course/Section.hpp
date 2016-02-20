@@ -28,7 +28,7 @@ class Section{
 		Semester*		                getSemester() const;
 		Location* 		                getBuilding() const;
 		
-			/*
+		/*
 		 * Constructor
 		 */
 		Section();

@@ -9,7 +9,6 @@ class Instructor{
 		 * @param name is the full name of the instructor. Defaults to empty string
 		 */
 		Instructor(std::string name = "");
-
 		/**
 		 * Destructor
 		 */

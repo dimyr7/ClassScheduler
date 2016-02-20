@@ -28,7 +28,9 @@
 *.app
 
 # More executibles
-build
+build/*
+bin/*
+bin/*
 
 bin/*
 bin/autoschedule
@@ -40,5 +42,6 @@ bin/tester
 .ycm_extra_conf.pyc
 *.swp
 
-# Ignore json files
+
+# Data 
 *.json

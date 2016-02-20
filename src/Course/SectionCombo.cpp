@@ -1,9 +1,12 @@
-#include "SectionCombo.hpp"
-#include <iostream>
+#include "Course/SectionCombo.hpp"
 SectionCombo::SectionCombo(){
 	return;
 }
-
+SectionCombo::SectionCombo(std::vector<Section*> sections){
+	for(std::vector<Section*>::const_iterator it = sections.begin(); it != sections.end(); it++){
+		this->_sections.push_back(*it);
+	}
+}
 SectionCombo::~SectionCombo(){
 	// Don't delete any sections
 	return;
