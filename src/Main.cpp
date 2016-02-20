@@ -3,7 +3,6 @@
 #include "Course/Parser.hpp"
 #include "Course/CourseStore.hpp"
 #include "Communication/CourseFiller.hpp"
-#include "Communication/CourseStoreDB.hpp"
 
 #include <sys/resource.h>
 #include <sys/types.h>

@@ -16,7 +16,7 @@
 
 #define OK 200
 #define HTTP_V "1.0"
-
+#define MB 1048576
 CourseStoreDB::CourseStoreDB(std::string host, std::string path, std::string port){
 	this->_host = host;
 	this->_path = path;
@@ -73,23 +73,13 @@ std::string* CourseStoreDB::getGZip(){
 		return new std::string("");
 	}
 
-	std::string message = this->recvMessage(sockfd, 5000);
-	//std::cerr << message << std::endl;
+	std::string message = this->recvMessage(sockfd, 3*MB);
 	if(not this->verifyStatus(message, OK)){
 		std::cerr << "Message status failed" << std::endl;
 		return new std::string("");
 	}
 
-	//int lengthOfNextChunk = stoi(message.substr(message.find("\r\n\r\n")), 0, 16);
-	//std::cerr << "Length of chunk: " << lengthOfNextChunk << std::endl;
-	//std::vector<std::string> chunks;
-	for(int i = 0 ; i < 300; i++){		
-		std::cout << i << std::endl;
-//	while((message = this->recvMessage(sockfd, lengthOfNextChunk+2)).compare("") != 0){
-		message = this->recvMessage(sockfd, 1000);
-		std::cout <<  message << std::endl;
-	}
-//
+
 	freeaddrinfo(res);
 	close(sockfd);
 	return new std::string(message);
@@ -98,20 +88,23 @@ std::string* CourseStoreDB::getGZip(){
 bool CourseStoreDB::verifyStatus(std::string message, int status){
 	std::cout << message << std::endl;
 	if(message.substr(0, 5).compare("HTTP/") != 0){
+		std::cout << "err 1" << std::endl;
 		return false;
 	}
 	else if(message.substr(5,3).compare(HTTP_V) != 0){
+		std::cout << "err 2" << std::endl;
 		return false;
 	}
 	else if(message.substr(8,1).compare(" ") != 0){
+		std::cout << "err 3" << std::endl;
 	}
 	else if(stoi(message.substr(9,3)) != status){
+		std::cout << "err 4" << std::endl;
 		return false;
 	}
 	return true;
 }
 bool CourseStoreDB::sendMessage(int sockfd, std::string msg){
-	std::cout << msg << std::endl;
 	size_t sentBytes = send(sockfd, (void*)msg.c_str(), strlen(msg.c_str()), 0);
 	if(sentBytes != strlen(msg.c_str())){
 		printf("Mesaege: %lu bytes\n Sent: %lu bytes\n", strlen(msg.c_str()), sentBytes);
@@ -123,15 +116,11 @@ bool CourseStoreDB::sendMessage(int sockfd, std::string msg){
 std::string CourseStoreDB::recvMessage(int sockfd, int length){ 
 	//std::cerr<< "*** Calling recv() ***" << std::endl;
 	char buf[length];
-	
-	
-	
-	int readBytes = recv(sockfd, buf, length, 0);
+	int readBytes = recv(sockfd, buf, length, MSG_WAITALL);
 	if(readBytes == -1){
 		std::cerr<< "Failure on recv()" << std::endl;
 		std::cerr<< "Read " << readBytes <<" bytes\n" << std::endl;
 		return "";
 	}
-	//printf("Received: %s\n", buf);
 	return std::string(buf);
 }
