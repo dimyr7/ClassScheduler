@@ -57,8 +57,20 @@ class Course::SectionGroup{
 		std::vector<SectionCombo*> getCombos();
 
 	private:
-		int nextIteration(std::valarray<size_t> &index);		
+		/**
+		 * Given a set of indecies assiciated with choosing different type of sections, this will modify them to get the next combinations
+		 * @param index is a set of indecies that will be modified to the next possible valid combinations
+		 * @return true if the operation succesfully moved forward, false if the indecies were reset to the initial value of all 0s
+		 */
+		bool nextIteration(std::valarray<size_t> &index);		
+
+		/**
+		 * Checks if a vector of sections overlap
+		 * @param potCombo is the potential combination of sections
+		 * @return true if any of the 2 sections overlap, false otherwise
+		 */
 		static bool overlap(std::vector<Section*> potCombo);
+
 		/**
 		 * The id of the group
 		 */

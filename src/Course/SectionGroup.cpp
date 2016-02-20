@@ -1,5 +1,4 @@
 #include "Course/SectionGroup.hpp"
-#include "Course/SectionCombo.hpp"
 
 #include <cassert>
 Course::SectionGroup::SectionGroup(size_t numTypes, std::string id){
@@ -67,15 +66,11 @@ bool Course::SectionGroup::addSection(Section* section){
 std::vector<SectionCombo*> Course::SectionGroup::getCombos(){
 	std::valarray<size_t> index = std::valarray<size_t>(this->_numTypes);
 	std::vector<SectionCombo*> combos;
+ 
 	for(auto it = std::begin(index); it != std::end(index); it++){
 		*it = 0;	
 	}
 	do{
-		for(auto i = std::begin(index); i != std::end(index); i++){
-			std::cout << *i << "-";
-		}
-		std::cout << std::endl;
-
 		std::vector<Section*> combinations;
 		for(size_t i = 0; i < index.size(); i++){
 			combinations.push_back(this->_sections[i][index[i]]);
@@ -85,15 +80,12 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombos(){
 			SectionCombo* newCombo = new SectionCombo(combinations);
 			combos.push_back(newCombo);
 		}
-		else{
-			std::cout << "SECTIONS OVERLAP" << std::endl;
-		}
 	}
-	while(this->nextIteration(index) != -1);
+	while(this->nextIteration(index));
 	return combos;
 }
 
-int Course::SectionGroup::nextIteration(std::valarray<size_t> &index){
+bool Course::SectionGroup::nextIteration(std::valarray<size_t> &index){
 	for(size_t i = 0; i < index.size(); i++){
 		size_t indexVal = index[i];
 		if(indexVal+1 == this->_sections[i].size()){
@@ -101,10 +93,10 @@ int Course::SectionGroup::nextIteration(std::valarray<size_t> &index){
 		}
 		else{
 			index[i]++;
-			return 1;
+			return true;
 		}
 	}
-	return -1;
+	return false;
 	
 }
 

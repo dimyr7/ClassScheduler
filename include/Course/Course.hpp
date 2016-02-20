@@ -117,7 +117,7 @@ class Course{
 		std::vector<SectionCombo*> _combos;
 
 		/**
-		 * 
+		 * A string representation of the the Course Name
 		 */
 		std::string _courseName;
 
@@ -129,12 +129,13 @@ class Course{
 		static TypeOfSection getTypeOfSection(const Section* section);
 
 		/**
-		 *
+		 * Denotes if the generated section combos are syncd up with with the sections.
+		 * Adding new sections after generating section combos will cause de-syncing
 		 */
 		bool _sync;
 
 		/**
-		 *
+		 * Checks if they types of sections for this class caused a logical error
 		 */
 		static bool checkSectionTypeError(std::bitset<NUM_OF_SECTION_TYPES> types);
 };
