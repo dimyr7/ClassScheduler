@@ -1,4 +1,4 @@
-ptinclude <Communication/CourseStoreDB.hpp>
+#include <Communication/CourseStoreDB.hpp>
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -21,7 +21,6 @@ CourseStoreDB::CourseStoreDB(std::string host, std::string path, std::string por
 	this->_host = host;
 	this->_path = path;
 	this->_port = port;
-	this->_p
 }
 
 CourseStoreDB::CourseStoreDB(const CourseStoreDB &copy){
@@ -50,7 +49,7 @@ std::string* CourseStoreDB::getGZip(){
 	
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-	int getAddrInfoFlag = getaddrinfo("google.com", "80", &hints, &res);
+	int getAddrInfoFlag = getaddrinfo(this->_host.c_str(), this->_port.c_str(), &hints, &res);
 	if(getAddrInfoFlag != 0){
 		printf("Failure on getAddrInfo()\n");
 		exit(1);
@@ -68,63 +67,66 @@ std::string* CourseStoreDB::getGZip(){
 		exit(1);
 	}
 
-	std::string query = "GET " + this->_path + " HTTP/1.0\r\nHost: " + this->_host + "\r\nConnection: Keep-Alive\r\ncontent-type: application/x-gzip\r\n\r\n";
+	std::string query = "GET " + this->_path + " HTTP/" +HTTP_V +"\r\n\r\n";
 
-	if(sendMessege(sockfd, query) != true){
+	if(sendMessage(sockfd, query) != true){
 		return new std::string("");
 	}
 
-	std::string messege = this->recvMessege(sockfd, 5000);
-	//std::cerr << messege << std::endl;
-	if(not this->verifyStatus(messege, OK)){
-		std::cerr << "Messege status failed" << std::endl;
+	std::string message = this->recvMessage(sockfd, 5000);
+	//std::cerr << message << std::endl;
+	if(not this->verifyStatus(message, OK)){
+		std::cerr << "Message status failed" << std::endl;
 		return new std::string("");
 	}
 
-	int lengthOfNextChunk = stoi(messege.substr(messege.find("\r\n\r\n")), 0, 16);
-	std::cerr << "Length of chunk: " << lengthOfNextChunk << std::endl;
-	std::vector<std::string> chunks;
-	for(int i = 0 ; i < 150; i++){		
-//	while((messege = this->recvMessege(sockfd, lengthOfNextChunk+2)).compare("") != 0){
-		messege = this->recvMessege(sockfd, lengthOfNextChunk+2);
-		std::cout <<  messege << std::endl;
+	//int lengthOfNextChunk = stoi(message.substr(message.find("\r\n\r\n")), 0, 16);
+	//std::cerr << "Length of chunk: " << lengthOfNextChunk << std::endl;
+	//std::vector<std::string> chunks;
+	for(int i = 0 ; i < 300; i++){		
+		std::cout << i << std::endl;
+//	while((message = this->recvMessage(sockfd, lengthOfNextChunk+2)).compare("") != 0){
+		message = this->recvMessage(sockfd, 1000);
+		std::cout <<  message << std::endl;
 	}
-
+//
 	freeaddrinfo(res);
 	close(sockfd);
-	return new std::string(messege);
+	return new std::string(message);
 }
 
-bool CourseStoreDB::verifyStatus(std::string messege, int status){
-	if(messege.substr(0, 5).compare("HTTP/") != 0){
+bool CourseStoreDB::verifyStatus(std::string message, int status){
+	std::cout << message << std::endl;
+	if(message.substr(0, 5).compare("HTTP/") != 0){
 		return false;
 	}
-	else if(messege.substr(5,3).compare(HTTP_V) != 0){
+	else if(message.substr(5,3).compare(HTTP_V) != 0){
 		return false;
 	}
-	else if(messege.substr(8,1).compare(" ") != 0){
+	else if(message.substr(8,1).compare(" ") != 0){
 	}
-	else if(stoi(messege.substr(9,3)) != status){
+	else if(stoi(message.substr(9,3)) != status){
 		return false;
 	}
 	return true;
 }
-bool CourseStoreDB::sendMessege(int sockfd, std::string msg){
+bool CourseStoreDB::sendMessage(int sockfd, std::string msg){
+	std::cout << msg << std::endl;
 	size_t sentBytes = send(sockfd, (void*)msg.c_str(), strlen(msg.c_str()), 0);
 	if(sentBytes != strlen(msg.c_str())){
-		printf("Messege: %lu bytes\n Sent: %lu bytes\n", strlen(msg.c_str()), sentBytes);
+		printf("Mesaege: %lu bytes\n Sent: %lu bytes\n", strlen(msg.c_str()), sentBytes);
 		return false;
 	}
 	return true;
 }
 
-std::string CourseStoreDB::recvMessege(int sockfd, int length){ 
-	std::cerr<< "*** Calling recv() ***" << std::endl;
+std::string CourseStoreDB::recvMessage(int sockfd, int length){ 
+	//std::cerr<< "*** Calling recv() ***" << std::endl;
 	char buf[length];
 	
 	
 	
-	int readBytes = recv(sockfd, buf, length, MSG_WAITALL);
+	int readBytes = recv(sockfd, buf, length, 0);
 	if(readBytes == -1){
 		std::cerr<< "Failure on recv()" << std::endl;
 		std::cerr<< "Read " << readBytes <<" bytes\n" << std::endl;

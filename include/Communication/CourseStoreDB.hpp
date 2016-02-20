@@ -36,25 +36,25 @@ class CourseStoreDB{
 		/**
 		 * Sends a message to the specigied host
 		 * @param sockfd is the socket to write to
-		 * @param msg is the messege to write
+		 * @param msg is the message to write
 		 * @return true if the send is successful, false otherwise
 		 */
-		bool sendMessege(int sockfd, std::string msg);		
+		bool sendMessage(int sockfd, std::string msg);		
 
 		/**
-		 * Reads a messege from the socket and returns it as a string
+		 * Reads a message from the socket and returns it as a string
 		 * @param sockfd is the socket to read from
-		 * @return a string with the read messege
+		 * @return a string with the read message
 		 */
-		std::string recvMessege(int sockfd, int length);
+		std::string recvMessage(int sockfd, int length);
 
 		/**
 		 * Verifies that the http response has the appropriate status
-		 * @param messege is the string http response
+		 * @param message is the string http response
 		 * @param status is the int that represents the desiderd status
-		 * @return true if hte messege has the appropriate status, false otherwise
+		 * @return true if the message has the appropriate status, false otherwise
 		 */
-		bool verifyStatus(std::string messege, int status);
+		bool verifyStatus(std::string message, int status);
 
 		/**
 		 * A string representing the host
