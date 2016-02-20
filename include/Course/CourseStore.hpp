@@ -1,7 +1,7 @@
 #ifndef COURSE_STORE
 #define COURSE_STORE
 #include "Course/Course.hpp"
-#include <boost/unordered_map.hpp>
+#include <boost/unoredered/unordered_map.hpp>
 class CourseStore{
 	public:
 		/**
