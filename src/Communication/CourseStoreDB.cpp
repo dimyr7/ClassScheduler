@@ -46,9 +46,10 @@ std::string* CourseStoreDB::getJson(){
 	struct addrinfo *res;
 
 	memset(&hints, 0, sizeof(struct addrinfo));
-	
+
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
+
 	int getAddrInfoFlag = getaddrinfo(this->_host.c_str(), this->_port.c_str(), &hints, &res);
 	if(getAddrInfoFlag != 0){
 		printf("Failure on getAddrInfo()\n");
@@ -73,7 +74,7 @@ std::string* CourseStoreDB::getJson(){
 		return new std::string("");
 	}
 
-	std::string message = this->recvMessage(sockfd, 3*MB);
+	std::string message = this->recvMessage(sockfd, 2*MB);
 
 	if(not this->verifyStatus(message, OK)){
 		std::cerr << "Message status failed" << std::endl;
@@ -81,9 +82,6 @@ std::string* CourseStoreDB::getJson(){
 	}
 
 	message = message.substr(message.find("\r\n\r\n")+4);
-
-	
-
 
 	freeaddrinfo(res);
 	close(sockfd);

@@ -23,7 +23,7 @@ class SectionCombo{
 		std::vector<Section*> getSections();
 		void addSection(Section* section);
 		SectionCombo();
-
+		SectionCombo(std::vector<Section*> sections);
 		~SectionCombo();
 	private:
 		std::vector<Section*> 	_sections;	

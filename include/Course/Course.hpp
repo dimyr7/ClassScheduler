@@ -134,6 +134,6 @@ class Course{
 		/**
 		 *
 		 */
-		bool checkSectionTypeError(std::bitset<NUM_OF_SECTION_TYPES> types);
+		static bool checkSectionTypeError(std::bitset<NUM_OF_SECTION_TYPES> types);
 };
 #endif

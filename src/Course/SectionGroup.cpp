@@ -66,55 +66,58 @@ bool Course::SectionGroup::addSection(Section* section){
 
 std::vector<SectionCombo*> Course::SectionGroup::getCombos(){
 	std::valarray<size_t> index = std::valarray<size_t>(this->_numTypes);
-	std::vector<SectionCombo*> combos = this->getCombosHelper(index, 0);
+	std::vector<SectionCombo*> combos;
+	for(auto it = std::begin(index); it != std::end(index); it++){
+		*it = 0;	
+	}
+	do{
+		for(auto i = std::begin(index); i != std::end(index); i++){
+			std::cout << *i << "-";
+		}
+		std::cout << std::endl;
+
+		std::vector<Section*> combinations;
+		for(size_t i = 0; i < index.size(); i++){
+			combinations.push_back(this->_sections[i][index[i]]);
+		}
+		bool overlap = Course::SectionGroup::overlap(combinations);
+		if(not overlap){
+			SectionCombo* newCombo = new SectionCombo(combinations);
+			combos.push_back(newCombo);
+		}
+		else{
+			std::cout << "SECTIONS OVERLAP" << std::endl;
+		}
+	}
+	while(this->nextIteration(index) != -1);
 	return combos;
 }
 
-
-std::vector<SectionCombo*> Course::SectionGroup::getCombosHelper(std::valarray<size_t>  index, size_t depth){
-	std::vector<SectionCombo*> combosSoFar;	
-
-	// iterate through all sections of a certain type and try to add on to the current running list of sections
-	for(size_t i = 0; i < this->_sections[depth].size(); i++){
-		
-		// If any overlap with any previous section, skip it
-		bool thisOverlaps = false;
-		Section* thisSection = this->_sections[depth][i];
-		for(size_t j  = 0; i < depth; i++){
-			size_t indexOfPrevSection = index[j];
-			Section* currPrevSection = this->_sections[j][indexOfPrevSection];
-
-			// this section overlaps with a previously chosen section
-			if(Section::overlap(thisSection, currPrevSection)){
-				thisOverlaps = true;	
-				break;
-			}
+int Course::SectionGroup::nextIteration(std::valarray<size_t> &index){
+	for(size_t i = 0; i < index.size(); i++){
+		size_t indexVal = index[i];
+		if(indexVal+1 == this->_sections[i].size()){
+			index[i] = 0;
 		}
-		if(thisOverlaps){
-			continue;
-		}
-		index[depth] = i;
-
-		// if leaf node
-		if(depth+1 == this->_numTypes){
-			SectionCombo* newCombo = new SectionCombo();
-
-			//std::cout << "=== Creating a new Section Combo ===" << std::endl;
-			for(size_t j = 0; j < this->_numTypes; j++){
-				size_t sectionIndex = index[j];
-				Section* theSection = this->_sections[j][sectionIndex];
-				assert(theSection != NULL);
-				newCombo->addSection(theSection);	
-				//std::cout << theSection->getSectionName() << std::endl;
-			}
-			combosSoFar.push_back(newCombo);
-		}
-
-		// if not leaf node
 		else{
-			std::vector<SectionCombo*> combosRet = this->getCombosHelper(index, depth+1);
-			combosSoFar.insert(combosSoFar.end(), combosRet.begin(), combosRet.end());
+			index[i]++;
+			return 1;
 		}
 	}
-	return combosSoFar;
+	return -1;
+	
+}
+
+bool Course::SectionGroup::overlap(std::vector<Section*> potCombo){
+	for(int i = 0; i < potCombo.size()-1 ; i++){
+		for(int j = 1; j < potCombo.size(); j++){
+			Section* sectionA = potCombo[i];
+			Section* sectionB = potCombo[j];
+			bool overlap = Section::overlap(sectionA, sectionB);	
+			if(overlap){
+				return true;
+			}
+		}	
+	}
+	return false;
 }

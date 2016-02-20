@@ -12,6 +12,7 @@ bool CourseFiller::fill(CourseStore* store){
 	for (rapidjson::SizeType i = 0; i < doc.Size(); i++){
 	    Course* course = CourseFiller::buildCourse(doc[i]);
 		std::string name = course->getDepartment() + course->getCourseNumber();
+		course->getCombos();
 		store->insert(name, course);
 	}
 	return true;

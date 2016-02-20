@@ -2,7 +2,11 @@
 SectionCombo::SectionCombo(){
 	this->_isValid = false;
 }
-
+SectionCombo::SectionCombo(std::vector<Section*> sections){
+	for(std::vector<Section*>::const_iterator it = sections.begin(); it != sections.end(); it++){
+		this->_sections.push_back(*it);
+	}
+}
 SectionCombo::~SectionCombo(){
 	return;
 }

@@ -46,6 +46,7 @@ std::vector<Section*> Course::Course::getSections() const{
 
 
 void Course::Course::addSection(Section* section){
+	this->_sync = false;
 	this->_sections.push_back(section);
 }
 
@@ -88,21 +89,29 @@ Course::Course::TypeOfSection Course::Course::getTypeOfSection(const Section* se
 bool Course::Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> types){
 	// Check for Lecture-Discussion & Lecture
 	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::LEC] == 1){
-		return false;
+		std::cerr << "LCD and LEC conflict" << std::endl;
+		return true;
 	}
 	// Check for Lecture-Discussion & Discussion
 	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::DIS] == 1){
-		return false;
+		std::cerr << "LCD and DIS conflict" << std::endl;
+		return true;
 	}
 	if(types[(int)Course::TypeOfSection::LBD] == 1 and types[(int)Course::TypeOfSection::LAB] == 1){
-		return false;
+		std::cerr << "LBD and LAB conflict" << std::endl;
+		return true;
 	}
 	if(types[(int)Course::TypeOfSection::LBD] == 1 and types[(int)Course::TypeOfSection::DIS] == 1){
-		return false;
+		std::cerr << "LBD and DIS conflict" << std::endl;
+		return true;
 	}
-	return true;
+	return false;
 }
 std::vector<SectionCombo*> Course::Course::getCombos(){
+	std::cout << "Starting to generate combos for " << this->_department << this->_courseNumber << std::endl;
+	if(this->_sync){
+		return this->_combos;
+	}
 	// Delete the old section groups
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
 		delete *it;
@@ -134,7 +143,6 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 	
 	// For each section letter ...
 	for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
-
 		std::bitset< Course::NUM_OF_SECTION_TYPES> typesOfSections;
 
 		// .. Find out all types of sections for that letter
@@ -145,6 +153,7 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 		bool sectionError = Course::checkSectionTypeError(typesOfSections);
 		if(sectionError){
 			//TODO error handle
+		//	std::cerr <<  std::endl << "There was an Section type error in course " << this->_department << this->_courseNumber << std::endl;
 		}
 		else{
 			int numOfTypes = typesOfSections.count();
@@ -160,6 +169,6 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 			this->_combos.insert(this->_combos.end(), newCombos.begin(), newCombos.end());
 		}
 	}
-
+	this->_sync = true;
 	return this->_combos;
 }

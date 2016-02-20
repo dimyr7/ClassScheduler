@@ -57,16 +57,8 @@ class Course::SectionGroup{
 		std::vector<SectionCombo*> getCombos();
 
 	private:
-		
-		/**
-		 * The helper function that generates the combos
-		 * @param inputCombo is a vector of integers denoting the index of the section of the previous sectiongroups
-		 * TODO reimplement in parallel
-		 * @oaram depth the depth of recursion
-		 * @return a vector of compatable sectioncombos
-		 */
-		std::vector<SectionCombo*> getCombosHelper(std::valarray<size_t> inputCombo, size_t depth);	
-
+		int nextIteration(std::valarray<size_t> &index);		
+		static bool overlap(std::vector<Section*> potCombo);
 		/**
 		 * The id of the group
 		 */
