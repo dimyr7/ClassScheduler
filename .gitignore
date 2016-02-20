@@ -32,6 +32,9 @@ build/*
 bin/*
 bin/*
 
+bin/*
+bin/autoschedule
+bin/tester
 
 # Mac specific files
 .DS_Store

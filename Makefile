@@ -4,9 +4,17 @@ MAINOBJS = main.o
 OBJPATH = ./build
 
 CC = g++
-CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include
+CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include 
 LINKER = g++
 LFLAGS = -o
+
+ifdef DEBUG
+	CFLAGS += -DNDEBUG
+else
+	CFLAGS += -DDEBUG
+endif
+
+
 
 SRCDIR = src/
 BUILDDIR = build/
@@ -33,7 +41,7 @@ $(BUILDDIR)phase1test.o: $(TESTDIR)Phase1Test.cpp
 	@mv phase1test.o $(BUILDDIR)
 
 # Compiling main.o
-$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o)
+$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o schedule.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Main.cpp
 	@mv main.o $(BUILDDIR)
 
@@ -41,6 +49,11 @@ $(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o
 $(BUILDDIR)parser.o: $(SRCDIR)Course/Parser.cpp $(addprefix $(BUILDDIR), section.o sectionbuilder.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course/Parser.cpp
 	@mv parser.o $(BUILDDIR)
+
+# Compiling schedule.o
+$(BUILDDIR)schedule.o: $(SRCDIR)Course/Schedule.cpp $(addprefix $(BUILDDIR), sectioncombo.o)
+	$(CC) $(CFLAGS) $(SRCDIR)Schedule.cpp
+	@mv schedule.o $(BUILDDIR)
 
 
 # Compiling course.o

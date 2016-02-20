@@ -70,9 +70,13 @@ class Course::SectionGroup{
 		size_t 			_numTypes;
 
 		/**
-		 * 
+		 * Sections that belong to this group catagorized by section type
 		 */
 		std::valarray< std::vector<Section*> >    _sections;	
+
+		/**
+		 * The different section types
+		 */
 		std::valarray<std::string> _sectionTypes;
 };
 #endif

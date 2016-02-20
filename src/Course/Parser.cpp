@@ -1,7 +1,6 @@
 #include "Course/Parser.hpp"
 #include "Course/Section.hpp"
 #include "Course/SectionBuilder.hpp"
-
 #include <../lib/rapidjson/document.h>
 #include <fstream>
 #include <cassert>

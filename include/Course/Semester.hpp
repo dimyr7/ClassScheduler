@@ -2,7 +2,7 @@
 #define SEMESTER_H
 
 #include <string>
-/*
+/**
  * This represents a 'Semester' such as Fall 2015, or Spring 2016 A (Only the first 8 weeks)
  */
 class Semester{
