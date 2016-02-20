@@ -45,6 +45,11 @@ class SectionCombo{
 		 * @param section is the new section to add
 		 */
 		void addSection(Section* section);
+
+		/**
+		 * A constructor to create a SectionCombo from a vector of sections
+		 * @param sections is the vector of sections to make up this SectionCombo
+		 */
 		SectionCombo(std::vector<Section*> sections);
 
 		/**

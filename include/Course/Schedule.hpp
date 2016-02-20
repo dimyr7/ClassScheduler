@@ -16,6 +16,9 @@ class Schedule{
 		~Schedule();
 
 		/**
+		 * Constructor that takes a vector of Section Combos to i
+		 */
+		/**
 		 * Copy constrcutor
 		 * @param copy is the schedule to copu
 		 */
