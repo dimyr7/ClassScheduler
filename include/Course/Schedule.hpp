@@ -16,14 +16,16 @@ class Schedule{
 		~Schedule();
 
 		/**
-		 * Constructor that takes a vector of Section Combos to i
+		 * Constructor that takes a vector of SectionCombos to 
 		 */
+		Schedule(std::vector<SectionCombo*> combos);
 		/**
 		 * Copy constrcutor
 		 * @param copy is the schedule to copu
 		 */
 		Schedule(const Schedule& copy);
 
+		
 		/**
 		 * Assignment operator
 		 * @param copy is the schedule to copy
@@ -36,6 +38,11 @@ class Schedule{
 		 * @param combo is a new SectionCombo to add to this schedule
 		 */
 		void addCombo(SectionCombo* combo);
+
+		/**
+		 * Getter for the sectioncombos associated with this schedule
+		 */
+		std::vector<SectionCombo*> getCombos() const;
 	private: 
 
 		/**

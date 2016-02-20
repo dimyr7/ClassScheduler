@@ -1,6 +1,6 @@
 #include "Course/Course.hpp"
-#include "Course/SectionCombo.hpp"
 #include "Course/SectionGroup.hpp"
+
 #include <Map>
 #include <bitset>
 /*
@@ -108,7 +108,6 @@ bool Course::Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TY
 	return false;
 }
 std::vector<SectionCombo*> Course::Course::getCombos(){
-	std::cout << "Starting to generate combos for " << this->_department << this->_courseNumber << std::endl;
 	if(this->_sync){
 		return this->_combos;
 	}
@@ -153,7 +152,6 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 		bool sectionError = Course::checkSectionTypeError(typesOfSections);
 		if(sectionError){
 			//TODO error handle
-		//	std::cerr <<  std::endl << "There was an Section type error in course " << this->_department << this->_courseNumber << std::endl;
 		}
 		else{
 			int numOfTypes = typesOfSections.count();

@@ -1,4 +1,4 @@
-#include <Communication/CourseStoreDB.hpp>
+#include "Communication/CourseStoreDB.hpp"
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -112,7 +112,6 @@ bool CourseStoreDB::sendMessage(int sockfd, std::string msg){
 }
 
 std::string CourseStoreDB::recvMessage(int sockfd, int length){ 
-	//std::cerr<< "*** Calling recv() ***" << std::endl;
 	char buf[length];
 	int readBytes = recv(sockfd, buf, length, MSG_WAITALL);
 	if(readBytes == -1){

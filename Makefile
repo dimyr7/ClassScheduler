@@ -1,4 +1,4 @@
-OBJS = parser.o course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o coursestore.o coursefiller.o coursestoredb.o
+OBJS = course.o section.o sectiongroup.o sectioncombo.o sectionbuilder.o week.o time.o instructor.o semester.o location.o coursestore.o coursefiller.o coursestoredb.o coursegroup.o schedule.o
 TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
@@ -31,6 +31,12 @@ autoschedule: $(TARGET)
 run: $(TARGET)
 	@./bin/autoschedule
 
+valgrind: $(TARGET)
+	@valgrind ./bin/autoschedule
+
+full: $(TARGET)
+	@valgrind --leak-check=full --track-origins=yes ./bin/autoschedule > c.out
+
 # Linking the autoschedule executible
 $(TARGET): $(addprefix $(BUILDDIR), $(MAINOBJS) $(OBJS))
 	@echo " Building Auto-Scheduler"
@@ -40,17 +46,18 @@ $(BUILDDIR)phase1test.o: $(TESTDIR)Phase1Test.cpp
 	$(CC) $(CFLAGS) $(TESTDIR)Phase1Test.cpp
 	@mv phase1test.o $(BUILDDIR)
 
-# Compiling main.o
-$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o section.o parser.o schedule.o)
+# Compiling main.o **DONE
+$(BUILDDIR)main.o: $(SRCDIR)Main.cpp $(addprefix $(BUILDDIR), course.o coursestore.o coursegroup.o schedule.o coursefiller.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Main.cpp
 	@mv main.o $(BUILDDIR)
 
-#compiling parser.o
-$(BUILDDIR)parser.o: $(SRCDIR)Course/Parser.cpp $(addprefix $(BUILDDIR), section.o sectionbuilder.o)
-	$(CC) $(CFLAGS) $(SRCDIR)Course/Parser.cpp
-	@mv parser.o $(BUILDDIR)
 
-# Compiling schedule.o
+# Compiling coursegroup.o **DONE
+$(BUILDDIR)coursegroup.o: $(SRCDIR)Course/CourseGroup.cpp $(addprefix $(BUILDDIR),  schedule.o course.o)
+	$(CC) $(CFLAGS) $(SRCDIR)Course/CourseGroup.cpp
+	@mv coursegroup.o $(BUILDDIR)
+
+# Compiling schedule.o **DONE
 $(BUILDDIR)schedule.o: $(SRCDIR)Course/Schedule.cpp $(addprefix $(BUILDDIR), sectioncombo.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course/Schedule.cpp
 	@mv schedule.o $(BUILDDIR)
@@ -106,20 +113,21 @@ $(BUILDDIR)sectiongroup.o: $(SRCDIR)Course/SectionGroup.cpp $(addprefix $(BUILDD
 	$(CC) $(CFLAGS) $(SRCDIR)Course/SectionGroup.cpp
 	@mv sectiongroup.o $(BUILDDIR)
 	
-# compiling coursestore.o
-$(BUILDDIR)coursestore.o: $(SRCDIR)Course/CourseStore.cpp
+# compiling coursestore.o **DONE
+$(BUILDDIR)coursestore.o: $(SRCDIR)Course/CourseStore.cpp $(addprefix $(BUILDDIR), course.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course/CourseStore.cpp
 	@mv coursestore.o $(BUILDDIR)
 
-# compiling coursestoredb.o
+
+# compiling coursefiller.o **DONE
+$(BUILDDIR)coursefiller.o: $(SRCDIR)Communication/CourseFiller.cpp $(addprefix $(BUILDDIR), coursestoredb.o coursestore.o course.o sectionbuilder.o)
+	$(CC) $(CFLAGS) $(SRCDIR)Communication/CourseFiller.cpp
+	@mv coursefiller.o $(BUILDDIR)
+
+# compiling coursestoredb.o **DONE
 $(BUILDDIR)coursestoredb.o: $(SRCDIR)Communication/CourseStoreDB.cpp
 	$(CC) $(CFLAGS) $(SRCDIR)Communication/CourseStoreDB.cpp
 	@mv coursestoredb.o $(BUILDDIR)
-
-# compiling coursefiller.o
-$(BUILDDIR)coursefiller.o: $(SRCDIR)Communication/CourseFiller.cpp
-	$(CC) $(CFLAGS) $(SRCDIR)Communication/CourseFiller.cpp
-	@mv coursefiller.o $(BUILDDIR)
 
 #client
 client.o: 

@@ -8,7 +8,6 @@ bool CourseFiller::fill(CourseStore* store){
 
 	rapidjson::Document doc;
 	doc.Parse(jsonString->c_str());
-	std::cout << doc.Size() << std::endl;
 	for (rapidjson::SizeType i = 0; i < doc.Size(); i++){
 	    Course* course = CourseFiller::buildCourse(doc[i]);
 		std::string name = course->getDepartment() + course->getCourseNumber();
