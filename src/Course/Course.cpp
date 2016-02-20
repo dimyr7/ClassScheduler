@@ -1,8 +1,8 @@
 #include "Course/Course.hpp"
 #include "Course/SectionGroup.hpp"
 
-#include <Map>
 #include <bitset>
+#include <map>
 /*
  * ============================== 
  * Object Creation
