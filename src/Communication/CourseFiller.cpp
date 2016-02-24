@@ -1,4 +1,5 @@
 #include "Communication/CourseFiller.hpp"
+#include "Communication/CourseStoreDB.hpp"
 #include <iostream>
 #include <string>
 
@@ -53,8 +54,8 @@ Section* CourseFiller::buildSection(rapidjson::Value& sectionJson){
 		std::string end(meeting["end"].GetString());    
 				const char *days = meeting["days"].GetString();
 
-		std::vector<int> startTime = convertTime(start);
-		std::vector<int> endTime = convertTime(end);
+		std::array<int, 2> startTime = convertTime(start);
+		std::array<int, 2> endTime = convertTime(end);
 
 
 		for (int i = 0; i < (int)strlen(days); i++) {
@@ -101,16 +102,15 @@ Section* CourseFiller::buildSection(rapidjson::Value& sectionJson){
  *  from 12 hour clock to 24 hour clock.
  *  e.g. "3:50 PM" -> [15, 50].
  */
-std::vector<int> CourseFiller::convertTime(std::string time) {
+std::array<int, 2> CourseFiller::convertTime(std::string time) {
 	if(time.compare("ARRANGED") == 0 or time.compare("")== 0){
-		std::vector<int> nullTime;
-		nullTime.push_back(0);
-		nullTime.push_back(0);
+		std::array<int, 2> nullTime;
+		nullTime.fill(0);
 		return nullTime;
 	}
-    std::vector<int> time_24;
-    time_24.push_back(stoi(time.substr(0, 2)));
-    time_24.push_back(stoi(time.substr(3, 5)));
+    std::array<int, 2> time_24;
+    time_24[0] = stoi(time.substr(0, 2));
+    time_24[1] = stoi(time.substr(3, 5));
     if (time[6] == 'A' && time_24[0] == 12) {
         time_24[0] = 0;
     } else if (time[6] == 'P' && time_24[0] != 12) {

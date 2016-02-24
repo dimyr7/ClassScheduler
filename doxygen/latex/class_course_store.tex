@@ -1,0 +1,89 @@
+\hypertarget{class_course_store}{}\section{Course\+Store Class Reference}
+\label{class_course_store}\index{Course\+Store@{Course\+Store}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_course_store_aef5fe9030ef685f8777336c3a281ed96}{Course\+Store} ()
+\item 
+\hyperlink{class_course_store_adf61ea467d8cb6e23a9f9d435dd187ab}{Course\+Store} (const \hyperlink{class_course_store}{Course\+Store} \&copy)
+\item 
+\hyperlink{class_course_store_accdaed6f4e3b22a2a65c4ae79b4291df}{$\sim$\+Course\+Store} ()
+\item 
+\hyperlink{class_course_store}{Course\+Store} \& \hyperlink{class_course_store_a4b63b7d4cddc77949883f59e5db2c002}{operator=} (const \hyperlink{class_course_store}{Course\+Store} \&copy)
+\item 
+bool \hyperlink{class_course_store_ac6ffcf226eb6dfa4d136dbc29da1387f}{insert} (std\+::string course\+Name, \hyperlink{class_course}{Course} $\ast$course\+Data)
+\item 
+\hyperlink{class_course}{Course} $\ast$ \hyperlink{class_course_store_a0643519b61c56ef6f6c097db1ab28934}{get} (std\+::string course\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_course_store_aef5fe9030ef685f8777336c3a281ed96}{}\index{Course\+Store@{Course\+Store}!Course\+Store@{Course\+Store}}
+\index{Course\+Store@{Course\+Store}!Course\+Store@{Course\+Store}}
+\subsubsection[{Course\+Store()}]{\setlength{\rightskip}{0pt plus 5cm}Course\+Store\+::\+Course\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_course_store_aef5fe9030ef685f8777336c3a281ed96}
+Default constructor will create an empty \hyperlink{class_course_store}{Course\+Store} \hypertarget{class_course_store_adf61ea467d8cb6e23a9f9d435dd187ab}{}\index{Course\+Store@{Course\+Store}!Course\+Store@{Course\+Store}}
+\index{Course\+Store@{Course\+Store}!Course\+Store@{Course\+Store}}
+\subsubsection[{Course\+Store(const Course\+Store \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Course\+Store\+::\+Course\+Store (
+\begin{DoxyParamCaption}
+\item[{const {\bf Course\+Store} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_course_store_adf61ea467d8cb6e23a9f9d435dd187ab}
+Copy constuctor will \hypertarget{class_course_store_accdaed6f4e3b22a2a65c4ae79b4291df}{}\index{Course\+Store@{Course\+Store}!````~Course\+Store@{$\sim$\+Course\+Store}}
+\index{````~Course\+Store@{$\sim$\+Course\+Store}!Course\+Store@{Course\+Store}}
+\subsubsection[{$\sim$\+Course\+Store()}]{\setlength{\rightskip}{0pt plus 5cm}Course\+Store\+::$\sim$\+Course\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_course_store_accdaed6f4e3b22a2a65c4ae79b4291df}
+Destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_course_store_a0643519b61c56ef6f6c097db1ab28934}{}\index{Course\+Store@{Course\+Store}!get@{get}}
+\index{get@{get}!Course\+Store@{Course\+Store}}
+\subsubsection[{get(std\+::string course\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Course}$\ast$ Course\+Store\+::get (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{course\+Name}
+\end{DoxyParamCaption}
+)}\label{class_course_store_a0643519b61c56ef6f6c097db1ab28934}
+Gets the data assoociated data of a course 
+\begin{DoxyParams}{Parameters}
+{\em course\+Name} & the name of the course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the data of the course, returns empty string if no entry exists 
+\end{DoxyReturn}
+\hypertarget{class_course_store_ac6ffcf226eb6dfa4d136dbc29da1387f}{}\index{Course\+Store@{Course\+Store}!insert@{insert}}
+\index{insert@{insert}!Course\+Store@{Course\+Store}}
+\subsubsection[{insert(std\+::string course\+Name, Course $\ast$course\+Data)}]{\setlength{\rightskip}{0pt plus 5cm}bool Course\+Store\+::insert (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{course\+Name, }
+\item[{{\bf Course} $\ast$}]{course\+Data}
+\end{DoxyParamCaption}
+)}\label{class_course_store_ac6ffcf226eb6dfa4d136dbc29da1387f}
+Inserts a new course and its information into the course 
+\begin{DoxyParams}{Parameters}
+{\em course\+Name} & is a string that represents the course string \\
+\hline
+{\em course\+Data} & is a string that is the data of the course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the insertion is successful, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_course_store_a4b63b7d4cddc77949883f59e5db2c002}{}\index{Course\+Store@{Course\+Store}!operator=@{operator=}}
+\index{operator=@{operator=}!Course\+Store@{Course\+Store}}
+\subsubsection[{operator=(const Course\+Store \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Course\+Store}\& Course\+Store\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Course\+Store} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_course_store_a4b63b7d4cddc77949883f59e5db2c002}
+Operator= 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Course\+Store.\+hpp\end{DoxyCompactItemize}

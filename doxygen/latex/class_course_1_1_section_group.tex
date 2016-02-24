@@ -1,0 +1,124 @@
+\hypertarget{class_course_1_1_section_group}{}\section{Course\+:\+:Section\+Group Class Reference}
+\label{class_course_1_1_section_group}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+
+
+{\ttfamily \#include $<$Section\+Group.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_course_1_1_section_group_a868093a7b2828a2fded8a7e84a15fc66}{Section\+Group} (size\+\_\+t num\+Types, std\+::string id)
+\item 
+\hyperlink{class_course_1_1_section_group_a139584ccbcf7ece464e4aa1065aa77a8}{Section\+Group} (const \hyperlink{class_course_1_1_section_group}{Section\+Group} \&copy)
+\item 
+\hyperlink{class_course_1_1_section_group}{Section\+Group} \& \hyperlink{class_course_1_1_section_group_ae20b475f731b974cdb10bf779d5d61ae}{operator=} (const \hyperlink{class_course_1_1_section_group}{Section\+Group} \&copy)
+\item 
+\hyperlink{class_course_1_1_section_group_a141927166752b984046cde43d7be643e}{$\sim$\+Section\+Group} ()
+\item 
+bool \hyperlink{class_course_1_1_section_group_a02b17bb76a4b7e09314298f00dc841a1}{valid\+I\+D} (const std\+::string id)
+\item 
+bool \hyperlink{class_course_1_1_section_group_a2ac863f4dd03b61e0e7cd10bdfca53bb}{add\+Section} (\hyperlink{class_section}{Section} $\ast$section)
+\item 
+std\+::vector$<$ \hyperlink{class_section_combo}{Section\+Combo} $\ast$ $>$ \hyperlink{class_course_1_1_section_group_a1aa690e8794ee1d6fe819e8a1b4790a8}{get\+Combos} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This an abstract class made to represent a group of sections. These sections will need to have the id in common. Most commonly, it is the first letter of the section Name This can generate valid section combinations from the sections in this group 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_course_1_1_section_group_a868093a7b2828a2fded8a7e84a15fc66}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!Section\+Group@{Section\+Group}}
+\index{Section\+Group@{Section\+Group}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{Section\+Group(size\+\_\+t num\+Types, std\+::string id)}]{\setlength{\rightskip}{0pt plus 5cm}Course\+::\+Section\+Group\+::\+Section\+Group (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{num\+Types, }
+\item[{std\+::string}]{id}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a868093a7b2828a2fded8a7e84a15fc66}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em id} & is the id of this section group, most commony the first letter of the name \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_course_1_1_section_group_a139584ccbcf7ece464e4aa1065aa77a8}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!Section\+Group@{Section\+Group}}
+\index{Section\+Group@{Section\+Group}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{Section\+Group(const Section\+Group \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Course\+::\+Section\+Group\+::\+Section\+Group (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section\+Group} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a139584ccbcf7ece464e4aa1065aa77a8}
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & the \hyperlink{class_course_1_1_section_group}{Section\+Group} to copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_course_1_1_section_group_a141927166752b984046cde43d7be643e}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!````~Section\+Group@{$\sim$\+Section\+Group}}
+\index{````~Section\+Group@{$\sim$\+Section\+Group}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{$\sim$\+Section\+Group()}]{\setlength{\rightskip}{0pt plus 5cm}Course\+::\+Section\+Group\+::$\sim$\+Section\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a141927166752b984046cde43d7be643e}
+Destructor Doesnt delete the sections that are part of this section group 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_course_1_1_section_group_a2ac863f4dd03b61e0e7cd10bdfca53bb}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!add\+Section@{add\+Section}}
+\index{add\+Section@{add\+Section}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{add\+Section(\+Section $\ast$section)}]{\setlength{\rightskip}{0pt plus 5cm}bool Course\+::\+Section\+Group\+::add\+Section (
+\begin{DoxyParamCaption}
+\item[{{\bf Section} $\ast$}]{section}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a2ac863f4dd03b61e0e7cd10bdfca53bb}
+All \hyperlink{class_section}{Section} groups must implement a way to add a section to a section group 
+\begin{DoxyParams}{Parameters}
+{\em section} & is the section to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if section was added successfully, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_course_1_1_section_group_a1aa690e8794ee1d6fe819e8a1b4790a8}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!get\+Combos@{get\+Combos}}
+\index{get\+Combos@{get\+Combos}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{get\+Combos()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Section\+Combo}$\ast$$>$ Course\+::\+Section\+Group\+::get\+Combos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a1aa690e8794ee1d6fe819e8a1b4790a8}
+All Section\+Groups must know how to generate valid section combinations \begin{DoxyReturn}{Returns}
+a vector of valid Section\+Combos that are generated from these sections in this group 
+\end{DoxyReturn}
+\hypertarget{class_course_1_1_section_group_ae20b475f731b974cdb10bf779d5d61ae}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!operator=@{operator=}}
+\index{operator=@{operator=}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{operator=(const Section\+Group \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Section\+Group}\& Course\+::\+Section\+Group\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section\+Group} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_ae20b475f731b974cdb10bf779d5d61ae}
+Assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em copy} & the \hyperlink{class_course_1_1_section_group}{Section\+Group} to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this section group with copied attributes 
+\end{DoxyReturn}
+\hypertarget{class_course_1_1_section_group_a02b17bb76a4b7e09314298f00dc841a1}{}\index{Course\+::\+Section\+Group@{Course\+::\+Section\+Group}!valid\+I\+D@{valid\+I\+D}}
+\index{valid\+I\+D@{valid\+I\+D}!Course\+::\+Section\+Group@{Course\+::\+Section\+Group}}
+\subsubsection[{valid\+I\+D(const std\+::string id)}]{\setlength{\rightskip}{0pt plus 5cm}bool Course\+::\+Section\+Group\+::valid\+I\+D (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{id}
+\end{DoxyParamCaption}
+)}\label{class_course_1_1_section_group_a02b17bb76a4b7e09314298f00dc841a1}
+Checks if the id provided is the same as the id of this sectiongroup 
+\begin{DoxyParams}{Parameters}
+{\em id} & is the id to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the id is valid, false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Section\+Group.\+hpp\end{DoxyCompactItemize}

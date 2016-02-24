@@ -1,0 +1,160 @@
+\hypertarget{class_section_combo}{}\section{Section\+Combo Class Reference}
+\label{class_section_combo}\index{Section\+Combo@{Section\+Combo}}
+
+
+{\ttfamily \#include $<$Section\+Combo.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_section_combo_add21fe503bba0f05ebbc24d63b4efd36}{Section\+Combo} ()
+\item 
+\hyperlink{class_section_combo_ab6d5f1c5654d2dbcc45ecda8f487d485}{$\sim$\+Section\+Combo} ()
+\item 
+\hyperlink{class_section_combo_a8c6a0b5a382c17eee76f30d333e47917}{Section\+Combo} (const \hyperlink{class_section_combo}{Section\+Combo} \&copy)
+\item 
+\hyperlink{class_section_combo}{Section\+Combo} \& \hyperlink{class_section_combo_a37318f5816212acfccfb92be52ea823c}{operator=} (const \hyperlink{class_section_combo}{Section\+Combo} \&copy)
+\item 
+std\+::vector$<$ \hyperlink{class_section}{Section} $\ast$ $>$ \hyperlink{class_section_combo_a98327f0cd8233c6dffcf51a45b9348d6}{get\+Sections} ()
+\item 
+void \hyperlink{class_section_combo_afabc79ef6fca3029fbe09fedfa206e4e}{add\+Section} (\hyperlink{class_section}{Section} $\ast$section)
+\item 
+\hyperlink{class_section_combo_af572424351bdb53fa93a7db113a4b324}{Section\+Combo} (std\+::vector$<$ \hyperlink{class_section}{Section} $\ast$ $>$ sections)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_section_combo_a6aa4f05eb70c97debc6ce3a2048aff99}{overlap} (\hyperlink{class_section_combo}{Section\+Combo} $\ast$one, \hyperlink{class_section_combo}{Section\+Combo} $\ast$two)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_section_combo_a73604c1dc32aeb0454cf626228312b10}{operator$<$$<$} (std\+::ostream \&os, \hyperlink{class_section_combo}{Section\+Combo} \&combo)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a combinations of sections required to register for a class Something line A1(\+Lecture), L2\+A(\+Lab), and D4\+B(\+Discussion) for physics 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_section_combo_add21fe503bba0f05ebbc24d63b4efd36}{}\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{Section\+Combo()}]{\setlength{\rightskip}{0pt plus 5cm}Section\+Combo\+::\+Section\+Combo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_add21fe503bba0f05ebbc24d63b4efd36}
+Constructor \hypertarget{class_section_combo_ab6d5f1c5654d2dbcc45ecda8f487d485}{}\index{Section\+Combo@{Section\+Combo}!````~Section\+Combo@{$\sim$\+Section\+Combo}}
+\index{````~Section\+Combo@{$\sim$\+Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{$\sim$\+Section\+Combo()}]{\setlength{\rightskip}{0pt plus 5cm}Section\+Combo\+::$\sim$\+Section\+Combo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_ab6d5f1c5654d2dbcc45ecda8f487d485}
+Destructor Doesn\textquotesingle{}t delet sections \hypertarget{class_section_combo_a8c6a0b5a382c17eee76f30d333e47917}{}\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{Section\+Combo(const Section\+Combo \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Section\+Combo\+::\+Section\+Combo (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section\+Combo} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_a8c6a0b5a382c17eee76f30d333e47917}
+Copy Constructor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the \hyperlink{class_section_combo}{Section\+Combo} to copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_section_combo_af572424351bdb53fa93a7db113a4b324}{}\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\index{Section\+Combo@{Section\+Combo}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{Section\+Combo(std\+::vector$<$ Section $\ast$ $>$ sections)}]{\setlength{\rightskip}{0pt plus 5cm}Section\+Combo\+::\+Section\+Combo (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Section} $\ast$ $>$}]{sections}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_af572424351bdb53fa93a7db113a4b324}
+A constructor to create a \hyperlink{class_section_combo}{Section\+Combo} from a vector of sections 
+\begin{DoxyParams}{Parameters}
+{\em sections} & is the vector of sections to make up this \hyperlink{class_section_combo}{Section\+Combo} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_section_combo_afabc79ef6fca3029fbe09fedfa206e4e}{}\index{Section\+Combo@{Section\+Combo}!add\+Section@{add\+Section}}
+\index{add\+Section@{add\+Section}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{add\+Section(\+Section $\ast$section)}]{\setlength{\rightskip}{0pt plus 5cm}void Section\+Combo\+::add\+Section (
+\begin{DoxyParamCaption}
+\item[{{\bf Section} $\ast$}]{section}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_afabc79ef6fca3029fbe09fedfa206e4e}
+Adds a new section to this Combo 
+\begin{DoxyParams}{Parameters}
+{\em section} & is the new section to add \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_section_combo_a98327f0cd8233c6dffcf51a45b9348d6}{}\index{Section\+Combo@{Section\+Combo}!get\+Sections@{get\+Sections}}
+\index{get\+Sections@{get\+Sections}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{get\+Sections()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Section}$\ast$$>$ Section\+Combo\+::get\+Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_a98327f0cd8233c6dffcf51a45b9348d6}
+Returns all sections in this section group \begin{DoxyReturn}{Returns}
+a vectr sections 
+\end{DoxyReturn}
+\hypertarget{class_section_combo_a37318f5816212acfccfb92be52ea823c}{}\index{Section\+Combo@{Section\+Combo}!operator=@{operator=}}
+\index{operator=@{operator=}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{operator=(const Section\+Combo \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Section\+Combo}\& Section\+Combo\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section\+Combo} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_section_combo_a37318f5816212acfccfb92be52ea823c}
+Assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em copy} & a \hyperlink{class_section_combo}{Section\+Combo} to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this with the new values 
+\end{DoxyReturn}
+\hypertarget{class_section_combo_a6aa4f05eb70c97debc6ce3a2048aff99}{}\index{Section\+Combo@{Section\+Combo}!overlap@{overlap}}
+\index{overlap@{overlap}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{overlap(\+Section\+Combo $\ast$one, Section\+Combo $\ast$two)}]{\setlength{\rightskip}{0pt plus 5cm}static bool Section\+Combo\+::overlap (
+\begin{DoxyParamCaption}
+\item[{{\bf Section\+Combo} $\ast$}]{one, }
+\item[{{\bf Section\+Combo} $\ast$}]{two}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_section_combo_a6aa4f05eb70c97debc6ce3a2048aff99}
+Checks if two section combos overlap 
+\begin{DoxyParams}{Parameters}
+{\em one} & a \hyperlink{class_section_combo}{Section\+Combo} \\
+\hline
+{\em two} & a \hyperlink{class_section_combo}{Section\+Combo} \\
+\hline
+{\em returns} & true if one and two overlap, false otherwise \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_section_combo_a73604c1dc32aeb0454cf626228312b10}{}\index{Section\+Combo@{Section\+Combo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Section\+Combo@{Section\+Combo}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{{\bf Section\+Combo} \&}]{combo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_section_combo_a73604c1dc32aeb0454cf626228312b10}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & the stream to write to \\
+\hline
+{\em combo} & \hyperlink{class_section_combo}{Section\+Combo} to write to stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream os after information is written 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Section\+Combo.\+hpp\end{DoxyCompactItemize}

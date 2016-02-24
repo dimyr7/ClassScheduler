@@ -28,6 +28,8 @@ all: $(TARGET)
 
 autoschedule: $(TARGET)
 
+test:
+	@echo "test runs"
 run: $(TARGET)
 	@./bin/autoschedule
 

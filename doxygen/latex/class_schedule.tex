@@ -1,0 +1,97 @@
+\hypertarget{class_schedule}{}\section{Schedule Class Reference}
+\label{class_schedule}\index{Schedule@{Schedule}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_schedule_a878716f4043a016224a14f78974edf1d}{Schedule} ()
+\item 
+\hyperlink{class_schedule_a4806b985197d35c00b9e707c0ed87998}{$\sim$\+Schedule} ()
+\item 
+\hyperlink{class_schedule_a76de09552784ff4446d31404894894a1}{Schedule} (std\+::vector$<$ \hyperlink{class_section_combo}{Section\+Combo} $\ast$ $>$ combos)
+\item 
+\hyperlink{class_schedule_a9e02e8cb8d226adbf62c2dbc1bcb59bf}{Schedule} (const \hyperlink{class_schedule}{Schedule} \&copy)
+\item 
+\hyperlink{class_schedule}{Schedule} \& \hyperlink{class_schedule_aacde03a324800ef7e3ef1de2b01c332d}{operator=} (const \hyperlink{class_schedule}{Schedule} \&copy)
+\item 
+void \hyperlink{class_schedule_a5122e3813a77979762271d1ed16a5cee}{add\+Combo} (\hyperlink{class_section_combo}{Section\+Combo} $\ast$combo)
+\item 
+std\+::vector$<$ \hyperlink{class_section_combo}{Section\+Combo} $\ast$ $>$ \hyperlink{class_schedule_af2caac24baf39bfd297662bd23e71540}{get\+Combos} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_schedule_a878716f4043a016224a14f78974edf1d}{}\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\subsubsection[{Schedule()}]{\setlength{\rightskip}{0pt plus 5cm}Schedule\+::\+Schedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_schedule_a878716f4043a016224a14f78974edf1d}
+Constructor \hypertarget{class_schedule_a4806b985197d35c00b9e707c0ed87998}{}\index{Schedule@{Schedule}!````~Schedule@{$\sim$\+Schedule}}
+\index{````~Schedule@{$\sim$\+Schedule}!Schedule@{Schedule}}
+\subsubsection[{$\sim$\+Schedule()}]{\setlength{\rightskip}{0pt plus 5cm}Schedule\+::$\sim$\+Schedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_schedule_a4806b985197d35c00b9e707c0ed87998}
+Destructor Does not delete the section combos \hypertarget{class_schedule_a76de09552784ff4446d31404894894a1}{}\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\subsubsection[{Schedule(std\+::vector$<$ Section\+Combo $\ast$ $>$ combos)}]{\setlength{\rightskip}{0pt plus 5cm}Schedule\+::\+Schedule (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Section\+Combo} $\ast$ $>$}]{combos}
+\end{DoxyParamCaption}
+)}\label{class_schedule_a76de09552784ff4446d31404894894a1}
+Constructor that takes a vector of Section\+Combos to \hypertarget{class_schedule_a9e02e8cb8d226adbf62c2dbc1bcb59bf}{}\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\subsubsection[{Schedule(const Schedule \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Schedule\+::\+Schedule (
+\begin{DoxyParamCaption}
+\item[{const {\bf Schedule} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_schedule_a9e02e8cb8d226adbf62c2dbc1bcb59bf}
+Copy constrcutor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the schedule to copu \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_schedule_a5122e3813a77979762271d1ed16a5cee}{}\index{Schedule@{Schedule}!add\+Combo@{add\+Combo}}
+\index{add\+Combo@{add\+Combo}!Schedule@{Schedule}}
+\subsubsection[{add\+Combo(\+Section\+Combo $\ast$combo)}]{\setlength{\rightskip}{0pt plus 5cm}void Schedule\+::add\+Combo (
+\begin{DoxyParamCaption}
+\item[{{\bf Section\+Combo} $\ast$}]{combo}
+\end{DoxyParamCaption}
+)}\label{class_schedule_a5122e3813a77979762271d1ed16a5cee}
+Adds a section combination to this schedule 
+\begin{DoxyParams}{Parameters}
+{\em combo} & is a new \hyperlink{class_section_combo}{Section\+Combo} to add to this schedule \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_schedule_af2caac24baf39bfd297662bd23e71540}{}\index{Schedule@{Schedule}!get\+Combos@{get\+Combos}}
+\index{get\+Combos@{get\+Combos}!Schedule@{Schedule}}
+\subsubsection[{get\+Combos() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Section\+Combo}$\ast$$>$ Schedule\+::get\+Combos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_schedule_af2caac24baf39bfd297662bd23e71540}
+Getter for the sectioncombos associated with this schedule \hypertarget{class_schedule_aacde03a324800ef7e3ef1de2b01c332d}{}\index{Schedule@{Schedule}!operator=@{operator=}}
+\index{operator=@{operator=}!Schedule@{Schedule}}
+\subsubsection[{operator=(const Schedule \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedule}\& Schedule\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Schedule} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_schedule_aacde03a324800ef7e3ef1de2b01c332d}
+Assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the schedule to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this with the new values; 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Schedule.\+hpp\end{DoxyCompactItemize}

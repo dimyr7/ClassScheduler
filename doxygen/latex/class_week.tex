@@ -1,0 +1,191 @@
+\hypertarget{class_week}{}\section{Week Class Reference}
+\label{class_week}\index{Week@{Week}}
+
+
+{\ttfamily \#include $<$Week.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_week_a1f85a077c83820a97fad2a6d50c3a075}{Day} \{ \\*
+{\bfseries monday}, 
+{\bfseries tuesday}, 
+{\bfseries wednesday}, 
+{\bfseries thursday}, 
+\\*
+{\bfseries friday}, 
+{\bfseries saturday}, 
+{\bfseries sunday}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_week_a95d336c880593bc5d5ca922fbe68d0b9}{Week} ()
+\item 
+\hyperlink{class_week_a9d588405eac8024d4c9465638c348d98}{$\sim$\+Week} ()
+\item 
+\hyperlink{class_week_a7e559bbb153198ffede62c54522a5be5}{Week} (const \hyperlink{class_week}{Week} \&copy)
+\item 
+\hyperlink{class_week}{Week} \& \hyperlink{class_week_ada66752c1d9311360948683878c91142}{operator=} (const \hyperlink{class_week}{Week} \&copy)
+\item 
+\hyperlink{class_time}{Time} $\ast$ \hyperlink{class_week_a15f00086611c7dce7631bf774933ba0c}{get\+Start\+Time} (\hyperlink{class_week_a1f85a077c83820a97fad2a6d50c3a075}{Day} day) const 
+\item 
+\hyperlink{class_time}{Time} $\ast$ \hyperlink{class_week_a8e638bfa0e8ff02265e6e2d18fd84604}{get\+End\+Time} (\hyperlink{class_week_a1f85a077c83820a97fad2a6d50c3a075}{Day} day) const 
+\item 
+bool \hyperlink{class_week_ab2ff0ec6dbf2ac363d80e18e01f89e49}{set\+Day} (\hyperlink{class_week_a1f85a077c83820a97fad2a6d50c3a075}{Day} day, \hyperlink{class_time}{Time} $\ast$const start, \hyperlink{class_time}{Time} $\ast$const end)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_week_af8d4a24feca81c4df65ca8d41ea47532}{D\+A\+Y\+S\+I\+N\+W\+E\+E\+K} = 7
+\item 
+static const int \hyperlink{class_week_a6bfc795b71dfa867a36606978645e0c2}{T\+I\+M\+E\+S\+I\+N\+D\+A\+Y} = 2
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_week_a185a2f2ae766fe0d1b65332a430e491b}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_week}{Week} \&week)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{class_week}{Week} object represents the start and endtimes of a section for each day 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_week_a1f85a077c83820a97fad2a6d50c3a075}{}\index{Week@{Week}!Day@{Day}}
+\index{Day@{Day}!Week@{Week}}
+\subsubsection[{Day}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Week\+::\+Day}}\label{class_week_a1f85a077c83820a97fad2a6d50c3a075}
+An enumeration of all days of the week 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_week_a95d336c880593bc5d5ca922fbe68d0b9}{}\index{Week@{Week}!Week@{Week}}
+\index{Week@{Week}!Week@{Week}}
+\subsubsection[{Week()}]{\setlength{\rightskip}{0pt plus 5cm}Week\+::\+Week (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_week_a95d336c880593bc5d5ca922fbe68d0b9}
+Constructor Defaults to no meeting times on all days \hypertarget{class_week_a9d588405eac8024d4c9465638c348d98}{}\index{Week@{Week}!````~Week@{$\sim$\+Week}}
+\index{````~Week@{$\sim$\+Week}!Week@{Week}}
+\subsubsection[{$\sim$\+Week()}]{\setlength{\rightskip}{0pt plus 5cm}Week\+::$\sim$\+Week (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_week_a9d588405eac8024d4c9465638c348d98}
+Destrutor \hypertarget{class_week_a7e559bbb153198ffede62c54522a5be5}{}\index{Week@{Week}!Week@{Week}}
+\index{Week@{Week}!Week@{Week}}
+\subsubsection[{Week(const Week \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Week\+::\+Week (
+\begin{DoxyParamCaption}
+\item[{const {\bf Week} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_week_a7e559bbb153198ffede62c54522a5be5}
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the \hyperlink{class_week}{Week} object to copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_week_a8e638bfa0e8ff02265e6e2d18fd84604}{}\index{Week@{Week}!get\+End\+Time@{get\+End\+Time}}
+\index{get\+End\+Time@{get\+End\+Time}!Week@{Week}}
+\subsubsection[{get\+End\+Time(\+Day day) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time}$\ast$ Week\+::get\+End\+Time (
+\begin{DoxyParamCaption}
+\item[{{\bf Day}}]{day}
+\end{DoxyParamCaption}
+) const}\label{class_week_a8e638bfa0e8ff02265e6e2d18fd84604}
+Returns the end time of certain day 
+\begin{DoxyParams}{Parameters}
+{\em day} & is the day to return the end time for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is the time object of the end time 
+\end{DoxyReturn}
+\hypertarget{class_week_a15f00086611c7dce7631bf774933ba0c}{}\index{Week@{Week}!get\+Start\+Time@{get\+Start\+Time}}
+\index{get\+Start\+Time@{get\+Start\+Time}!Week@{Week}}
+\subsubsection[{get\+Start\+Time(\+Day day) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time}$\ast$ Week\+::get\+Start\+Time (
+\begin{DoxyParamCaption}
+\item[{{\bf Day}}]{day}
+\end{DoxyParamCaption}
+) const}\label{class_week_a15f00086611c7dce7631bf774933ba0c}
+Returns the start time of a certain day 
+\begin{DoxyParams}{Parameters}
+{\em day} & is the day to return the start time for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is the time object of the start time 
+\end{DoxyReturn}
+\hypertarget{class_week_ada66752c1d9311360948683878c91142}{}\index{Week@{Week}!operator=@{operator=}}
+\index{operator=@{operator=}!Week@{Week}}
+\subsubsection[{operator=(const Week \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Week}\& Week\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Week} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_week_ada66752c1d9311360948683878c91142}
+Copy Assignemnt Operator 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the \hyperlink{class_week}{Week} object to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this object with the new values set 
+\end{DoxyReturn}
+\hypertarget{class_week_ab2ff0ec6dbf2ac363d80e18e01f89e49}{}\index{Week@{Week}!set\+Day@{set\+Day}}
+\index{set\+Day@{set\+Day}!Week@{Week}}
+\subsubsection[{set\+Day(\+Day day, Time $\ast$const start, Time $\ast$const end)}]{\setlength{\rightskip}{0pt plus 5cm}bool Week\+::set\+Day (
+\begin{DoxyParamCaption}
+\item[{{\bf Day}}]{day, }
+\item[{{\bf Time} $\ast$const}]{start, }
+\item[{{\bf Time} $\ast$const}]{end}
+\end{DoxyParamCaption}
+)}\label{class_week_ab2ff0ec6dbf2ac363d80e18e01f89e49}
+Sets day to be active with the given start and end times If start is not before end, then object remains unchanged 
+\begin{DoxyParams}{Parameters}
+{\em day} & is the day to set the start/end times for \\
+\hline
+{\em start} & is the start time of the day \\
+\hline
+{\em end} & is the end time of the day \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the operation succeeded, false otherwise 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_week_a185a2f2ae766fe0d1b65332a430e491b}{}\index{Week@{Week}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Week@{Week}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const {\bf Week} \&}]{week}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_week_a185a2f2ae766fe0d1b65332a430e491b}
+Used to print a time object 
+\begin{DoxyParams}{Parameters}
+{\em os} & is the stream to write to \\
+\hline
+{\em week} & is the week object to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is the stream os with info already written to it 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_week_af8d4a24feca81c4df65ca8d41ea47532}{}\index{Week@{Week}!D\+A\+Y\+S\+I\+N\+W\+E\+E\+K@{D\+A\+Y\+S\+I\+N\+W\+E\+E\+K}}
+\index{D\+A\+Y\+S\+I\+N\+W\+E\+E\+K@{D\+A\+Y\+S\+I\+N\+W\+E\+E\+K}!Week@{Week}}
+\subsubsection[{D\+A\+Y\+S\+I\+N\+W\+E\+E\+K}]{\setlength{\rightskip}{0pt plus 5cm}const int Week\+::\+D\+A\+Y\+S\+I\+N\+W\+E\+E\+K = 7\hspace{0.3cm}{\ttfamily [static]}}\label{class_week_af8d4a24feca81c4df65ca8d41ea47532}
+Number of days in a week \hypertarget{class_week_a6bfc795b71dfa867a36606978645e0c2}{}\index{Week@{Week}!T\+I\+M\+E\+S\+I\+N\+D\+A\+Y@{T\+I\+M\+E\+S\+I\+N\+D\+A\+Y}}
+\index{T\+I\+M\+E\+S\+I\+N\+D\+A\+Y@{T\+I\+M\+E\+S\+I\+N\+D\+A\+Y}!Week@{Week}}
+\subsubsection[{T\+I\+M\+E\+S\+I\+N\+D\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const int Week\+::\+T\+I\+M\+E\+S\+I\+N\+D\+A\+Y = 2\hspace{0.3cm}{\ttfamily [static]}}\label{class_week_a6bfc795b71dfa867a36606978645e0c2}
+Number of times each day holds 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Week.\+hpp\end{DoxyCompactItemize}

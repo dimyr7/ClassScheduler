@@ -1,0 +1,108 @@
+\hypertarget{class_instructor}{}\section{Instructor Class Reference}
+\label{class_instructor}\index{Instructor@{Instructor}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_instructor_a9058ed409501cefb86d09bf198eea337}{Instructor} (std\+::string name=\char`\"{}\char`\"{})
+\item 
+\hyperlink{class_instructor_aa204bec2066fabdd81a065999b01816c}{$\sim$\+Instructor} ()
+\item 
+\hyperlink{class_instructor_a2b768abe02217df29acfe2578779a727}{Instructor} (const \hyperlink{class_instructor}{Instructor} \&copy)
+\item 
+\hyperlink{class_instructor}{Instructor} \& \hyperlink{class_instructor_a2e50fcb9fc77b593ddfecb41c041b8dd}{operator=} (const \hyperlink{class_instructor}{Instructor} \&copy)
+\item 
+std\+::string \hyperlink{class_instructor_a02b4be6aaa65c5aaf3cab906cf4d6e4f}{get\+Name} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_instructor_aa995ba808ecb0e099c9ac11fe6fec2b2}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_instructor}{Instructor} \&instructor)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_instructor_a9058ed409501cefb86d09bf198eea337}{}\index{Instructor@{Instructor}!Instructor@{Instructor}}
+\index{Instructor@{Instructor}!Instructor@{Instructor}}
+\subsubsection[{Instructor(std\+::string name="""")}]{\setlength{\rightskip}{0pt plus 5cm}Instructor\+::\+Instructor (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\label{class_instructor_a9058ed409501cefb86d09bf198eea337}
+Construtor 
+\begin{DoxyParams}{Parameters}
+{\em name} & is the full name of the instructor. Defaults to empty string \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_instructor_aa204bec2066fabdd81a065999b01816c}{}\index{Instructor@{Instructor}!````~Instructor@{$\sim$\+Instructor}}
+\index{````~Instructor@{$\sim$\+Instructor}!Instructor@{Instructor}}
+\subsubsection[{$\sim$\+Instructor()}]{\setlength{\rightskip}{0pt plus 5cm}Instructor\+::$\sim$\+Instructor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_instructor_aa204bec2066fabdd81a065999b01816c}
+Destructor \hypertarget{class_instructor_a2b768abe02217df29acfe2578779a727}{}\index{Instructor@{Instructor}!Instructor@{Instructor}}
+\index{Instructor@{Instructor}!Instructor@{Instructor}}
+\subsubsection[{Instructor(const Instructor \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Instructor\+::\+Instructor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Instructor} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_instructor_a2b768abe02217df29acfe2578779a727}
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the \hyperlink{class_instructor}{Instructor} object to be copied \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_instructor_a02b4be6aaa65c5aaf3cab906cf4d6e4f}{}\index{Instructor@{Instructor}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Instructor@{Instructor}}
+\subsubsection[{get\+Name() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Instructor\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_instructor_a02b4be6aaa65c5aaf3cab906cf4d6e4f}
+Getter for the isntructor\textquotesingle{}s name \begin{DoxyReturn}{Returns}
+the instructor\textquotesingle{}s name 
+\end{DoxyReturn}
+\hypertarget{class_instructor_a2e50fcb9fc77b593ddfecb41c041b8dd}{}\index{Instructor@{Instructor}!operator=@{operator=}}
+\index{operator=@{operator=}!Instructor@{Instructor}}
+\subsubsection[{operator=(const Instructor \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instructor}\& Instructor\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Instructor} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_instructor_a2e50fcb9fc77b593ddfecb41c041b8dd}
+Assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the instructor object to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an instructor object with the values changed 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_instructor_aa995ba808ecb0e099c9ac11fe6fec2b2}{}\index{Instructor@{Instructor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Instructor@{Instructor}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const {\bf Instructor} \&}]{instructor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_instructor_aa995ba808ecb0e099c9ac11fe6fec2b2}
+Prints the instructor\textquotesingle{}s name to stream 
+\begin{DoxyParams}{Parameters}
+{\em os} & the stream to write instructor information to \\
+\hline
+{\em insstructor} & is the object to write to stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stream passed in paramater with after the information is written 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Instructor.\+hpp\end{DoxyCompactItemize}

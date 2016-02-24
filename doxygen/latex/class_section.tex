@@ -1,0 +1,217 @@
+\hypertarget{class_section}{}\section{Section Class Reference}
+\label{class_section}\index{Section@{Section}}
+
+
+{\ttfamily \#include $<$Section.\+hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_section_1_1_section_builder}{Section\+Builder}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_section_aecabf4f89a2004e17897aac4cc67e65e}{get\+Section\+Name} () const 
+\item 
+std\+::string \hyperlink{class_section_a790e810556eef9b91ab56b2010675ade}{get\+Section\+Type} () const 
+\item 
+std\+::string \hyperlink{class_section_af6211361e7b9f336e47cfbdf798b67a9}{get\+Description} () const 
+\item 
+std\+::string \hyperlink{class_section_a081c3a3ff3d6a771fabc43a1d1c27b82}{get\+C\+R\+N} () const 
+\item 
+std\+::vector$<$ \hyperlink{class_instructor}{Instructor} $\ast$ $>$ \hyperlink{class_section_ac8dcb10edc7a83267ab2b4a3ceb7e452}{get\+Instructors} () const 
+\item 
+\hyperlink{class_week}{Week} $\ast$ \hyperlink{class_section_ab040a0e3df135e744bb982f4b03983cf}{get\+Week} () const 
+\item 
+\hyperlink{class_semester}{Semester} $\ast$ \hyperlink{class_section_a87ba19863cdb3df98f8ce2272d0163f3}{get\+Semester} () const 
+\item 
+\hyperlink{class_location}{Location} $\ast$ \hyperlink{class_section_a606643e47b120ff9ec2c2ae3b3cf87e3}{get\+Building} () const 
+\item 
+\hyperlink{class_section_a77b88e06692841ba49559d22a25a09f9}{Section} ()
+\item 
+\hyperlink{class_section_ae2582a77c7ecb8cbd4a1b58e7ad3296e}{$\sim$\+Section} ()
+\item 
+\hyperlink{class_section_aa4bcd5f0316be0ba936d2b97f28d9e88}{Section} (const \hyperlink{class_section}{Section} \&copy)
+\item 
+\hyperlink{class_section}{Section} \& \hyperlink{class_section_ab502a434aebeca2501a45a3793b45c53}{operator=} (const \hyperlink{class_section}{Section} \&copy)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_section_aab4b7948037c707e952c71fa828c47f6}{overlap} (\hyperlink{class_section}{Section} $\ast$a, \hyperlink{class_section}{Section} $\ast$b)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_section_a0201f94024f194a0142ba0861f30ce78}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_section}{Section} \&section)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This represents a section that belongs to a class 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_section_a77b88e06692841ba49559d22a25a09f9}{}\index{Section@{Section}!Section@{Section}}
+\index{Section@{Section}!Section@{Section}}
+\subsubsection[{Section()}]{\setlength{\rightskip}{0pt plus 5cm}Section\+::\+Section (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_section_a77b88e06692841ba49559d22a25a09f9}
+Constructor \hypertarget{class_section_ae2582a77c7ecb8cbd4a1b58e7ad3296e}{}\index{Section@{Section}!````~Section@{$\sim$\+Section}}
+\index{````~Section@{$\sim$\+Section}!Section@{Section}}
+\subsubsection[{$\sim$\+Section()}]{\setlength{\rightskip}{0pt plus 5cm}Section\+::$\sim$\+Section (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_section_ae2582a77c7ecb8cbd4a1b58e7ad3296e}
+Destructor \hypertarget{class_section_aa4bcd5f0316be0ba936d2b97f28d9e88}{}\index{Section@{Section}!Section@{Section}}
+\index{Section@{Section}!Section@{Section}}
+\subsubsection[{Section(const Section \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}Section\+::\+Section (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_section_aa4bcd5f0316be0ba936d2b97f28d9e88}
+Copy Constructor 
+\begin{DoxyParams}{Parameters}
+{\em copy} & is the section to copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_section_a606643e47b120ff9ec2c2ae3b3cf87e3}{}\index{Section@{Section}!get\+Building@{get\+Building}}
+\index{get\+Building@{get\+Building}!Section@{Section}}
+\subsubsection[{get\+Building() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location}$\ast$ Section\+::get\+Building (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_a606643e47b120ff9ec2c2ae3b3cf87e3}
+A getter for the location object \begin{DoxyReturn}{Returns}
+a location pointer 
+\end{DoxyReturn}
+\hypertarget{class_section_a081c3a3ff3d6a771fabc43a1d1c27b82}{}\index{Section@{Section}!get\+C\+R\+N@{get\+C\+R\+N}}
+\index{get\+C\+R\+N@{get\+C\+R\+N}!Section@{Section}}
+\subsubsection[{get\+C\+R\+N() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Section\+::get\+C\+R\+N (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_a081c3a3ff3d6a771fabc43a1d1c27b82}
+A Getter for the C\+R\+N \begin{DoxyReturn}{Returns}
+the C\+R\+N, e.\+g. 12345 
+\end{DoxyReturn}
+\hypertarget{class_section_af6211361e7b9f336e47cfbdf798b67a9}{}\index{Section@{Section}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!Section@{Section}}
+\subsubsection[{get\+Description() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Section\+::get\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_af6211361e7b9f336e47cfbdf798b67a9}
+A getter for the description \begin{DoxyReturn}{Returns}
+the description 
+\end{DoxyReturn}
+\hypertarget{class_section_ac8dcb10edc7a83267ab2b4a3ceb7e452}{}\index{Section@{Section}!get\+Instructors@{get\+Instructors}}
+\index{get\+Instructors@{get\+Instructors}!Section@{Section}}
+\subsubsection[{get\+Instructors() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Instructor}$\ast$$>$ Section\+::get\+Instructors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_ac8dcb10edc7a83267ab2b4a3ceb7e452}
+A getter for the instructors teaching this course \begin{DoxyReturn}{Returns}
+a vector of \hyperlink{class_instructor}{Instructor} pointers 
+\end{DoxyReturn}
+\hypertarget{class_section_aecabf4f89a2004e17897aac4cc67e65e}{}\index{Section@{Section}!get\+Section\+Name@{get\+Section\+Name}}
+\index{get\+Section\+Name@{get\+Section\+Name}!Section@{Section}}
+\subsubsection[{get\+Section\+Name() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Section\+::get\+Section\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_aecabf4f89a2004e17897aac4cc67e65e}
+A Getter for the Section\+Name \begin{DoxyReturn}{Returns}
+the \hyperlink{class_section}{Section} Name, e.\+g. A\+L1 
+\end{DoxyReturn}
+\hypertarget{class_section_a790e810556eef9b91ab56b2010675ade}{}\index{Section@{Section}!get\+Section\+Type@{get\+Section\+Type}}
+\index{get\+Section\+Type@{get\+Section\+Type}!Section@{Section}}
+\subsubsection[{get\+Section\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Section\+::get\+Section\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_a790e810556eef9b91ab56b2010675ade}
+A getter for the section type \begin{DoxyReturn}{Returns}
+the section type, e.\+g. D\+I\+S 
+\end{DoxyReturn}
+\hypertarget{class_section_a87ba19863cdb3df98f8ce2272d0163f3}{}\index{Section@{Section}!get\+Semester@{get\+Semester}}
+\index{get\+Semester@{get\+Semester}!Section@{Section}}
+\subsubsection[{get\+Semester() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Semester}$\ast$ Section\+::get\+Semester (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_a87ba19863cdb3df98f8ce2272d0163f3}
+A getter for the semeseter for this section \begin{DoxyReturn}{Returns}
+a semester pointer 
+\end{DoxyReturn}
+\hypertarget{class_section_ab040a0e3df135e744bb982f4b03983cf}{}\index{Section@{Section}!get\+Week@{get\+Week}}
+\index{get\+Week@{get\+Week}!Section@{Section}}
+\subsubsection[{get\+Week() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Week}$\ast$ Section\+::get\+Week (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_section_ab040a0e3df135e744bb982f4b03983cf}
+A getter for the week schedule for this section \begin{DoxyReturn}{Returns}
+a week pointer 
+\end{DoxyReturn}
+\hypertarget{class_section_ab502a434aebeca2501a45a3793b45c53}{}\index{Section@{Section}!operator=@{operator=}}
+\index{operator=@{operator=}!Section@{Section}}
+\subsubsection[{operator=(const Section \&copy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Section}\& Section\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Section} \&}]{copy}
+\end{DoxyParamCaption}
+)}\label{class_section_ab502a434aebeca2501a45a3793b45c53}
+Copy Assignment Operator  copy is the \hyperlink{class_section}{Section} to copy \begin{DoxyReturn}{Returns}
+this section with the copied data 
+\end{DoxyReturn}
+\hypertarget{class_section_aab4b7948037c707e952c71fa828c47f6}{}\index{Section@{Section}!overlap@{overlap}}
+\index{overlap@{overlap}!Section@{Section}}
+\subsubsection[{overlap(\+Section $\ast$a, Section $\ast$b)}]{\setlength{\rightskip}{0pt plus 5cm}static bool Section\+::overlap (
+\begin{DoxyParamCaption}
+\item[{{\bf Section} $\ast$}]{a, }
+\item[{{\bf Section} $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_section_aab4b7948037c707e952c71fa828c47f6}
+Checks if to sections over lap at any of the meeting times 
+\begin{DoxyParams}{Parameters}
+{\em a} & is one of the sections \\
+\hline
+{\em b} & is the other section \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two sections overlap, false otherwise 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_section_a0201f94024f194a0142ba0861f30ce78}{}\index{Section@{Section}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Section@{Section}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const {\bf Section} \&}]{section}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_section_a0201f94024f194a0142ba0861f30ce78}
+Allows a section to be printed to stream 
+\begin{DoxyParams}{Parameters}
+{\em os} & is the stream to write to \\
+\hline
+{\em section} & is the section to be written to stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is the stream with the written infomation 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Course/Section.\+hpp\end{DoxyCompactItemize}
