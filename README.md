@@ -1,4 +1,3 @@
-![Travis Status](https://travis-ci.org/dimyr7/ClassScheduler.svg?branch=master)https://travis-ci.org/dimyr7/ClassScheduler.svg?branch=master
 # ClassScheduler
 A class scheduling program made for Scheedule2 written in C++
 
