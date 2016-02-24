@@ -4,4 +4,4 @@ env:
 compiler:
       - gcc
       - clang
-script: make test
+script: make autoschedule
