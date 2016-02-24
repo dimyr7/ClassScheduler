@@ -2,6 +2,6 @@ language: cpp
 env:
       - CPP11=1
 compiler:
-      - gcc
+      - g++
       - clang
 script: make autoschedule
