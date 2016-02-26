@@ -42,6 +42,6 @@ bin/tester
 .ycm_extra_conf.pyc
 *.swp
 
-
+doxygen/
 # Data 
 *.json
