@@ -1,5 +1,4 @@
 #include "Course/SectionGroup.hpp"
-
 #include <cassert>
 Course::SectionGroup::SectionGroup(size_t numTypes, std::string id){
 	this->_id = id;
@@ -73,11 +72,18 @@ std::vector<SectionCombo*> Course::SectionGroup::getCombos(){
 	do{
 		std::vector<Section*> combinations;
 		for(size_t i = 0; i < index.size(); i++){
-			combinations.push_back(this->_sections[i][index[i]]);
+			size_t indexForCat = index[i];
+			// combinations.push_back(this->_stuff[i].getSubList()[indexForCat])
+			// Must implement getSubList()
+			combinations.push_back(this->_sections[i][indexForCat]);
 		}
+		
+		// Must implement overlap
 		bool overlap = Course::SectionGroup::overlap(combinations);
 		if(not overlap){
+
 			SectionCombo* newCombo = new SectionCombo(combinations);
+			// Must implement add(std::vector<S*> )
 			combos.push_back(newCombo);
 		}
 	}

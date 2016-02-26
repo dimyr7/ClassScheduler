@@ -35,7 +35,6 @@ class Course::SectionGroup{
 		 */
 		~SectionGroup();
 
-
 		/**
 		 * Checks if the id provided is the same as the id of this sectiongroup
 		 * @param id is the id to check

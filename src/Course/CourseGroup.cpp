@@ -49,7 +49,8 @@ std::vector<Schedule*> CourseGroup::genSchedules(){
 	do{
 		std::vector<SectionCombo*> combinations;
 		for(size_t i = 0; i < index.size(); i++){
-			combinations.push_back(this->_courses[i]->getCombos()[index[i]]);
+			size_t indexForCat = index[i];
+			combinations.push_back(this->_courses[i]->getCombos()[indexForCat]);
 		}
 		bool overlap = CourseGroup::overlap(combinations);
 		if(not overlap){

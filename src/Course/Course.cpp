@@ -170,3 +170,7 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 	this->_sync = true;
 	return this->_combos;
 }
+
+std::vector<SectionCombo*> Course::getSubList(){
+	return this->getCombos();
+}
