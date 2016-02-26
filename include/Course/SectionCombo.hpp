@@ -36,9 +36,16 @@ class SectionCombo{
 
 		/**
 		 * Returns all sections in this section group
-		 * @return a vectr sections
+		 * @return a vector sections
 		 */
 		std::vector<Section*> getSections();
+
+
+		/**
+		 * Returns all sections in this section group
+		 * @return a vector sections
+		 */
+		std::vector<Section*> getSubList();
 
 		/**
 		 * Adds a new section to this Combo
@@ -59,6 +66,11 @@ class SectionCombo{
 		 * @param returns true if one and two overlap, false otherwise
 		 */
 		static bool overlap(SectionCombo* one, SectionCombo* two);
+
+		/**
+		 * Adds all sections to this sectioncombo
+		 */
+		void add(std::vector<Section*> insert);
 	private:
 
 		/**

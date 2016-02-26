@@ -55,3 +55,13 @@ std::ostream& operator<<(std::ostream& os, SectionCombo& combo){
 	}
 	return os;
 }
+
+std::vector<Section*> SectionCombo::getSubList(){
+	return this->getSections();
+}
+
+void SectionCombo::add(std::vector<Section*> insert){
+	for(std::vector<Section*>::const_iterator it = insert.begin(); it != insert.end(); it++){
+		this->_sections.push_back(*it);
+	}
+}
