@@ -1,7 +1,7 @@
 #include "Course/CourseStore.hpp"
 
 CourseStore::CourseStore(){
-	return;	
+	return;
 }
 
 CourseStore::CourseStore(const CourseStore &copy){
@@ -19,7 +19,7 @@ CourseStore& CourseStore::operator=(const CourseStore &copy){
 
 bool CourseStore::insert(std::string courseName, Course* courseData){
 	if(this->_courses.find(courseName) != this->_courses.end()){
-		return false;	
+		return false;
 	}
 	this->_courses[courseName] = courseData;
 	return true;

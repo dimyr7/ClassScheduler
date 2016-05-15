@@ -3,12 +3,13 @@
 
 #include <bitset>
 #include <map>
+#include <string>
 /*
- * ============================== 
+ * ==============================
  * Object Creation
- * ============================== 
+ * ==============================
  */
-Course::Course::Course(std::string department, std::string courseNumber, std::string name){
+Course::Course(std::string department, std::string courseNumber, std::string name){
 	this->_department = department;
 	this->_courseNumber = courseNumber;
 	this->_courseName = name;
@@ -26,10 +27,11 @@ Course::Course::~Course(){
 	}
 }
 
+
 /*
- * ============================== 
+ * ==============================
  * Getters
- * ============================== 
+ * ==============================
  */
 std::string Course::Course::getDepartment() const{
 	return this->_department;
@@ -85,7 +87,7 @@ Course::Course::TypeOfSection Course::Course::getTypeOfSection(const Section* se
 	else{
 		return Course::TypeOfSection::STA;
 	}
-}	
+}
 bool Course::Course::checkSectionTypeError(std::bitset<Course::NUM_OF_SECTION_TYPES> types){
 	// Check for Lecture-Discussion & Lecture
 	if(types[(int)Course::TypeOfSection::LCD] == 1 and types[(int)Course::TypeOfSection::LEC] == 1){
@@ -115,6 +117,7 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 	for(std::vector<SectionCombo*>::const_iterator it = this->_combos.begin(); it != this->_combos.end(); it++){
 		delete *it;
 	}
+
 	// TODO add if its a special topics class
 	if(this->getCourseName().find("Special") != std::string::npos){
 
@@ -139,7 +142,7 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 		std::string firstChar = (*it)->getSectionName().substr(0, 1);
 		sectionGroupMap[firstChar].push_back((*it));
 	}
-	
+
 	// For each section letter ...
 	for(std::map< std::string, std::vector<Section*> >::iterator it = sectionGroupMap.begin(); it != sectionGroupMap.end(); it++){
 		std::bitset< Course::NUM_OF_SECTION_TYPES> typesOfSections;
@@ -171,6 +174,3 @@ std::vector<SectionCombo*> Course::Course::getCombos(){
 	return this->_combos;
 }
 
-std::vector<SectionCombo*> Course::getSubList(){
-	return this->getCombos();
-}

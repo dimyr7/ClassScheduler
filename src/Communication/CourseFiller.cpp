@@ -1,20 +1,23 @@
 #include "Communication/CourseFiller.hpp"
+#include "Course/CourseStore.hpp"
 #include "Communication/CourseStoreDB.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <array>
 
 bool CourseFiller::fill(CourseStore* store){
 	CourseStoreDB db("104.236.4.226", "/lookup/CS", "7819");
 	std::string* jsonString = db.getJson();
-
 	rapidjson::Document doc;
 	doc.Parse(jsonString->c_str());
 	for (rapidjson::SizeType i = 0; i < doc.Size(); i++){
-	    Course* course = CourseFiller::buildCourse(doc[i]);
+		Course* course = CourseFiller::buildCourse(doc[i]);
 		std::string name = course->getDepartment() + course->getCourseNumber();
 		course->getCombos();
 		store->insert(name, course);
 	}
+	delete jsonString;
 	return true;
 }
 
@@ -23,9 +26,9 @@ Course* CourseFiller::buildCourse(rapidjson::Value& courseJson){
 	std::string courseNumber = std::to_string(courseJson["courseNumber"].GetInt());
 	std::string courseName = courseJson["name"].GetString();
 	Course* course = new Course(department, courseNumber, courseName);
-	
+
 	for(rapidjson::SizeType i = 0; i < courseJson["sections"].Size(); i++){
-		Section* section = CourseFiller::buildSection(courseJson["sections"][i]);	
+		Section* section = CourseFiller::buildSection(courseJson["sections"][i]);
 		course->addSection(section);
 	}
 	return course;
@@ -33,26 +36,26 @@ Course* CourseFiller::buildCourse(rapidjson::Value& courseJson){
 
 Section* CourseFiller::buildSection(rapidjson::Value& sectionJson){
 	Section::SectionBuilder sectBuild;
-	
+
 	sectBuild.setCRN(std::to_string(sectionJson["crn"].GetInt()));
 
 	std::string startSemester = sectionJson["start"].GetString();
 	int yearS = stoi(startSemester.substr(0,4));
 	int monthS = stoi(startSemester.substr(5, 7));
-    int dayS = stoi(startSemester.substr(8, 10));
+	int dayS = stoi(startSemester.substr(8, 10));
 	sectBuild.setSemesterStart(dayS, monthS, yearS);
 
 	std::string endSemester = sectionJson["end"].GetString();
-    int yearE = stoi(endSemester.substr(0, 4));
-    int monthE = stoi(endSemester.substr(5, 7));
-    int dayE = stoi(endSemester.substr(8, 10));
-    sectBuild.setSemesterEnd(dayE, monthE, yearE);
+	int yearE = stoi(endSemester.substr(0, 4));
+	int monthE = stoi(endSemester.substr(5, 7));
+	int dayE = stoi(endSemester.substr(8, 10));
+	sectBuild.setSemesterEnd(dayE, monthE, yearE);
 	for (auto i = 0; i < (int)sectionJson["meetings"].Size(); i++) {
 		const rapidjson::Value &meeting = sectionJson["meetings"][i];
 
-		std::string start(meeting["start"].GetString());    
-		std::string end(meeting["end"].GetString());    
-				const char *days = meeting["days"].GetString();
+		std::string start(meeting["start"].GetString());
+		std::string end(meeting["end"].GetString());
+		const char *days = meeting["days"].GetString();
 
 		std::array<int, 2> startTime = convertTime(start);
 		std::array<int, 2> endTime = convertTime(end);
@@ -67,13 +70,13 @@ Section* CourseFiller::buildSection(rapidjson::Value& sectionJson){
 				sectBuild.setEndTime(Week::Day::tuesday, endTime[0], endTime[1]);
 			} else if (days[i] == 'W') {
 				sectBuild.setStartTime(Week::Day::wednesday, startTime[0], startTime[1]);
-				sectBuild.setEndTime(Week::Day::wednesday, endTime[0], endTime[1]); 
+				sectBuild.setEndTime(Week::Day::wednesday, endTime[0], endTime[1]);
 			} else if (days[i] == 'R') {
 				sectBuild.setStartTime(Week::Day::thursday, startTime[0], startTime[1]);
-				sectBuild.setEndTime(Week::Day::thursday, endTime[0], endTime[1]); 
+				sectBuild.setEndTime(Week::Day::thursday, endTime[0], endTime[1]);
 			} else if (days[i] == 'F') {
 				sectBuild.setStartTime(Week::Day::friday, startTime[0], startTime[1]);
-				sectBuild.setEndTime(Week::Day::friday, endTime[0], endTime[1]); 
+				sectBuild.setEndTime(Week::Day::friday, endTime[0], endTime[1]);
 			}
 		}
 		if(meeting.HasMember("building")){
@@ -108,13 +111,13 @@ std::array<int, 2> CourseFiller::convertTime(std::string time) {
 		nullTime.fill(0);
 		return nullTime;
 	}
-    std::array<int, 2> time_24;
-    time_24[0] = stoi(time.substr(0, 2));
-    time_24[1] = stoi(time.substr(3, 5));
-    if (time[6] == 'A' && time_24[0] == 12) {
-        time_24[0] = 0;
-    } else if (time[6] == 'P' && time_24[0] != 12) {
-        time_24[0] += 12;
-    }
-    return time_24;
+	std::array<int, 2> time_24;
+	time_24[0] = stoi(time.substr(0, 2));
+	time_24[1] = stoi(time.substr(3, 5));
+	if (time[6] == 'A' && time_24[0] == 12) {
+		time_24[0] = 0;
+	} else if (time[6] == 'P' && time_24[0] != 12) {
+		time_24[0] += 12;
+	}
+	return time_24;
 }

@@ -3,15 +3,15 @@ TESTOBJS = phase1test.o
 MAINOBJS = main.o
 OBJPATH = ./build
 
-CC = g++
-CFLAGS = -c -g -O0 -Wall -Werror -std=c++11 -I include
-LINKER = g++
+CC = clang++
+CFLAGS = -c -g -O0 -Wall -Werror -Wc++11-extensions -std=c++11 -I include -I libs
+LINKER = clang++
 LFLAGS = -o
 
 ifdef DEBUG
-	CFLAGS += -DNDEBUG
-else
 	CFLAGS += -DDEBUG
+else
+	CFLAGS += -DNDEBUG
 endif
 
 
@@ -24,7 +24,7 @@ TESTER = bin/phase1test
 
 SRCEXT = cpp
 INC = -I include
-all: $(TARGET) 
+all: $(TARGET)
 
 autoschedule: $(TARGET)
 
@@ -101,7 +101,7 @@ $(BUILDDIR)week.o: $(SRCDIR)Course/Week.cpp $(addprefix $(BUILDDIR), time.o)
 	@mv week.o $(BUILDDIR)
 
 # compiling time.o
-$(BUILDDIR)time.o: $(SRCDIR)Course/Time.cpp 
+$(BUILDDIR)time.o: $(SRCDIR)Course/Time.cpp
 	$(CC) $(CFLAGS) $(SRCDIR)Course/Time.cpp -o time.o
 	@mv time.o $(BUILDDIR)
 
@@ -114,7 +114,7 @@ $(BUILDDIR)sectioncombo.o: $(SRCDIR)Course/SectionCombo.cpp $(addprefix $(BUILDD
 $(BUILDDIR)sectiongroup.o: $(SRCDIR)Course/SectionGroup.cpp $(addprefix $(BUILDDIR), section.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course/SectionGroup.cpp -o sectiongroup.o
 	@mv sectiongroup.o $(BUILDDIR)
-	
+
 # compiling coursestore.o **DONE
 $(BUILDDIR)coursestore.o: $(SRCDIR)Course/CourseStore.cpp $(addprefix $(BUILDDIR), course.o)
 	$(CC) $(CFLAGS) $(SRCDIR)Course/CourseStore.cpp -o coursestore.o
@@ -132,7 +132,7 @@ $(BUILDDIR)coursestoredb.o: $(SRCDIR)Communication/CourseStoreDB.cpp
 	@mv coursestoredb.o $(BUILDDIR)
 
 #client
-client.o: 
+client.o:
 	gcc src/client.cpp -o bin/client
 clean:
 	-rm -f build/*.o bin/autoschedule

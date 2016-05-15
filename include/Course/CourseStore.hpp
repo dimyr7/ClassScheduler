@@ -1,7 +1,8 @@
 #ifndef COURSE_STORE
 #define COURSE_STORE
 #include "Course/Course.hpp"
-#include  "boost/unordered/unordered_map.hpp"
+#include <unordered_map>
+#include <string>
 class CourseStore{
 	public:
 		/**
@@ -13,12 +14,12 @@ class CourseStore{
 		 * Copy constuctor will
 		 */
 		CourseStore(const CourseStore &copy);
-		
+
 		/**
 		 * Destructor
 		 */
 		~CourseStore();
-		
+
 		/**
 		 * Operator=
 		 */
@@ -43,6 +44,6 @@ class CourseStore{
 		/**
 		 * A hashtable that maps the course name to the course data
 		 */
-		boost::unordered_map<std::string, Course*>  _courses;
+		std::unordered_map<std::string, Course*> _courses;
 };
 #endif

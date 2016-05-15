@@ -1,7 +1,10 @@
 #include "Course/CourseGroup.hpp"
+#include "Course/Course.hpp"
+#include <valarray>
+#include <string>
+
 CourseGroup::CourseGroup(size_t numCourses){
 	this->_numCourses = numCourses;
-	this->_courses = std::valarray<Course*>(numCourses);
 	for(size_t i = 0; i < numCourses; i++){
 		this->_courses[i] = NULL;
 	}
@@ -24,7 +27,7 @@ CourseGroup& CourseGroup::operator=(const CourseGroup& copy){
 
 
 CourseGroup::~CourseGroup(){
-	
+	std::cout << "Deleting CourseGroup" << std::endl;
 }
 
 bool CourseGroup::addCourse(Course* course){
@@ -32,7 +35,7 @@ bool CourseGroup::addCourse(Course* course){
 		if(this->_courses[i] == NULL){
 			this->_courses[i] = course;
 			return true;
-		}	
+		}
 		else if(this->_courses[i] == course){
 			return true;
 		}
@@ -41,23 +44,32 @@ bool CourseGroup::addCourse(Course* course){
 }
 
 std::vector<Schedule*> CourseGroup::genSchedules(){
+	// The the value at index[i] will represent the index of the sectioncombo of course i
 	std::valarray<size_t> index = std::valarray<size_t>(this->_numCourses);
+
+	// Possible schedules
 	std::vector<Schedule*> schedules;
+
+	// Reset all index locations
 	for(auto it = std::begin(index); it != std::end(index); it++){
 		*it = 0;
 	}
 	do{
-		std::vector<SectionCombo*> combinations;
+		std::vector<SectionCombo*> propCombo;
+		// Grab the sectionscombos for each course
 		for(size_t i = 0; i < index.size(); i++){
-			size_t indexForCat = index[i];
-			combinations.push_back(this->_courses[i]->getCombos()[indexForCat]);
+			size_t indexOfCourseCombo = index[i];
+			Course* currCourse = this->_courses[i];
+			std::vector<SectionCombo*> currCombos = currCourse->getCombos();
+			propCombo.push_back(currCombos[indexOfCourseCombo]);
 		}
-		bool overlap = CourseGroup::overlap(combinations);
+		// Check if the sectioncombos overlap
+		bool overlap = CourseGroup::overlap(propCombo);
 		if(not overlap){
-			Schedule* newSchedule = new Schedule(combinations);
+			Schedule* newSchedule = new Schedule(propCombo);
 			schedules.push_back(newSchedule);
 		}
-		
+
 	}
 	while(this->nextIteration(index));
 	return schedules;
@@ -84,7 +96,7 @@ bool CourseGroup::overlap(std::vector<SectionCombo*> potCombo){
 			SectionCombo* comboB = potCombo[j];
 			bool overlap = SectionCombo::overlap(comboA, comboB);
 			if(overlap){
-				return true;	
+				return true;
 			}
 		}
 	}

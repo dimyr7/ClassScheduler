@@ -9,7 +9,6 @@
 
 class CourseFiller{
 	public:
-		
 		/**
 		 * Fills the coursestore with all the courses
 		 * @param store is the store to fill

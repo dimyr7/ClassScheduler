@@ -1,9 +1,13 @@
 #ifndef COURSE_STORE_DB
 #define COURSE_STORE_DB
 #include <string>
+/**
+ * Connects to a course store database at hte specified host and path
+ */
+
 class CourseStoreDB{
 	public:
-		
+
 		/**
 		 * Constructor that sets the host URL & path
 		 */
@@ -26,9 +30,10 @@ class CourseStoreDB{
 		 * Destructor
 		 */
 		~CourseStoreDB();
-		
+
 		/**
 		 * Retrieves that data from the coursestore as a string
+		 * @return string format of the JSON
 		 */
 		std::string* getJson();
 	private:
@@ -39,7 +44,7 @@ class CourseStoreDB{
 		 * @param msg is the message to write
 		 * @return true if the send is successful, false otherwise
 		 */
-		bool sendMessage(int sockfd, std::string msg);		
+		bool sendMessage(int sockfd, std::string msg);
 
 		/**
 		 * Reads a message from the socket and returns it as a string

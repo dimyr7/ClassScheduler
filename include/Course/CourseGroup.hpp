@@ -3,14 +3,14 @@
 #include "Course/Course.hpp"
 #include "Course/Schedule.hpp"
 #include <valarray>
-
+#include <string>
 /**
  * A CourseGroup is a group of courses that are planning on being scheduled together
  */
 class CourseGroup{
 	public:
 		/**
-		 * Constructor 
+		 * Constructor
 		 * @param numCourses is the number of courses that will eventually be schedulde
 		 */
 		CourseGroup(size_t numCourses);
@@ -38,7 +38,7 @@ class CourseGroup{
 		 * @param course is the new course to add
 		 * @return true if the course was added successfully, false otherwise
 		 */
-		bool addCourse(Course* course);	
+		bool addCourse(Course* course);
 
 		/**
 		 * Generates all possible schedules for this group of sections
@@ -64,11 +64,11 @@ class CourseGroup{
 		 * The number of courses to eventually be scheduled
 		 */
 		size_t _numCourses;
-		
+
 		/**
-		 * The list of courses
+		 * The list of courses to be scheduled together
 		 */
 		std::valarray<Course*> _courses;
-	
+
 };
 #endif

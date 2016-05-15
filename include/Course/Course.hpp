@@ -25,7 +25,7 @@ class Course{
 		 * Deletes all sections, sectiongroups, and sectioncombos
 		 */
 		~Course();
-		
+
 		/**
 		 * A getter function that returns a string representing the department code e.g. 'CS'
 		 * @return the department code
@@ -45,7 +45,7 @@ class Course{
 		std::string getCourseName() const;
 
 		/**
-		 * A getter function that returns a vector of section pointers 
+		 * A getter function that returns a vector of section pointers
 		 * @return a vector of Section pointers
 		 */
 		std::vector<Section*> getSections() const;
@@ -63,8 +63,7 @@ class Course{
 		 */
 		void addSection(Section* section);
 
-			
-		
+
 		/**
 		 * Number of lecture types
 		 */
@@ -99,7 +98,7 @@ class Course{
 		 * e.g. CS
 		 */
 		std::string	_department;
-		
+
 		/**
 		 * A string that holds the course number
 		 * e.g. 125
