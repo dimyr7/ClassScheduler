@@ -17,7 +17,7 @@ class CourseGroup{
 
 		/**
 		 * Copy constructor
-		 * #param copy the CourseGroup to copy
+		 * @param copy the CourseGroup to copy
 		 */
 		CourseGroup(const CourseGroup& copy);
 
@@ -69,6 +69,5 @@ class CourseGroup{
 		 * The list of courses to be scheduled together
 		 */
 		std::valarray<Course*> _courses;
-
 };
 #endif
